@@ -1,2 +1,2 @@
 # organiseMe
-this really do be my courcework. more coming soon
+this really do be my coursework. more coming soon
