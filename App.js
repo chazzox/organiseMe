@@ -5,7 +5,7 @@ export default class bigre extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image style={{ width: 40, height: 40 }} source={require('.assets/img/navbar.png')} />
+        <Image style={{ width: 40, height: 40 }} source={require('assets/img/navbar.png')} />
         <Text style={styles.Text}>
           Ketan
         </Text>
