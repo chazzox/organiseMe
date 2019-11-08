@@ -6,15 +6,16 @@ export default class bigre extends Component {
     return (
       <View style={styles.outer}>
         <View style={styles.head}>
+            <Image style={{ width: 40, height: 40}} source={require('./assets/img/navbar.png')} />
           <Text style={styles.Text}>Ketan</Text>
         </View>
         <View style={styles.lowerCont}>
             <View style={styles.dashCont}>
-              <Text style={styles.title}>bruh!</Text>
+              <Text style={styles.Title}>bruh!</Text>
               <Text style={styles.body}>smaller bruh</Text>
             </View>
           <View style={styles.dashCont}>
-            <Text style={styles.title}>bruh!</Text>
+            <Text style={styles.Title}>bruh!</Text>
             <Text style={styles.body}>smaller bruh</Text>
           </View>
         </View>
@@ -58,8 +59,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.39,
     shadowRadius: 8.30,
     elevation: 13
-  },
-  title:{
-    fontWeight: "Bold"
   }
 })
