@@ -2,17 +2,20 @@ import React from 'react';
 import {
   Platform,
   StyleSheet,
+  StatusBar,
   Text,
   View, TouchableOpacity
 } from 'react-native';
-
 import { createStackNavigator } from  'react-navigation';
 import IOSIcon from "react-native-vector-icons/Ionicons";
-import dashView from "./dashView";
-import quickAdd from "./homework/quickAdd";
+
+// our modules (ie. views)
+import dashView from './landing/dashView';
+import quickAdd from './homework/quickAdd';
+import examAdd from './exams/examAdd'
 
 // essentially deals with header bar titles for each view
-const stackNav = createStackNavigator({
+const stacker = createStackNavigator({
   Main : {
     screen: dashView,
     navigationOptions: ({navigation}) => ({
@@ -20,10 +23,11 @@ const stackNav = createStackNavigator({
       title: "yes",
       headerStyle:styles.head,
       headerTintColor: '#fff',
-      headerLeft: (<TouchableOpacity onPress={() => navigation.openDrawer()}>
-        <View style={{
-          paddingLeft: 15
-        }}>
+      headerLeft: (
+        
+      <TouchableOpacity onPress={() => navigation.openDrawer()}>
+          <StatusBar barStyle="light-content" />
+        <View style={{paddingLeft: 15}}>
           <IOSIcon
             name='ios-menu'
             size={30}
@@ -34,8 +38,16 @@ const stackNav = createStackNavigator({
       ),
     })
   },
-  Detail: {
+  quickAdd: {
     screen: quickAdd,
+    navigationOptions: ({ navigation }) => ({
+      title: "y",
+      headerTintColor: '#fff',
+      headerStyle: styles.head
+    })
+  },
+  examAdd:{
+    screen: examAdd,
     navigationOptions: ({ navigation }) => ({
       title: "y",
       headerTintColor: '#fff',
@@ -50,4 +62,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default stackNav;
+export default stacker;

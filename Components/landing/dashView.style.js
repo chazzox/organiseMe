@@ -27,6 +27,9 @@ export default {
         color: 'white',
         fontSize: 25
     },
+    body:{
+        color:'white'
+    },
     but: {
         alignItems: 'baseline'
     }

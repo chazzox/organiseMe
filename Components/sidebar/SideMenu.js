@@ -4,7 +4,7 @@ import {NavigationActions} from 'react-navigation';
 import {ScrollView, Text, View} from 'react-native';
 
 // style sheet
-import styles from './styles/SideMenu.style';
+import styles from './SideMenu.style';
 
 class SideMenu extends Component {
   navigateToScreen = (route) => () => {

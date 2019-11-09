@@ -10,7 +10,7 @@ class quickAdd extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text>Quickly boi</Text>
+        <Text>examy boi</Text>
       </View>
     );
   }
