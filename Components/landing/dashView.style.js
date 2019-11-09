@@ -1,16 +1,22 @@
 // this is the css file of the dashview file (landing view)
 export default {
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: '#f7f7f7'
-
+    ViewBox: {
+        height: '100%',
+        backgroundColor: '#313131',
+        width: '100%'
+    },
+    scrollView:{
+        height:'100%',
+        width: '100%'
+    },
+    container:{
+        display: 'flex',
+        alignItems: 'center'
     },
     dashCont: {
         marginTop: 30,
         backgroundColor: '#393e46',
         padding: 15,
-        height: '30%',
         width: '80%',
         borderRadius: 15,
         shadowColor: '#000',
@@ -30,7 +36,8 @@ export default {
     body:{
         color:'white'
     },
-    but: {
-        alignItems: 'baseline'
+    but:{
+        width:'10%'
     }
+
 }

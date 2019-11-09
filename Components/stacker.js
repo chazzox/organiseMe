@@ -58,7 +58,7 @@ const stacker = createStackNavigator({
 
 const styles = StyleSheet.create({
   head: {
-    backgroundColor: '#393e46'
+    backgroundColor: 'black'
   }
 });
 
