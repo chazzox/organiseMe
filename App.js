@@ -1,63 +1,20 @@
-import React, { Component } from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import React from 'react';
+import { Dimensions } from 'react-native';
+import { createDrawerNavigator, createAppContainer } from 'react-navigation';
 
-export default class bigre extends Component {
-  render() {
-    return (
-      <View style={styles.outer}>
-        <View style={styles.head}>
-            <Image style={{ width: 40, height: 40}} source={require('./assets/img/navbar.png')} />
-          <Text style={styles.Text}>Ketan</Text>
-        </View>
-        <View style={styles.lowerCont}>
-            <View style={styles.dashCont}>
-              <Text style={styles.Title}>bruh!</Text>
-              <Text style={styles.body}>smaller bruh</Text>
-            </View>
-          <View style={styles.dashCont}>
-            <Text style={styles.Title}>bruh!</Text>
-            <Text style={styles.body}>smaller bruh</Text>
-          </View>
-        </View>
-      </View>
-    );
-  }
-}
+import SideMenu from './Components/SideMenu'
+import stacker from './Components/stacker';
 
-const styles = StyleSheet.create({
-  outer:{
-    backgroundColor: '#f7f7f7',
-    height: "100%",
-    width:"100%"
-  },
-  head:{
-    paddingTop: 20,
-    backgroundColor: "#393e46",
-    position: 'absolute',
-    width: "100%",
-    left: 0,
-    top: 0,
-    flexDirection: "row"
-  },
-  lowerCont:{
-    marginTop: 75,
-    display: "flex",
-    alignItems: "center",
-  },
-  dashCont:{
-    marginBottom: 30,
-    backgroundColor: "#eeeeee",
-    padding:15, 
-    height: "30`%",
-    width: "80%",
-    borderRadius: 15,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 6,
-    },
-    shadowOpacity: 0.39,
-    shadowRadius: 8.30,
-    elevation: 13
-  }
-})
+const App = createDrawerNavigator(
+  {
+    Item1: {
+        screen: stacker,
+      }
+  },{ // Name of the component/view
+      contentComponent: SideMenu,
+      // This is the width of the sidebar
+      drawerWidth: Dimensions.get('window').width - 200,  
+    }
+);
+
+export default createAppContainer(App);
