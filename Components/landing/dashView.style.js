@@ -13,14 +13,14 @@ export default {
         display: 'flex',
         alignItems: 'center'
     },
-    dashCont: {
+    dashCont:{
         marginTop: 30,
         backgroundColor: '#393e46',
         padding: 15,
         width: '80%',
         borderRadius: 15,
         shadowColor: '#000',
-        shadowOffset: {
+        shadowOffset:{
             width: 0,
             height: 6,
         },
@@ -31,13 +31,15 @@ export default {
     title: {
         fontWeight: 'bold',
         color: 'white',
-        fontSize: 25
+        fontSize: 25,
+        marginLeft: 8
     },
     body:{
-        color:'white'
+        color:'white',
+        marginLeft: 8
     },
     but:{
-        width:'10%'
+        flexDirection: 'row'
     }
 
 }

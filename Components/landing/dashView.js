@@ -27,8 +27,7 @@ class dashView extends Component {
               <Text style={styles.title}>bruh!</Text>
               <Text style={styles.body}>smaller bruh</Text>
               <View style={styles.but}>
-                <Button 
-                
+                <Button
                 onPress={() => this.props.navigation.navigate("examAdd")} 
                 title="a button" />
               </View>
