@@ -1,6 +1,9 @@
 // this is the css file of the sideBar file
+import Constants from 'expo-constants';
+ 
 export default {
   container: {
+    marginTop: Constants.statusBarHeight+44,
     paddingTop: 20,
     backgroundColor:'#393e46',
     flex: 1
