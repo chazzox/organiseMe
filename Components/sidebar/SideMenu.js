@@ -16,26 +16,29 @@ class SideMenu extends Component {
 
   render () {
     return (
-      <View style={styles.container}>
-        <ScrollView>
-          <View>
-            <Text style={styles.sectionHeadingStyle}>
+      <View style={{height:'100%'}}>
+        <View style={styles.spacer}></View>
+        <View style={styles.container}>
+          <ScrollView>
+            <View>
+              <Text style={styles.sectionHeadingStyle}>
               Section 1
-            </Text>
-          </View>
-          <View>
-            <Text style={styles.sectionHeadingStyle}>
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.sectionHeadingStyle}>
               Section 2
-            </Text>          
-          </View>
-          <View>
-            <Text style={styles.sectionHeadingStyle}>
+              </Text>          
+            </View>
+            <View>
+              <Text style={styles.sectionHeadingStyle}>
               Section 3
-            </Text>
+              </Text>
+            </View>
+          </ScrollView>
+          <View style={styles.footerContainer}>
+            <Text>This is my fixed footer</Text>
           </View>
-        </ScrollView>
-        <View style={styles.footerContainer}>
-          <Text>This is my fixed footer</Text>
         </View>
       </View>
     );

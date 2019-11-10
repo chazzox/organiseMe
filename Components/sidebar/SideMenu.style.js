@@ -2,9 +2,13 @@
 import Constants from 'expo-constants';
  
 export default {
+  spacer:{
+    height: Constants.statusBarHeight + 44,
+    backgroundColor:'black'
+  },
   container: {
-    marginTop: Constants.statusBarHeight+44,
     paddingTop: 20,
+    height:'100%',
     backgroundColor:'#393e46',
     flex: 1
   },

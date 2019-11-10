@@ -2,7 +2,7 @@
 export default {
     ViewBox: {
         height: '100%',
-        backgroundColor: '#313131',
+        backgroundColor: '#292C30',
         width: '100%'
     },
     scrollView:{
@@ -15,7 +15,7 @@ export default {
     },
     dashCont:{
         marginTop: 30,
-        backgroundColor: '#393e46',
+        backgroundColor: '#2F3439',
         padding: 15,
         width: '80%',
         borderRadius: 15,
@@ -41,5 +41,4 @@ export default {
     but:{
         flexDirection: 'row'
     }
-
 }

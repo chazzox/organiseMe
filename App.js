@@ -9,13 +9,14 @@ const App = createDrawerNavigator(
   {
     Item1: {
         screen: stacker,
-      }
-  },{ 
-      // Name of the component/view
-      contentComponent: SideMenu,
-      // This is the width of the sidebar
-      drawerWidth: Dimensions.get('window').width - 200,  
     }
+  },
+  {
+    // Name of the component/view
+    contentComponent: SideMenu,
+    // This is the width of the sidebar
+    drawerWidth: Dimensions.get('window').width - 180,  
+  }
 );
 
 export default createAppContainer(App);

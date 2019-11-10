@@ -20,7 +20,10 @@ class dashView extends Component {
               <Text style={styles.title}>Add new homework</Text>
               <Text style={styles.body}>Use this section to add your homework quickly!</Text>
               <View style={styles.but}>
-                <Button  onPress={() => this.props.navigation.navigate("quickAdd")} title="Quick Add"/>
+                <Button 
+                  title="Quick Add" 
+                  onPress={() => this.props.navigation.navigate("quickAdd")} 
+                />
               </View>
             </View>
             <View style={styles.dashCont}>
@@ -28,8 +31,8 @@ class dashView extends Component {
               <Text style={styles.body}>smaller bruh</Text>
               <View style={styles.but}>
                 <Button
-                title="A button"
-                onPress={() => this.props.navigation.navigate("examAdd")} 
+                  title='homework boi'
+                  onPress={() => this.props.navigation.navigate("quickAdd")}
                 />
               </View>
               </View>
