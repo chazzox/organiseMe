@@ -58,7 +58,8 @@ const stacker = createStackNavigator({
 
 const styles = StyleSheet.create({
   head: {
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    borderBottomWidth: 0
   }
 });
 
