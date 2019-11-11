@@ -20,10 +20,11 @@ export default {
   },
   sectionHeadingStyle: {
     paddingVertical: 10,
-    paddingHorizontal: 5
+    paddingHorizontal: 5,
+    color: 'white'
   },
   footerContainer: {
     padding: 20,
     backgroundColor: 'lightgrey'
   }
-};
+}

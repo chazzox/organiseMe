@@ -8,14 +8,15 @@ import stacker from './Components/stacker';
 const App = createDrawerNavigator(
   {
     Item1: {
-        screen: stacker,
+        screen: stacker
     }
   },
   {
     // Name of the component/view
     contentComponent: SideMenu,
     // This is the width of the sidebar
-    drawerWidth: Dimensions.get('window').width - 180,  
+    drawerWidth: Dimensions.get('window').width - 180, 
+    headerMode: 'float'
   }
 );
 

@@ -27,7 +27,7 @@ const stacker = createStackNavigator({
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <StatusBar barStyle="light-content" />
           <View style={{paddingLeft: 15}}>
-            <IOSIcon
+            <IOSIcon 
             name='ios-menu'
             size={30}
             color='white'
@@ -62,7 +62,19 @@ const stacker = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: "y",
       headerTintColor: '#fff',
-      headerStyle: styles.head
+      headerStyle: styles.head,
+      headerLeft: (
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+          <StatusBar barStyle="light-content" />
+          <View style={{ paddingLeft: 15 }}>
+            <IOSIcon
+              name='ios-menu'
+              size={30}
+              color='white'
+            />
+          </View>
+        </TouchableOpacity>
+      )
     })
   }
 });

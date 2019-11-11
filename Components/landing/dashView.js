@@ -32,7 +32,7 @@ class dashView extends Component {
               <View style={styles.but}>
                 <Button
                   title='homework boi'
-                  onPress={() => this.props.navigation.navigate("quickAdd")}
+                  onPress={() => this.props.navigation.navigate("examAdd")}
                 />
               </View>
               </View>

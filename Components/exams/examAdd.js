@@ -10,7 +10,7 @@ class quickAdd extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text>examy boi</Text>
+        <Text style={{color:'white'}}>examy boi</Text>
       </View>
     );
   }
@@ -18,9 +18,10 @@ class quickAdd extends Component {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center'
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#292C30'
   }
 });
 

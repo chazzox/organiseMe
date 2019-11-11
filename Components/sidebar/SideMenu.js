@@ -21,8 +21,13 @@ class SideMenu extends Component {
         <View style={styles.container}>
           <ScrollView>
             <View>
-              <Text style={styles.sectionHeadingStyle}>
-              Section 1
+              <Text style={styles.sectionHeadingStyle} onPress={() => this.props.navigation.navigate("dashView")} >
+              Dashboard
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.sectionHeadingStyle} onPress={() => this.props.navigation.navigate("examAdd")} >
+              Quick
               </Text>
             </View>
             <View>
