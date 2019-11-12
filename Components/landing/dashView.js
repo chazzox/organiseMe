@@ -6,6 +6,7 @@ import {
   Button,
   ScrollView
 } from 'react-native';
+import { StackActions, NavigationActions } from 'react-navigation';
 
 // importing style sheet
 import styles from './dashView.style';
@@ -22,7 +23,12 @@ class dashView extends Component {
               <View style={styles.but}>
                 <Button 
                   title="Quick Add" 
-                  onPress={() => this.props.navigation.navigate("quickAdd")} 
+                  onPress={() =>
+                    this.props.navigation.dispatch(StackActions.reset({
+                      index: 0,
+                      actions: [NavigationActions.navigate({ routeName: 'quickAdd' })],
+                    }))
+                  }
                 />
               </View>
             </View>
@@ -32,7 +38,12 @@ class dashView extends Component {
               <View style={styles.but}>
                 <Button
                   title='homework boi'
-                  onPress={() => this.props.navigation.navigate("examAdd")}
+                  onPress={() => 
+                    this.props.navigation.dispatch(StackActions.reset({
+                      index: 0,
+                      actions: [NavigationActions.navigate({ routeName: 'homeworkMain' })],
+                    }))
+                  }
                 />
               </View>
               </View>

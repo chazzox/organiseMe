@@ -11,6 +11,7 @@ import IOSIcon from "react-native-vector-icons/Ionicons";
 
 // our modules (ie. views)
 import dashView from './landing/dashView';
+import homeworkMain from './homework/homework';
 import quickAdd from './homework/quickAdd';
 import examAdd from './exams/examAdd'
 
@@ -59,6 +60,26 @@ const stacker = createStackNavigator({
   },
   examAdd:{
     screen: examAdd,
+    navigationOptions: ({ navigation }) => ({
+      title: "y",
+      headerTintColor: '#fff',
+      headerStyle: styles.head,
+      headerLeft: (
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+          <StatusBar barStyle="light-content" />
+          <View style={{ paddingLeft: 15 }}>
+            <IOSIcon
+              name='ios-menu'
+              size={30}
+              color='white'
+            />
+          </View>
+        </TouchableOpacity>
+      )
+    })
+  },
+  homeworkMain: {
+    screen: homeworkMain,
     navigationOptions: ({ navigation }) => ({
       title: "y",
       headerTintColor: '#fff',
