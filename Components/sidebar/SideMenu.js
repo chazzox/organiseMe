@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {NavigationActions} from 'react-navigation';
+import {StackActions, NavigationActions} from 'react-navigation';
 import {ScrollView, Text, View} from 'react-native';
 
 // style sheet
@@ -21,14 +21,24 @@ class SideMenu extends Component {
         <View style={styles.container}>
           <ScrollView>
             <View>
-              <Text style={styles.sectionHeadingStyle} onPress={() => NavigationActions.navigate("dashView")} >
+              <Text style={styles.sectionHeadingStyle}
+                onPress={() =>
+                  this.props.navigation.dispatch(StackActions.reset({
+                    index: 0,
+                    actions: [NavigationActions.navigate({ routeName: 'Main' })],
+                  }))}>
                 Dashboard
               </Text>
             </View>
             <View>
               <Text 
               style={styles.sectionHeadingStyle} 
-              onPress={() => NavigationActions.navigate('../exams/examAdd.js')} >
+                onPress={() =>
+                  this.props.navigation.dispatch(StackActions.reset({
+                    index: 0,
+                    actions: [NavigationActions.navigate({ routeName: 'quickAdd' })],
+                  }))
+                } >
               Quick
               </Text>
             </View>

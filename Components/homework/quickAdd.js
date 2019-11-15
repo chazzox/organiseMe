@@ -2,15 +2,27 @@
 import React, {Component} from 'react';
 import {
   Text,
+  Button, 
   View,
   StyleSheet
 } from 'react-native';
+import { StackActions, NavigationActions } from 'react-navigation';
+
 
 class quickAdd extends Component {
   render () {
     return (
       <View style={styles.container}>
         <Text>Quickly boi</Text>
+        <Button
+          title="add me"
+          onPress={() =>{
+            this.props.navigation.dispatch(StackActions.reset({
+              index: 0,
+              actions: [NavigationActions.navigate({ routeName:'quickAdd'})],
+            }))
+            console.log('ree')}}
+        />
       </View>
     );
   }
