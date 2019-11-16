@@ -4,7 +4,8 @@ import {
   Text,
   View,
   Button,
-  ScrollView
+  ScrollView,
+  StyleSheet
 } from 'react-native';
 import { StackActions, NavigationActions } from 'react-navigation';
 
@@ -12,6 +13,19 @@ import { StackActions, NavigationActions } from 'react-navigation';
 import styles from './dashView.style';
 
 class dashView extends Component {
+  constructor(props){
+    super(props)
+    this.navToForm = this.navToForm.bind(this)
+  }
+
+  navToForm = (formName) =>{
+    this.props.navigation.dispatch(StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({routeName:formName})],
+    }))
+    console.log('function was')
+  }
+
   render () {
     return (
       <View style={styles.ViewBox}>
@@ -23,20 +37,15 @@ class dashView extends Component {
       <Text style={styles.body}>Use this section to add your homework quickly!</Text>
       <View style={styles.but}>
         <Button 
-        title="Quick Add" 
-        onPress={() =>
-        this.props.navigation.dispatch(StackActions.reset({
-          index: 0,
-          actions: [NavigationActions.navigate({routeName:'quickAdd'})],
-        }))
-        }
+          title="Quick Add" 
+          onPress={this.navToForm('quickAdd')}
         />
       </View>
     </View>
 
     <View style={styles.dashCont}>
-      <Text style={styles.title}>bruh!</Text>
-      <Text style={styles.body}>smaller bruh</Text>
+      <Text style={styles.title}>Don't know what homework you have?</Text>
+      <Text style={styles.body}>Click the link below to view your coming weeks homwork</Text>
         <View style={styles.but}>
         <Button
           title='homework boi'
@@ -47,6 +56,48 @@ class dashView extends Component {
         />
         </View>
     </View>
+
+    <View style={styles.dashCont}>
+      <Text style={styles.title}>big bruh</Text>
+      <Text style={styles.body}>bruh bruh</Text>
+        <View style={styles.but}>
+        <Button
+          title='bruh bruh, bruh bruh'
+          onPress={() => this.props.navigation.dispatch(StackActions.reset({
+            index: 0,
+            actions: [NavigationActions.navigate({ routeName:'homeworkMain'})],
+          }))}
+        />
+        </View>
+    </View>
+
+            <View style={styles.dashCont}>
+      <Text style={styles.title}>big bruh</Text>
+            <Text style={styles.body}>bruh bruh</Text>
+            <View style={styles.but}>
+              <Button
+                title='bruh bruh, bruh bruh'
+                onPress={() => this.props.navigation.dispatch(StackActions.reset({
+                  index: 0,
+                  actions: [NavigationActions.navigate({ routeName: 'homeworkMain' })],
+                }))}
+              />
+            </View>
+          </View>
+
+            <View style={StyleSheet.flatten([styles.bodyBottom, styles.dashCont])}>
+              <Text style={styles.title}>big bruh</Text>
+              <Text style={styles.body}>this is a test of the scroll features</Text>
+              <View style={styles.but}>
+                <Button
+                  title='bruh bruh, bruh bruh'
+                  onPress={() => this.props.navigation.dispatch(StackActions.reset({
+                    index: 0,
+                    actions: [NavigationActions.navigate({ routeName: 'homeworkMain' })],
+                  }))}
+                />
+              </View>
+            </View>
 
   </View>
 </ScrollView>

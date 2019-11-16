@@ -38,6 +38,9 @@ export default {
         color:'white',
         marginLeft: 8
     },
+    bodyBottom:{
+        marginBottom: 20
+    },
     but:{
         flexDirection: 'row'
     }

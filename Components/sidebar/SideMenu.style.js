@@ -3,27 +3,27 @@ import Constants from 'expo-constants';
  
 export default {
   spacer:{
-    height: Constants.statusBarHeight + 44,
+    height: 65,
     backgroundColor:'black'
   },
-  container: {
+  container:{
     paddingTop: 20,
     height:'100%',
     backgroundColor:'#393e46',
     flex: 1
   },
-  navItemStyle: {
+  navItemStyle:{
     padding: 10
   },
-  navSectionStyle: {
+  navSectionStyle:{
     backgroundColor: 'lightgrey'
   },
-  sectionHeadingStyle: {
+  sectionHeadingStyle:{
     paddingVertical: 10,
     paddingHorizontal: 5,
     color: 'white'
   },
-  footerContainer: {
+  footerContainer:{
     padding: 20,
     backgroundColor: 'lightgrey'
   }
