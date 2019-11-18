@@ -38,7 +38,7 @@ class SideMenu extends Component {
                     index: 0,
                     actions: [NavigationActions.navigate({ routeName: 'quickAdd' })],
                   }))
-                } >
+                }>
               Quick
               </Text>
             </View>
