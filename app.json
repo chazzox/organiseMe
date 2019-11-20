@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "epic gamer moment time bois",
+    "name": "organiseME",
     "slug": "epicgamermomenttimebois",
     "privacy": "public",
     "sdkVersion": "33.0.0",
@@ -15,7 +15,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "black"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

@@ -39,6 +39,7 @@ class dashView extends Component {
         <Button 
           title="Quick Add" 
           onPress={()=>this.navToForm('quickAdd')}
+          style={styles.button}
         />
       </View>
     </View>
@@ -50,6 +51,7 @@ class dashView extends Component {
         <Button
           title='homework boi'
           onPress={() => this.navToForm('homeworkMain')}
+          style={styles.button}
         />
         </View>
     </View>
@@ -61,6 +63,7 @@ class dashView extends Component {
         <Button
           title='bruh bruh, bruh bruh'
           onPress={() => this.navToForm('homeworkMain')}
+          style={styles.button}
         />
         </View>
     </View>
@@ -72,6 +75,7 @@ class dashView extends Component {
               <Button
                 title='bruh bruh, bruh bruh'
                 onPress={() => this.navToForm('homeworkMain')}
+                style={styles.button}
               />
             </View>
           </View>
@@ -83,6 +87,7 @@ class dashView extends Component {
                 <Button
                   title='bruh bruh, bruh bruh'
                   onPress={() => this.navToForm('homeworkMain')} 
+                  style={styles.button}
                 />
               </View>
             </View>
@@ -93,5 +98,4 @@ class dashView extends Component {
     );
   }
 }
-
 export default dashView;

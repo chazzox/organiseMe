@@ -43,5 +43,8 @@ export default {
     },
     but:{
         flexDirection: 'row'
+    },
+    button:{
+        backgroundColor:'transparent'
     }
 }
