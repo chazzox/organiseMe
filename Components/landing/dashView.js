@@ -38,7 +38,7 @@ class dashView extends Component {
       <View style={styles.but}>
         <Button 
           title="Quick Add" 
-          onPress={this.navToForm('quickAdd')}
+          onPress={()=>this.navToForm('quickAdd')}
         />
       </View>
     </View>
@@ -49,10 +49,7 @@ class dashView extends Component {
         <View style={styles.but}>
         <Button
           title='homework boi'
-          onPress={() => this.props.navigation.dispatch(StackActions.reset({
-            index: 0,
-            actions: [NavigationActions.navigate({ routeName:'homeworkMain'})],
-          }))}
+          onPress={() => this.navToForm('homeworkMain')}
         />
         </View>
     </View>
@@ -63,10 +60,7 @@ class dashView extends Component {
         <View style={styles.but}>
         <Button
           title='bruh bruh, bruh bruh'
-          onPress={() => this.props.navigation.dispatch(StackActions.reset({
-            index: 0,
-            actions: [NavigationActions.navigate({ routeName:'homeworkMain'})],
-          }))}
+          onPress={() => this.navToForm('homeworkMain')}
         />
         </View>
     </View>
@@ -77,10 +71,7 @@ class dashView extends Component {
             <View style={styles.but}>
               <Button
                 title='bruh bruh, bruh bruh'
-                onPress={() => this.props.navigation.dispatch(StackActions.reset({
-                  index: 0,
-                  actions: [NavigationActions.navigate({ routeName: 'homeworkMain' })],
-                }))}
+                onPress={() => this.navToForm('homeworkMain')}
               />
             </View>
           </View>
@@ -91,10 +82,7 @@ class dashView extends Component {
               <View style={styles.but}>
                 <Button
                   title='bruh bruh, bruh bruh'
-                  onPress={() => this.props.navigation.dispatch(StackActions.reset({
-                    index: 0,
-                    actions: [NavigationActions.navigate({ routeName: 'homeworkMain' })],
-                  }))}
+                  onPress={() => this.navToForm('homeworkMain')} 
                 />
               </View>
             </View>
