@@ -23,7 +23,6 @@ class dashView extends Component {
       index: 0,
       actions: [NavigationActions.navigate({routeName:formName})],
     }))
-    console.log('function was')
   }
 
   render () {

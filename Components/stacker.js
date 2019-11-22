@@ -10,7 +10,7 @@ import IOSIcon from "react-native-vector-icons/Ionicons";
 import dashView from './landing/dashView';
 import homeworkMain from './homework/homework';
 import quickAdd from './homework/quickAdd';
-import examAdd from './exams/examAdd'
+import examAdd from './exams/examAdd';
 
 // essentially deals with header bar titles for each view
 const stacker = createStackNavigator(
@@ -25,18 +25,20 @@ const stacker = createStackNavigator(
     screen: quickAdd,
     navigationOptions({ navigation }) {
       return {
-        title: 'Screen Two',
+        title: 'it really do be adding hw time',
         headerLeft: (
           <HeaderBackButton
-            title="Custom"
             onPress={() => navigation.goBack()}
           />
         )
       }
     }
   },
+  homeworkMain:{
+    screen:homeworkMain,
+    navigationOptions:{title:'reeee'}
+  },
   examAdd:examAdd,
-  homeworkMain:homeworkMain,
   },
   {
     initialRouteName: 'Main',
