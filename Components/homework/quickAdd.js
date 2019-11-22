@@ -16,12 +16,6 @@ class quickAdd extends Component {
         <Text>Quickly boi</Text>
         <Button
           title="add me"
-          onPress={() =>{
-            this.props.navigation.dispatch(StackActions.reset({
-              index: 0,
-              actions: [NavigationActions.navigate({ routeName:'quickAdd'})],
-            }))
-            console.log('ree')}}
         />
       </View>
     );
@@ -33,7 +27,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#313131'
+    backgroundColor: '#292C30'
   }
 });
 
