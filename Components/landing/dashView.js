@@ -38,7 +38,7 @@ class dashView extends Component {
       <View style={styles.but}>
         <Button 
           title="Quick Add" 
-          onPress={()=>this.navToForm('quickAdd')}
+          onPress={()=>this.props.navigation.navigate('quickAdd')}
           style={styles.button}
         />
       </View>
