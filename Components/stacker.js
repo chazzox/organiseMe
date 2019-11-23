@@ -36,12 +36,12 @@ const stacker = createStackNavigator(
   },
   homeworkMain:{
     screen:homeworkMain,
-    navigationOptions:{title:'reeee'}
+    navigationOptions:{title:'Homework For the week'}
   },
   examAdd:examAdd,
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: 'homeworkMain',
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: 'black',

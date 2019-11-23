@@ -1,25 +1,30 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, Dimensions, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import Animated from 'react-native-reanimated';
 
 const Screen = React.memo(() => (
     <View style={styles.screen}>
-        <View style={styles.block} />
-        <View style={styles.block} />
-        <View style={styles.block} />
-        <View style={styles.block} />
+        <ScrollView>
+        <View style={styles.block}/>
+        <View style={styles.block}/>
+        <View style={styles.block}/>
+        <View style={styles.block}/>
+        </ScrollView>
     </View>
 )
 );
 
 function TabLabel({ navigationState, position, index, children }) {
+    // function to creater opacity of text for next day view
     const opacity = React.useMemo(() => {
-        const inputRange = navigationState.routes.map((_, i) => i);
-
+        const inputRange = navigationState.routes.map((NotUsed, i) => i);
+        // returns a vlue of apaicty based on the current view vs the
+        // test 2
+        // test 3
         return Animated.interpolate(position, {
             inputRange,
-            outputRange: inputRange.map(i => (i === index ? 1 : 0.5)),
+            outputRange: inputRange.map(i => (i === index ? 1 : 0.4)),
         });
     }, []);
 
@@ -53,7 +58,8 @@ function TabBar({ navigationState, layout, position }) {
                 <TabLabel
                     navigationState={navigationState}
                     position={position}
-                    index={i}>
+                    index={i}
+                    key={i}>
                     {route.key}
                 </TabLabel>
             ))}
@@ -65,11 +71,11 @@ export default class TabViewExample extends React.Component {
     state = {
         index: 0,
         routes: [
-            { key: 'Monday' },
-            { key: 'tuesday' },
-            { key: 'wednesday' },
-            { key: 'thursday' },
-            { key: 'friday' },
+            {key:'Monday'},
+            {key:'Tuesday'},
+            {key:'Wednesday'},
+            {key:'Thursday'},
+            {key:'Friday'}
         ],
     };
 
@@ -78,14 +84,16 @@ export default class TabViewExample extends React.Component {
             <TabView
                 navigationState={this.state}
                 renderTabBar={props => <TabBar {...props} />}
+                // this is not the order of the tabs
                 renderScene={SceneMap({
-                    Monday: Screen,
-                    tuesday: Screen,
-                    wednesday: Screen,
-                    thursday: Screen,
-                    friday: Screen,
-                })}
-                onIndexChange={index => this.setState({ index })}
+                    Monday:Screen,
+                    Tuesday:Screen,
+                    Wednesday:Screen,
+                    Friday:Screen,
+                    Thursday:Screen
+                    })
+                }
+                onIndexChange={(index) => this.setState({index})}
                 initialLayout={{ width: Dimensions.get('window').width }}
                 style={styles.container}
             />
@@ -95,17 +103,28 @@ export default class TabViewExample extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'black',
+        backgroundColor: '#292C30'
     },
     screen: {
         flex: 1,
-        padding: 12,
+        padding: 12
     },
     block: {
         height: 120,
         width: 120,
         margin: 8,
-        backgroundColor: 'tomato',
+        backgroundColor: '#2F3439',
+        padding: 15,
+        width: '80%',
+        borderRadius: 15,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 6,
+        },
+        shadowOpacity: 0.39,
+        shadowRadius: 8.30,
+        elevation: 13
     },
     tabbar: {
         flexDirection: 'row',
@@ -113,7 +132,7 @@ const styles = StyleSheet.create({
     },
     label: {
         flex: 1,
-        fontSize: 48,
+        fontSize: 40,
         marginHorizontal: 24,
         color: 'white',
     },
