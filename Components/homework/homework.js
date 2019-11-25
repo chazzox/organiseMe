@@ -3,17 +3,64 @@ import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import Animated from 'react-native-reanimated';
 
-const Screen = React.memo(() => (
+import styles from './hwMainView.style';
+
+const Monday = React.memo(() => (
+    <View style={styles.screen}>
+            <View style={styles.block}>
+                <Text style={styles.blockTextMain}>
+                    Maths - header
+                </Text>
+                <Text style={styles.blockTextBody}>
+                    descriptions of the homework, its a test lmao
+                    also please do this that and the other lmaoooooooooooo
+                </Text>
+            <Text style={{color:'white',fontWeight:'bold'}}>Due:</Text><Text style={{color:'blue'}}>12/07/20</Text>
+            </View>
+    </View>
+));
+
+const Tuesday = React.memo(() => (
     <View style={styles.screen}>
         <ScrollView>
-        <View style={styles.block}/>
-        <View style={styles.block}/>
-        <View style={styles.block}/>
-        <View style={styles.block}/>
+            <View style={styles.block}/>
+            <View style={styles.block}/>
+            <View style={styles.block}/>
+            <View style={styles.block}/>
         </ScrollView>
     </View>
-)
-);
+));
+const Wednesday = React.memo(() => (
+    <View style={styles.screen}>
+        <ScrollView>
+            <View style={styles.block}/>
+            <View style={styles.block}/>
+            <View style={styles.block}/>
+            <View style={styles.block}/>
+        </ScrollView>
+    </View>
+));
+const Thursday = React.memo(() => (
+    <View style={styles.screen}>
+        <ScrollView>
+            <View style={styles.block}/>
+            <View style={styles.block}/>
+            <View style={styles.block}/>
+            <View style={styles.block}/>
+        </ScrollView>
+    </View>
+));
+const Friday = React.memo(() => (
+    <View style={styles.screen}>
+        <ScrollView>
+            <View style={styles.block}><Text>bruh</Text></View>
+            <View style={styles.block} />
+            <View style={styles.block} />
+            <View style={styles.block} />
+        </ScrollView>
+    </View >
+));
+
 
 function TabLabel({ navigationState, position, index, children }) {
     // function to creater opacity of text for next day view
@@ -28,46 +75,45 @@ function TabLabel({ navigationState, position, index, children }) {
         });
     }, []);
 
-    return (
-        <Animated.Text style={[styles.label, { opacity }]}>
+    return(
+        <Animated.Text style={[styles.label,{opacity}]}>
             {children}
         </Animated.Text>
     );
 }
 
-function TabBar({ navigationState, layout, position }) {
-    const translateX = React.useMemo(() => {
-        const inputRange = navigationState.routes.map((_, i) => i);
-
-        return Animated.interpolate(position, {
+function TabBar({ navigationState, layout,position }) {
+    const translateX = React.useMemo(()=>{
+        const inputRange = navigationState.routes.map((_,i)=>i);
+        return Animated.interpolate(position,{
             inputRange,
             outputRange: inputRange.map(i => (-layout.width / 1.5) * i),
         });
-    }, []);
+    },[]);
+
 
     return (
         <Animated.View
             style={[
-                styles.tabbar,
-                {
-                    width: (layout.width / 1.5) * navigationState.routes.length,
-                    transform: [{ translateX }],
-                },
-            ]}>
-            {navigationState.routes.map((route, i) => (
-                <TabLabel
+                    styles.tabbar,
+                    {width: (layout.width / 1.5) * navigationState.routes.length,
+                    transform: [{ translateX }]}
+                  ]}
+        >
+            {navigationState.routes.map((route, i)=>
+                (<TabLabel
                     navigationState={navigationState}
                     position={position}
                     index={i}
                     key={i}>
                     {route.key}
-                </TabLabel>
-            ))}
+                </TabLabel>)
+            )}
         </Animated.View>
     );
 }
 
-export default class TabViewExample extends React.Component {
+export default class TabName extends React.Component {
     state = {
         index: 0,
         routes: [
@@ -86,11 +132,11 @@ export default class TabViewExample extends React.Component {
                 renderTabBar={props => <TabBar {...props} />}
                 // this is not the order of the tabs
                 renderScene={SceneMap({
-                    Monday:Screen,
-                    Tuesday:Screen,
-                    Wednesday:Screen,
-                    Friday:Screen,
-                    Thursday:Screen
+                    Monday: Monday,
+                    Tuesday: Tuesday,
+                    Wednesday: Wednesday,
+                    Thursday: Thursday,
+                    Friday: Friday
                     })
                 }
                 onIndexChange={(index) => this.setState({index})}
@@ -101,39 +147,3 @@ export default class TabViewExample extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#292C30'
-    },
-    screen: {
-        flex: 1,
-        padding: 12
-    },
-    block: {
-        height: 120,
-        width: 120,
-        margin: 8,
-        backgroundColor: '#2F3439',
-        padding: 15,
-        width: '80%',
-        borderRadius: 15,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 6,
-        },
-        shadowOpacity: 0.39,
-        shadowRadius: 8.30,
-        elevation: 13
-    },
-    tabbar: {
-        flexDirection: 'row',
-        marginTop: 16,
-    },
-    label: {
-        flex: 1,
-        fontSize: 40,
-        marginHorizontal: 24,
-        color: 'white',
-    },
-});
