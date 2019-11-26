@@ -1,30 +1,30 @@
 // this is the css file of the sideBar file
-import Constants from 'expo-constants';
- 
+import Constants from "expo-constants";
+
 export default {
-  spacer:{
+  spacer: {
     height: 65,
-    backgroundColor:'black'
+    backgroundColor: "black"
   },
-  container:{
+  container: {
     paddingTop: 20,
-    height:'100%',
-    backgroundColor:'#393e46',
+    height: "100%",
+    backgroundColor: "#393e46",
     flex: 1
   },
-  navItemStyle:{
+  navItemStyle: {
     padding: 10
   },
-  navSectionStyle:{
-    backgroundColor: 'lightgrey'
+  navSectionStyle: {
+    backgroundColor: "lightgrey"
   },
-  sectionHeadingStyle:{
+  sectionHeadingStyle: {
     paddingVertical: 10,
     paddingHorizontal: 5,
-    color: 'white'
+    color: "white"
   },
-  footerContainer:{
+  footerContainer: {
     padding: 20,
-    backgroundColor: 'lightgrey'
+    backgroundColor: "lightgrey"
   }
-}
+};
