@@ -15,7 +15,7 @@ const stacker = createStackNavigator(
     Main: {
       screen: dashView,
       navigationOptions: {
-        title: "test"
+        title: "Dashboard"
       }
     },
     quickAdd: {
@@ -23,7 +23,15 @@ const stacker = createStackNavigator(
       navigationOptions({ navigation }) {
         return {
           title: "it really do be adding hw time",
-          headerLeft: <HeaderBackButton onPress={() => navigation.goBack()} />
+          headerLeft: <HeaderBackButton onPress={() =>{
+            try{
+              navigation.goBack()
+              console.log(navigation.goBack)
+            }
+            catch(err){
+              console.log(navigation)
+            }
+          }} />
         };
       }
     },
@@ -34,7 +42,7 @@ const stacker = createStackNavigator(
     examAdd: examAdd
   },
   {
-    initialRouteName: "homeworkMain",
+    initialRouteName: "Main",
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: "black",

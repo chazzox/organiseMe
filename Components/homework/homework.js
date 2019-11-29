@@ -13,8 +13,45 @@ const defaultRoute = [
 ];
 
 const Monday = React.memo(() => (
-  <View style={styles.screen}>
-    <View style={styles.block}>
+    <View style={styles.screen}>
+    <ScrollView>
+      <View style={styles.block}>
+        <Text style={styles.blockTextMain}>Maths - header</Text>
+        <Text style={styles.blockTextBody}>
+          descriptions of the homework, its a test lmao also please do this that
+          and the other lmaoooooooooooo
+          {"\n"}
+          <Text style={{ color: "white", fontWeight: "bold", marginTop: 7 }}>
+            Due:
+            <Text style={{ color: "#007Aff" }}>12/07/20</Text>
+          </Text>
+        </Text>
+      </View>
+      <View style={styles.block}>
+        <Text style={styles.blockTextMain}>Maths - header</Text>
+        <Text style={styles.blockTextBody}>
+          descriptions of the homework, its a test lmao also please do this that
+          and the other lmaoooooooooooo
+          {"\n"}
+          <Text style={{ color: "white", fontWeight: "bold", marginTop: 7 }}>
+            Due:
+            <Text style={{ color: "#007Aff" }}>12/07/20</Text>
+          </Text>
+        </Text>
+      </View>
+      <View style={styles.block}>
+        <Text style={styles.blockTextMain}>Maths - header</Text>
+        <Text style={styles.blockTextBody}>
+          descriptions of the homework, its a test lmao also please do this that
+          and the other lmaoooooooooooo
+          {"\n"}
+          <Text style={{ color: "white", fontWeight: "bold", marginTop: 7 }}>
+            Due:
+            <Text style={{ color: "#007Aff" }}>12/07/20</Text>
+          </Text>
+        </Text>
+      </View>
+      <View style={styles.block}>
       <Text style={styles.blockTextMain}>Maths - header</Text>
       <Text style={styles.blockTextBody}>
         descriptions of the homework, its a test lmao also please do this that
@@ -26,6 +63,7 @@ const Monday = React.memo(() => (
         </Text>
       </Text>
     </View>
+    </ScrollView>
   </View>
 ));
 
