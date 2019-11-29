@@ -14,6 +14,13 @@ same above but i havn't gotten round to packaging the app
 also i don't have an android device to test the app on
 
 
+## extra stuff
+### todo:
+* add prototype view for each form
+* correct naviagte animations
+* check android compatibilty
+* connect login api to app
+* add form functionality to the api bit by bit
 
 ## other
 todo:
@@ -23,6 +30,6 @@ check android compatibilty
 connect login api to app
 add form functionality to the api bit by bit
 
-in the future:
-add google, discord and facebook sign/signup
-add swipe features
+### in the future:
+* add google, discord and facebook sign/signup
+* add swipe features
