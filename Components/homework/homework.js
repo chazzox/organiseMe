@@ -85,8 +85,6 @@ function TabLabel({ navigationState, position, index, children }) {
   const opacity = React.useMemo(() => {
     const inputRange = navigationState.routes.map((NotUsed, i) => i);
     // returns a vlue of apaicty based on the current view vs the
-    // test 2
-    // test 3
     return Animated.interpolate(position, {
       inputRange,
       outputRange: inputRange.map(i => (i === index ? 1 : 0.4))

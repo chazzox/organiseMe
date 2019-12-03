@@ -10,7 +10,7 @@ import {
 import { StackActions, NavigationActions } from 'react-navigation';
 
 
-class quickAdd extends Component {
+class SignIn extends Component {
   render () {
     return (
       <View style={styles.container}>
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default quickAdd;
+export default SignIn;

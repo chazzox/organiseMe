@@ -31,7 +31,7 @@ class dashView extends Component {
         <ScrollView style={styles.ScrollView}>
           <View style={styles.container}>
             <View style={styles.dashCont}>
-              <Text style={styles.title}>Add new homework</Text>
+              <Text style={styles.title}>Add new homaework</Text>
               <Text style={styles.body}>Use this section to add your homework quickly!</Text>
               <View style={styles.but}>
                 <Button 
@@ -50,6 +50,8 @@ class dashView extends Component {
                   title='homework boi'
                   onPress={() => this.navToForm('homeworkMain')}
                   style={styles.button}
+                  color='none'
+                  raised={true}
                 />
                 </View>
             </View>
