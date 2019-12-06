@@ -25,8 +25,6 @@ also i don't have an android device to test the app on
 ## other
 todo:
 add prototype view for each form
-correct naviagte animations
-check android compatibilty
 connect login api to app
 add form functionality to the api bit by bit
 

@@ -5,9 +5,9 @@ import {
   Button, 
   View,
   StyleSheet,
-  TextInput
+  TextInput,
+  StatusBar
 } from 'react-native';
-import { StackActions, NavigationActions } from 'react-navigation';
 
 
 class quickAdd extends Component {
@@ -20,6 +20,9 @@ class quickAdd extends Component {
         />
       </View>
     );
+  }
+  componentDidMount(){
+    StatusBar.setHidden(true)
   }
 }
 
