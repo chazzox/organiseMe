@@ -45,8 +45,7 @@ class dashView extends Component {
 								<Button
 									onPress={() => this.navToForm('homeworkMain')}
 									style={styles.button}
-                  title="homework boi"
-                  color='#f194ff'
+									title="homework boi"
 								/>
 							</View>
 						</View>
