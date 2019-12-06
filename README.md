@@ -30,4 +30,4 @@ add form functionality to the api bit by bit
 
 ### in the future:
 * add google, discord and facebook sign/signup
-* add swipe features
+* perfect gestures

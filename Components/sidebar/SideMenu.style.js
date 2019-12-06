@@ -9,7 +9,7 @@ export default {
   container: {
     paddingTop: 20,
     height: "100%",
-    backgroundColor: "#393e46",
+    backgroundColor: "#292C30",
     flex: 1
   },
   navItemStyle: {

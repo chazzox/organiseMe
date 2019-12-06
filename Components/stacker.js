@@ -14,7 +14,7 @@ import dashView from "./landing/dashView";
 import homeworkMain from "./homework/homework";
 import addHW from "./homework/addHW";
 import SignIn from "./signin/SignIn";
-import examView from './exams/examView'
+import examView from "./exams/examView";
 import examAdd from "./exams/examAdd";
 
 const checkUserExists = () => {
