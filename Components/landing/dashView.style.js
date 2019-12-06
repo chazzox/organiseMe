@@ -39,7 +39,7 @@ export default {
         marginLeft: 8
     },
     bodyBottom:{
-        marginBottom: 20
+        marginBottom: 40
     },
     but:{
         flexDirection: 'row'

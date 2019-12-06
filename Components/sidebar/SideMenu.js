@@ -47,7 +47,7 @@ class SideMenu extends Component {
           <View>
             <Text
               style={styles.sectionHeadingStyle}
-              onPress={() => this.navToForm("examAdd")}
+              onPress={() => this.navToForm("examView")}
             >
               Exams
             </Text>

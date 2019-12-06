@@ -5,14 +5,17 @@ import {
   createStackNavigator,
   HeaderStyleInterpolator
 } from "react-navigation";
+
 import IOSIcon from "react-native-vector-icons/Ionicons";
 import Button from "apsl-react-native-button";
 
 // our modules (ie. views)
 import dashView from "./landing/dashView";
 import homeworkMain from "./homework/homework";
-import quickAdd from "./homework/quickAdd";
+import addHW from "./homework/addHW";
 import SignIn from "./signin/SignIn";
+import examView from './exams/examView'
+import examAdd from "./exams/examAdd";
 
 const checkUserExists = () => {
   if (true == true) {
@@ -31,8 +34,30 @@ const stacker = createStackNavigator(
         title: "Dashboard"
       }
     },
-    quickAdd: {
-      screen: quickAdd,
+    homeworkMain: {
+      screen: homeworkMain,
+      navigationOptions({ navigation }) {
+        return {
+          title: "Upcoming Homework...",
+          headerRight: (
+            <Button
+              onPress={() => {
+                navigation.navigate("addHW");
+              }}
+            >
+              <IOSIcon
+                name="ios-add"
+                style={{ paddingRight: 15 }}
+                color="white"
+                size={30}
+              />
+            </Button>
+          )
+        };
+      }
+    },
+    addHW: {
+      screen: addHW,
       navigationOptions({ navigation }) {
         return {
           title: "Add your homework",
@@ -47,21 +72,22 @@ const stacker = createStackNavigator(
                 }
               }}
               color="white"
-              size={45}
+              size={30}
+              style={{ paddingLeft: 15 }}
             />
           )
         };
       }
     },
-    homeworkMain: {
-      screen: homeworkMain,
+    examView: {
+      screen: examView,
       navigationOptions({ navigation }) {
         return {
-          title: "Upcoming Homework...",
+          title: "pp",
           headerRight: (
             <Button
               onPress={() => {
-                navigation.navigate("quickAdd");
+                navigation.navigate("examAdd");
               }}
             >
               <IOSIcon
@@ -71,6 +97,29 @@ const stacker = createStackNavigator(
                 size={30}
               />
             </Button>
+          )
+        };
+      }
+    },
+    examAdd: {
+      screen: examAdd,
+      navigationOptions({ navigation }) {
+        return {
+          title: "pp",
+          headerLeft: (
+            <IOSIcon
+              name="ios-arrow-back"
+              onPress={() => {
+                try {
+                  navigation.goBack();
+                } catch (err) {
+                  alert("reeeeeeeeeeee");
+                }
+              }}
+              color="white"
+              size={30}
+              style={{ paddingLeft: 15 }}
+            />
           )
         };
       }

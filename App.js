@@ -1,5 +1,5 @@
 import React from "react";
-import {StatusBar, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 import { createDrawerNavigator, createAppContainer } from "react-navigation";
 
 import SideMenu from "./Components/sidebar/SideMenu";
@@ -15,8 +15,4 @@ const App = createDrawerNavigator(
   }
 );
 
-
-export default ( ()=>{createAppContainer(App)
- componentDidMount(){
-    StatusBar.setHidden(true);
-  }})
+export default createAppContainer(App)
