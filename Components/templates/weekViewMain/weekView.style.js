@@ -4,7 +4,7 @@ export default {
   },
   screen: {
     flex: 1,
-    padding: 12,
+    padding: 0,
     height: "100%"
   },
   block: {
