@@ -10,25 +10,45 @@ import IOSIcon from "react-native-vector-icons/Ionicons";
 import Button from "apsl-react-native-button";
 
 // our modules (ie. views)
+import welcome from "./startup/welcome";
+import register from "./startup/register";
+import signIn from "./startup/signIn";
 import dashView from "./landing/dashView";
 import homeworkMain from "./homework/homework";
 import addHW from "./homework/addHW";
-import SignIn from "./signin/SignIn";
 import examView from "./exams/examView";
 import examAdd from "./exams/examAdd";
 
 const checkUserExists = () => {
-  if (true == true) {
-    return "Main";
+  if (true == false) {
+    return "main";
   } else {
-    return "SignIn";
+    return "welcome";
   }
+};
+
+const test = {
+  headerLeft: (
+    <IOSIcon
+      name="ios-arrow-back"
+      onPress={() => {
+        try {
+          navigation.goBack();
+        } catch (err) {
+          alert("reeeeeeeeeeee");
+        }
+      }}
+      color="white"
+      size={30}
+      style={{ paddingLeft: 15 }}
+    />
+  )
 };
 
 // essentially deals with header bar titles for each view
 const stacker = createStackNavigator(
   {
-    Main: {
+    main: {
       screen: dashView,
       navigationOptions: {
         title: "Dashboard"
@@ -124,7 +144,50 @@ const stacker = createStackNavigator(
         };
       }
     },
-    SignIn: SignIn
+    welcome: {
+      screen: welcome,
+      navigationOptions({ navigation }) {
+        return {
+          headerLeft: null
+        };
+      }
+    },
+    register: {
+      screen: register,
+      navigationOptions({ navigation }) {
+        return {
+          headerLeft: (
+            <IOSIcon
+              name="ios-arrow-back"
+              onPress={() => {
+                navigation.goBack();
+              }}
+              color="white"
+              size={30}
+              style={{ paddingLeft: 15 }}
+            />
+          )
+        };
+      }
+    },
+    signIn: {
+      screen: signIn,
+      navigationOptions({ navigation }) {
+        return {
+          headerLeft: (
+            <IOSIcon
+              name="ios-arrow-back"
+              onPress={() => {
+                navigation.goBack();
+              }}
+              color="white"
+              size={30}
+              style={{ paddingLeft: 15 }}
+            />
+          )
+        };
+      }
+    }
   },
   {
     initialRouteName: checkUserExists(),

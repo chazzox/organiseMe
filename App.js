@@ -8,7 +8,7 @@ import stacker from "./Components/stacker";
 const App = createDrawerNavigator(
   { Item1: { screen: stacker } },
   {
-    // Name of the component/view
+    // Name of the sideview
     contentComponent: SideMenu,
     // This is the width of the sidebar
     drawerWidth: Dimensions.get("window").width - 180
