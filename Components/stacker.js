@@ -83,7 +83,7 @@ const stacker = createStackNavigator(
       screen: examView,
       navigationOptions({ navigation }) {
         return {
-          title: "pp",
+          title: "Your Exams for this Week",
           headerRight: (
             <Button
               onPress={() => {
@@ -105,7 +105,7 @@ const stacker = createStackNavigator(
       screen: examAdd,
       navigationOptions({ navigation }) {
         return {
-          title: "pp",
+          title: "Add New Exams",
           headerLeft: (
             <IOSIcon
               name="ios-arrow-back"
