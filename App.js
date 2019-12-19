@@ -1,24 +1,19 @@
-import React from 'react';
+import { createDrawerNavigator, createAppContainer } from 'react-navigation';
 import { Dimensions } from 'react-native';
-import {
-    createDrawerNavigator,
-    createAppContainer
-} from 'react-navigation';
-import * as FileSystem from 'expo-file-system';
 
+import startUpStack from './Components/startup/startStack';
 import SideMenu from './Components/sidebar/SideMenu';
-import stacker from './Components/stacker'
-import startUpStack from './Components/startup/startStack'
+import stacker from './Components/stacker';
 
 const App = createDrawerNavigator(
     {
-        loginStack: { screen: stacker },
         startUpStack: {
             screen: startUpStack,
             navigationOptions: {
                 drawerLockMode: 'locked-closed'
             }
-        }
+        },
+        loginStack: { screen: stacker }
     },
     {
         initialRouteName: 'startUpStack',

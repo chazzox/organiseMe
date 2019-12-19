@@ -10,22 +10,11 @@ import IOSIcon from "react-native-vector-icons/Ionicons";
 import Button from "apsl-react-native-button";
 
 // our modules (ie. views)
-import welcome from "./startup/components/welcome";
-import register from "./startup/components/register";
-import signIn from "./startup/components/signIn";
 import dashView from "./landing/dashView";
 import homeworkMain from "./homework/homework";
 import addHW from "./homework/addHW";
 import examView from "./exams/examView";
 import examAdd from "./exams/examAdd";
-
-const checkUserExists = () => {
-  if (true == true) {
-    return "main";
-  } else {
-    return "welcome";
-  }
-};
 
 // essentially deals with header bar titles for each view
 const stacker = createStackNavigator(
@@ -128,7 +117,7 @@ const stacker = createStackNavigator(
     }
   },
   {
-    initialRouteName: checkUserExists(),
+    initialRouteName: 'main',
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
         backgroundColor: "black",

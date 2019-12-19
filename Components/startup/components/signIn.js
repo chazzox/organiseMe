@@ -2,21 +2,23 @@
 import React, { Component } from 'react';
 import {
     Text,
-    Button,
     View,
     StyleSheet,
     TouchableOpacity,
     TextInput
 } from 'react-native';
 
-function displayUser(info){console.log(info)}
+function displayUser(info) {
+    if (info.success == false) {
+        console.log(`bruh `);
+    }
+}
+
 class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = { emailValue: '' };
         this.state = { passValue: '' };
-        this.emailREGEX = new RegExp('/([ab]){2,}/');
-        this.passREGEX = new RegExp('/([a-z]){2,}/');
     }
     render() {
         return (
