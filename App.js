@@ -8,7 +8,7 @@ import * as FileSystem from 'expo-file-system';
 
 import SideMenu from './Components/sidebar/SideMenu';
 import stacker from './Components/stacker'
-import startUpStack from './Components/startStack'
+import startUpStack from './Components/startup/startStack'
 
 const App = createDrawerNavigator(
     {

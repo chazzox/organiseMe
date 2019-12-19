@@ -10,9 +10,9 @@ import IOSIcon from "react-native-vector-icons/Ionicons";
 import Button from "apsl-react-native-button";
 
 // our modules (ie. views)
-import welcome from "./startup/welcome";
-import register from "./startup/register";
-import signIn from "./startup/signIn";
+import welcome from "./startup/components/welcome";
+import register from "./startup/components/register";
+import signIn from "./startup/components/signIn";
 import dashView from "./landing/dashView";
 import homeworkMain from "./homework/homework";
 import addHW from "./homework/addHW";
