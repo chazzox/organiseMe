@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
   TextInput
 } from "react-native";
-import { StackActions, NavigationActions } from "react-navigation";
 
 class welcome extends Component {
   render() {

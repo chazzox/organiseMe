@@ -20,10 +20,12 @@
     "react-native-vector-icons": "^6.6.0",
     "react-native-web": "^0.11.4",
     "react-navigation": "^3.11.0",
-    "react-reveal": "^1.2.2"
+    "react-reveal": "^1.2.2",
+    "expo-file-system": "~5.0.1"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.1.1"
   },
-  "private": true
+  "private": true,
+  "proxy": "http://localhost:5000/"
 }

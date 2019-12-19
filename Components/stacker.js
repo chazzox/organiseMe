@@ -20,29 +20,11 @@ import examView from "./exams/examView";
 import examAdd from "./exams/examAdd";
 
 const checkUserExists = () => {
-  if (true == false) {
+  if (true == true) {
     return "main";
   } else {
     return "welcome";
   }
-};
-
-const test = {
-  headerLeft: (
-    <IOSIcon
-      name="ios-arrow-back"
-      onPress={() => {
-        try {
-          navigation.goBack();
-        } catch (err) {
-          alert("reeeeeeeeeeee");
-        }
-      }}
-      color="white"
-      size={30}
-      style={{ paddingLeft: 15 }}
-    />
-  )
 };
 
 // essentially deals with header bar titles for each view
@@ -135,50 +117,6 @@ const stacker = createStackNavigator(
                 } catch (err) {
                   alert("reeeeeeeeeeee");
                 }
-              }}
-              color="white"
-              size={30}
-              style={{ paddingLeft: 15 }}
-            />
-          )
-        };
-      }
-    },
-    welcome: {
-      screen: welcome,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: null
-        };
-      }
-    },
-    register: {
-      screen: register,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: (
-            <IOSIcon
-              name="ios-arrow-back"
-              onPress={() => {
-                navigation.goBack();
-              }}
-              color="white"
-              size={30}
-              style={{ paddingLeft: 15 }}
-            />
-          )
-        };
-      }
-    },
-    signIn: {
-      screen: signIn,
-      navigationOptions({ navigation }) {
-        return {
-          headerLeft: (
-            <IOSIcon
-              name="ios-arrow-back"
-              onPress={() => {
-                navigation.goBack();
               }}
               color="white"
               size={30}

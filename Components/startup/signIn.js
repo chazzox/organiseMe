@@ -8,8 +8,8 @@ import {
     TouchableOpacity,
     TextInput
 } from 'react-native';
-import { StackActions, NavigationActions } from 'react-navigation';
 
+function displayUser(info){console.log(info)}
 class SignIn extends Component {
     constructor(props) {
         super(props);
@@ -48,29 +48,25 @@ class SignIn extends Component {
                 </View>
                 <TouchableOpacity
                     onPress={() => {
-                        console.log(this.state.emailValue);
-                        console.log(this.state.passValue);
-                        console.log(
-                            fetch('http://localhost:5000/api/users/login', {
-                                method: 'POST',
-                                headers: {
-                                    Accept: 'application/json',
-                                    'Content-Type':
-                                        'application/x-www-form-urlencoded'
-                                },
-                                body: JSON.stringify({
-                                    email: 'h7ddddd@lskdfj.com',
-                                    password: 'bruh-moment'
-                                })
+                        loginResult = '';
+                        console.log(`pp:${this.state.emailValue}`);
+                        console.log(`pp2:${this.state.passValue}`);
+                        fetch('http://81.156.117.18:5000/api/users/login', {
+                            method: 'POST',
+                            headers: {
+                                Accept: 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                email: this.state.emailValue,
+                                password: this.state.passValue
                             })
-                                .then(response => response.json())
-                                .then(responseJson => {
-                                    return responseJson.movies;
-                                })
-                                .catch(error => {
-                                    console.error(error);
-                                })
-                        );
+                        })
+                            .then(response => response.text())
+                            .then(result => {
+                                displayUser(result);
+                            })
+                            .catch(error => console.log('error', error));
                     }}
                 >
                     <Text
