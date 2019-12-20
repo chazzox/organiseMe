@@ -8,75 +8,86 @@ import {
     TextInput
 } from 'react-native';
 
-function displayUser(info) {
-    if (info.success == false) {
-        console.log(`bruh `);
+import * as FileSystem from 'expo-file-system';
+
+class UserInput extends Component {
+    render() {
+        return (
+            <View style={{ marginBottom: 80 }}>
+                <Text style={styles.titleText}>{this.props.title}</Text>
+                <TextInput
+                    placeholderTextColor='lightgrey'
+                    style={styles.touchStyle}
+                    {...this.props}
+                />
+            </View>
+        );
     }
 }
-
+function displayUser(info) {
+    if (info.success == true) {
+        console.log('we in bois');
+        console.log(info);
+    } else {
+        console.log('we still in bois');
+    }
+}
+function login(obj) {
+    loginResult = '';
+    fetch('http://81.156.117.18:5000/api/users/login', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: obj.emailValue,
+            password: obj.passValue
+        })
+    })
+        .then(response => response.text())
+        .then(result => {
+            console.log('recieved');
+            displayUser(JSON.parse(result));
+        })
+        .catch(error => console.log('error', error));
+}
 class SignIn extends Component {
     constructor(props) {
         super(props);
-        this.state = { emailValue: '' };
-        this.state = { passValue: '' };
+        this.state = [{ emailValue: '' }, { passValue: '' }, { url: '' }];
     }
     render() {
         return (
             <View style={styles.container}>
-                <View style={{ marginBottom: 80 }}>
-                    <Text style={styles.titleText}>Email</Text>
-                    <TextInput
-                        style={styles.touchStyle}
-                        placeholder="Type here to enter your email!"
-                        placeholderTextColor="lightgrey"
-                        onChangeText={emailValue => {
-                            this.setState({ emailValue });
-                        }}
-                        value={this.state.emailValue}
-                    />
-                </View>
-                <View style={{ marginBottom: 80 }}>
-                    <Text style={styles.titleText}>Password</Text>
-                    <TextInput
-                        placeholderTextColor="lightgrey"
-                        placeholder={'Enter here'}
-                        style={styles.touchStyle}
-                        onChangeText={passValue => {
-                            this.setState({ passValue });
-                        }}
-                        value={this.state.passValue}
-                        secureTextEntry={true}
-                    />
-                </View>
+                <UserInput
+                    title='Email'
+                    onChangeText={emailValue => {
+                        this.setState({ emailValue });
+                    }}
+                    value={this.state.emailValue}
+                    placeholder={'Enter Email here!'}
+                />
+                <UserInput
+                    title='Password'
+                    onChangeText={passValue => {
+                        this.setState({ passValue });
+                    }}
+                    value={this.state.passValue}
+                    secureTextEntry={true}
+                    placeholder={'Enter Password here!'}
+                />
                 <TouchableOpacity
                     onPress={() => {
-                        loginResult = '';
                         console.log(`pp:${this.state.emailValue}`);
                         console.log(`pp2:${this.state.passValue}`);
-                        fetch('http://81.156.117.18:5000/api/users/login', {
-                            method: 'POST',
-                            headers: {
-                                Accept: 'application/json',
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                email: this.state.emailValue,
-                                password: this.state.passValue
-                            })
-                        })
-                            .then(response => response.text())
-                            .then(result => {
-                                displayUser(result);
-                            })
-                            .catch(error => console.log('error', error));
-                    }}
-                >
+                        login(this.state);
+                    }}>
                     <Text
                         style={[
                             styles.titleText,
                             { marginTop: 40, marginBottom: 40 }
-                        ]}
-                    >
+                        ]}>
                         Login
                     </Text>
                 </TouchableOpacity>
