@@ -1,117 +1,151 @@
-// this is the defualt adding page, when coming from dashboard view it loads the homework add version
-import React, { Component } from 'react';
+import React from 'react';
 import {
-    Text,
-    View,
-    StyleSheet,
-    TouchableOpacity,
-    TextInput
+	StyleSheet,
+	Text,
+	TextInput,
+	KeyboardAvoidingView,
+	ScrollView,
+	Button
 } from 'react-native';
+import { connect } from 'react-redux';
 
-import * as FileSystem from 'expo-file-system';
+import { login } from '../../auth/auth';
 
-class UserInput extends Component {
-    render() {
-        return (
-            <View style={{ marginBottom: 80 }}>
-                <Text style={styles.titleText}>{this.props.title}</Text>
-                <TextInput
-                    placeholderTextColor='lightgrey'
-                    style={styles.touchStyle}
-                    {...this.props}
-                />
-            </View>
-        );
-    }
-}
-function displayUser(info) {
-    if (info.success == true) {
-        console.log('we in bois');
-        console.log(info);
-    } else {
-        console.log('we still in bois');
-    }
-}
-function login(obj) {
-    loginResult = '';
-    fetch('http://81.156.117.18:5000/api/users/login', {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: obj.emailValue,
-            password: obj.passValue
-        })
-    })
-        .then(response => response.text())
-        .then(result => {
-            console.log('recieved');
-            displayUser(JSON.parse(result));
-        })
-        .catch(error => console.log('error', error));
-}
-class SignIn extends Component {
-    constructor(props) {
-        super(props);
-        this.state = [{ emailValue: '' }, { passValue: '' }, { url: '' }];
-    }
-    render() {
-        return (
-            <View style={styles.container}>
-                <UserInput
-                    title='Email'
-                    onChangeText={emailValue => {
-                        this.setState({ emailValue });
-                    }}
-                    value={this.state.emailValue}
-                    placeholder={'Enter Email here!'}
-                />
-                <UserInput
-                    title='Password'
-                    onChangeText={passValue => {
-                        this.setState({ passValue });
-                    }}
-                    value={this.state.passValue}
-                    secureTextEntry={true}
-                    placeholder={'Enter Password here!'}
-                />
-                <TouchableOpacity
-                    onPress={() => {
-                        console.log(`pp:${this.state.emailValue}`);
-                        console.log(`pp2:${this.state.passValue}`);
-                        login(this.state);
-                    }}>
-                    <Text
-                        style={[
-                            styles.titleText,
-                            { marginTop: 40, marginBottom: 40 }
-                        ]}>
-                        Login
-                    </Text>
-                </TouchableOpacity>
-            </View>
-        );
-    }
+class Login extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			email: '',
+			password: '',
+			error:
+				'' ||
+				(this.props.navigation.state.params &&
+					this.props.navigation.state.params.error)
+		};
+		this.handleChangeEmail = this.handleChangeEmail.bind(this);
+		this.handleChangePassword = this.handleChangePassword.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleChangeEmail(value) {
+		this.setState({ email: value });
+	}
+
+	handleChangePassword(value) {
+		this.setState({ password: value });
+	}
+
+	handleSubmit() {
+		const email = this.state.email;
+		const password = this.state.password;
+		this.props.login(
+			{
+				email,
+				password
+			},
+			this.props.navigation
+		);
+		// clear the state after login for security
+		this.setState({
+			email: '',
+			password: '',
+			error: ''
+		});
+	}
+
+	render() {
+		return (
+			<KeyboardAvoidingView behavior='position' style={styles.container}>
+				<ScrollView>
+					<Text style={styles.error}>{this.state.error}</Text>
+					<Text style={styles.textLabel}>Email</Text>
+					<TextInput
+						style={styles.textInput}
+						autoCapitalize='none'
+						autoCorrect={false}
+						maxLength={15}
+						placeholder='EMAIL'
+						placeholderTextColor='tomato'
+						value={this.state.email}
+						onChangeText={email => this.handleChangeEmail(email)}
+					/>
+					<Text style={styles.textLabel}>Password</Text>
+					<TextInput
+						style={styles.textInput}
+						secureTextEntry={true}
+						autoCapitalize='none'
+						autoCorrect={false}
+						maxLength={15}
+						placeholder='PASSWORD'
+						placeholderTextColor='tomato'
+						value={this.state.password}
+						onChangeText={password =>
+							this.handleChangePassword(password)
+						}
+					/>
+					<Button
+						buttonStyle={styles.button}
+						title='Login'
+						onPress={this.handleSubmit}
+					/>
+					<Button
+						buttonStyle={styles.button}
+						title='Sign Up'
+						onPress={() => {
+							this.props.navigation.navigate('Signup');
+							this.setState({
+								email: '',
+								password: '',
+								error: ''
+							});
+						}}
+					/>
+				</ScrollView>
+			</KeyboardAvoidingView>
+		);
+	}
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#292C30'
-    },
-    titleText: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 50
-    },
-    touchStyle: {
-        height: 40,
-        fontSize: 30,
-        color: 'white',
-        fontWeight: 'bold'
-    }
+const mapDispatchToProps = dispatch => ({
+	login: (credentials, navigation) => dispatch(login(credentials, navigation))
 });
 
-export default SignIn;
+export default connect(null, mapDispatchToProps)(Login);
+
+const styles = StyleSheet.create({
+	container: {
+		flexDirection: 'column',
+		justifyContent: 'center',
+		backgroundColor: 'white',
+		paddingHorizontal: 5,
+		flex: 1
+	},
+	textLabel: {
+		fontSize: 20,
+		marginTop: 10,
+		padding: 10
+	},
+	textInput: {
+		height: 40,
+		width: 300,
+		margin: 10,
+		color: 'tomato',
+		fontSize: 15,
+		borderWidth: 2,
+		borderRadius: 5
+	},
+	button: {
+		backgroundColor: 'gray',
+		width: 150,
+		height: 40,
+		borderRadius: 5,
+		alignSelf: 'center'
+	},
+	error: {
+		fontSize: 15,
+		color: 'blue',
+		marginVertical: 0,
+		paddingLeft: 10,
+		fontWeight: 'bold'
+	}
+});

@@ -1,31 +1,37 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
-  },
-  "dependencies": {
-    "apsl-react-native-button": "^3.1.1",
-    "expo": "^33.0.0",
-    "expo-cli": "^3.11.2",
-    "react": "16.8.3",
-    "react-dom": "^16.8.6",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
-    "react-native-calendars": "^1.214.0",
-    "react-native-paper": "2.15.2",
-    "react-native-tab-view": "2.7.1",
-    "react-native-vector-icons": "^6.6.0",
-    "react-native-web": "^0.11.4",
-    "react-navigation": "^3.11.0",
-    "react-reveal": "^1.2.2",
-    "expo-file-system": "~5.0.1"
-  },
-  "devDependencies": {
-    "babel-preset-expo": "^5.1.1"
-  },
-  "private": true,
-  "proxy": "http://localhost:5000/"
+	"main": "node_modules/expo/AppEntry.js",
+	"scripts": {
+		"start": "expo start",
+		"android": "expo start --android",
+		"ios": "expo start --ios",
+		"web": "expo start --web",
+		"eject": "expo eject"
+	},
+	"dependencies": {
+		"axios": "^0.18.0",
+		"expo": "^33.0.0",
+		"expo-cli": "^3.11.2",
+		"react": "16.8.3",
+		"react-dom": "^16.8.6",
+		"react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+		"react-native-calendars": "^1.214.0",
+		"react-native-paper": "2.15.2",
+		"react-native-tab-view": "2.7.1",
+		"react-native-vector-icons": "^6.6.0",
+		"react-native-web": "^0.11.4",
+		"react-navigation": "^3.13.0",
+		"react-reveal": "^1.2.2",
+		"react-native-gesture-handler": "~1.2.1",
+		"react-native-reanimated": "1.0.1",
+		"react-redux": "^5.0.7",
+		"redux": "^4.0.0",
+		"redux-devtools-extension": "^2.13.2",
+		"redux-logger": "^3.0.6",
+		"redux-thunk": "^2.2.0"
+	},
+	"devDependencies": {
+		"babel-preset-expo": "^5.1.1"
+	},
+	"private": true,
+	"proxy": "http://localhost:5000/"
 }
