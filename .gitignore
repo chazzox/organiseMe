@@ -1,5 +1,6 @@
+# node un-needed
 node_modules/**/*
-.expo/*
+package-lock*
 npm-debug.*
 *.jks
 *.p8

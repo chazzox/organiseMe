@@ -1,0 +1,9 @@
+{
+  "expoServerNgrokUrl": "https://rs-ai8.chazzox.organiseme.exp.direct",
+  "packagerNgrokUrl": "https://packager.rs-ai8.chazzox.organiseme.exp.direct",
+  "ngrokPid": 2756,
+  "devToolsPort": 19003,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 7860
+}

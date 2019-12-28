@@ -6,10 +6,10 @@ import { Dimensions } from 'react-native';
 
 import Login from './screens/login/Login';
 import Signup from './screens/login/Signup';
-import Main from './screens/Main';
 import welcome from './screens/login/welcome';
 import DashView from './screens/dashView';
-import SideMenu from './screens/main/sidebar/SideMenu'
+import SideMenu from './screens/main/sidebar/SideMenu';
+
 export const createRootNavigator = (signedIn = false) => {
 	return createStackNavigator(
 		{
@@ -22,17 +22,18 @@ export const createRootNavigator = (signedIn = false) => {
 			SignedOut: {
 				screen: SignedOut,
 				navigationOptions: {
-					gesturesEnabled: false
+					gesturesEnabled: false,
+					headerVisible: false
 				}
 			}
 		},
 		{
-			mode: 'modal',
 			headerMode: 'none',
 			initialRouteName: signedIn ? 'SignedIn' : 'SignedOut'
 		}
 	);
 };
+
 export const SignedIn = createDrawerNavigator(
 	{
 		Main: {
@@ -52,6 +53,7 @@ export const SignedIn = createDrawerNavigator(
 		drawerWidth: Dimensions.get('window').width - 180
 	}
 );
+
 export const SignedOut = createStackNavigator(
 	{
 		welcome: {

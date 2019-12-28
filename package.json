@@ -1,10 +1,8 @@
 {
 	"main": "node_modules/expo/AppEntry.js",
 	"scripts": {
-		"start": "expo start",
-		"android": "expo start --android",
-		"ios": "expo start --ios",
-		"web": "expo start --web",
+		"start": "concurrently \"cd authentication_api && npm start\" \"npm run expo-app\"",
+		"expo-app": "expo start ",
 		"eject": "expo eject"
 	},
 	"dependencies": {
@@ -27,7 +25,8 @@
 	},
 	"devDependencies": {
 		"babel-preset-expo": "~8.0.0",
-		"@babel/core": "^7.0.0"
+		"@babel/core": "^7.0.0",
+		"concurrently": "^5.0.2"
 	},
 	"private": true
 }

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "organiseMe2",
-    "slug": "redux-",
+    "name": "organiseMe",
+    "slug": "organiseMe",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
