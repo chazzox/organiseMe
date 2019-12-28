@@ -1,27 +1,48 @@
-import { createDrawerNavigator, createAppContainer } from 'react-navigation';
-import { Dimensions } from 'react-native';
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import loggerMiddleware from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
 
-import startUpStack from './Components/startup/startStack';
-import SideMenu from './Components/sidebar/SideMenu';
-import stacker from './Components/stacker';
+import currentUser from './components/redux/reducer';
+import { isSignedIn } from './components/auth/memory';
+import { createRootNavigator } from './components/router';
+import { createAppContainer } from 'react-navigation';
 
-const App = createDrawerNavigator(
-    {
-        startUpStack: {
-            screen: startUpStack,
-            navigationOptions: {
-                drawerLockMode: 'locked-closed'
-            }
-        },
-        loginStack: { screen: stacker }
-    },
-    {
-        initialRouteName: 'startUpStack',
-        // Name of the sideview
-        contentComponent: SideMenu,
-        // This is the width of the sidebar
-        drawerWidth: Dimensions.get('window').width - 180
-    }
-);
+export default class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			signedIn: false,
+			checkedSignIn: false
+		};
+	}
 
-export default createAppContainer(App);
+	componentDidMount() {
+		isSignedIn()
+			.then(res =>
+				this.setState({
+					signedIn: res,
+					checkedSignIn: true
+				})
+			)
+			.catch(error => console.error(error));
+	}
+	render() {
+		const { checkedSignIn, signedIn } = this.state;
+		if (!checkedSignIn) {
+			return null;
+		}
+		const Layout = createAppContainer(createRootNavigator(signedIn));
+		return (
+			<Provider
+				store={createStore(
+					currentUser,
+					applyMiddleware(thunkMiddleware, loggerMiddleware)
+				)}>
+				<Layout />
+			</Provider>
+		);
+	}
+}
