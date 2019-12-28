@@ -95,5 +95,4 @@ class Login extends Component {
 const mapDispatchToProps = dispatch => ({
 	login: (credentials, navigation) => dispatch(login(credentials, navigation))
 });
-
 export default connect(null, mapDispatchToProps)(Login);

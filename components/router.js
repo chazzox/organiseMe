@@ -1,15 +1,15 @@
 import React from 'react';
-import IOSIcon from 'react-native-vector-icons/Ionicons';
-import { TabBarBottom } from 'react-navigation';
 import { FontAwesome } from 'react-native-vector-icons';
 import { createStackNavigator } from 'react-navigation-stack';
-import { TouchableOpacity } from 'react-native';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { Dimensions } from 'react-native';
 
 import Login from './screens/login/Login';
 import Signup from './screens/login/Signup';
 import Main from './screens/Main';
 import welcome from './screens/login/welcome';
-
+import DashView from './screens/dashView';
+import SideMenu from './screens/main/sidebar/SideMenu'
 export const createRootNavigator = (signedIn = false) => {
 	return createStackNavigator(
 		{
@@ -33,10 +33,10 @@ export const createRootNavigator = (signedIn = false) => {
 		}
 	);
 };
-export const SignedIn = createStackNavigator(
+export const SignedIn = createDrawerNavigator(
 	{
 		Main: {
-			screen: Main,
+			screen: DashView,
 			navigationOptions: {
 				tabBarLabel: 'Main',
 				tabBarIcon: ({ tintColor }) => (
@@ -46,17 +46,10 @@ export const SignedIn = createStackNavigator(
 		}
 	},
 	{
-		tabBarOptions: {
-			activeTintColor: 'red',
-			inactiveTintColor: 'gray',
-			labelStyle: {
-				fontSize: 13
-			}
-		},
-		tabBarComponent: TabBarBottom,
-		tabBarPosition: 'bottom',
-		animationEnabled: false,
-		swipeEnabled: false
+		// Name of the sideview
+		contentComponent: SideMenu,
+		// This is the width of the sidebar
+		drawerWidth: Dimensions.get('window').width - 180
 	}
 );
 export const SignedOut = createStackNavigator(
@@ -92,7 +85,7 @@ export const SignedOut = createStackNavigator(
 			headerTintColor: 'white',
 			headerTitleStyle: {
 				fontWeight: 'bold'
-			},
+			}
 		})
 	}
 );

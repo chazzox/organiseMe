@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import loggerMiddleware from 'redux-logger';
@@ -29,11 +28,13 @@ export default class App extends Component {
 			)
 			.catch(error => console.error(error));
 	}
+
 	render() {
 		const { checkedSignIn, signedIn } = this.state;
 		if (!checkedSignIn) {
 			return null;
 		}
+		
 		const Layout = createAppContainer(createRootNavigator(signedIn));
 		return (
 			<Provider

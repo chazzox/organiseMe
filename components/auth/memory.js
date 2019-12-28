@@ -4,7 +4,7 @@ import { AsyncStorage } from 'react-native';
 export const KEY = 'create-react-native-app-redux-auth-demo-key';
 
 // As we have no signed in, we need to sey
-export const onSignIn = () => AsyncStorage.setItem(KEY, 'true');
+export const onSignIn = () =>{console.log('ran'); AsyncStorage.setItem(KEY, 'true');}
 
 // Set storage to hold user data
 export const setStorage = data =>
