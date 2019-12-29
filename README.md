@@ -16,8 +16,8 @@ written in react-native by me. coming soon to the nearest shady app manager near
 ## intro
 
 since i don't own a macbook, or have the money to spend on getting an apple's dev licence it seems as though organiseME won't be coming to the app store anytime soon.
-however, you can still run it in test mode on ios by following [the expo tutorial](<#expo\ client>).
-it is also possible to simulate an android device by using the andorid developer studio and follwing [the simulator tutorial](<#andorid\ simulation>)
+however, you can still run it in test mode on ios by following [the expo tutorial](#expo-client).
+it is also possible to simulate an android device by using the andorid developer studio and follwing [the simulator tutorial](#andorid-simulation)
 
 ## expo client
 
@@ -28,7 +28,6 @@ it is also possible to simulate an android device by using the andorid developer
 
 ## andorid simulation
     to be written as i cannot be bothered as of present 
-
 
 ## extra stuff
 ### todo:
