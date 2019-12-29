@@ -1,7 +1,7 @@
 {
 	"main": "node_modules/expo/AppEntry.js",
 	"scripts": {
-		"start": "concurrently \"cd authentication_api && npm start\" \"npm run expo-app\"",
+		"start": "concurrently \"cd auth_api && npx nodemon\" \"npm run expo-app\"",
 		"expo-app": "expo start ",
 		"eject": "expo eject"
 	},
@@ -13,6 +13,7 @@
 		"react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
 		"react-native-gesture-handler": "~1.5.0",
 		"react-native-reanimated": "~1.4.0",
+		"react-native-tab-view": "^2.11.0",
 		"react-native-vector-icons": "^6.6.0",
 		"react-native-web": "~0.11.7",
 		"react-navigation": "^4.0.10",

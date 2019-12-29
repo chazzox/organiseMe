@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { StackActions, NavigationActions } from 'react-navigation';
 
 import IP from '../../IP';
 
@@ -31,7 +32,7 @@ export default function reducer(currentUser = {}, action) {
 
 export const login = (credentials, navigation) => dispatch => {
 	{
-		fetch('http://86.163.162.130:5000/api/users/login', {
+		fetch(`${IP}/api/users/login`, {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -74,5 +75,10 @@ export const logout = navigation => dispatch => {
 
 function setUserAndRedirect(user, navigation, dispatch) {
 	dispatch(setCurrentUser(user));
-	navigation.navigate('SignedIn', { userName: user });
+	navigation.dispatch(
+		StackActions.reset({
+			index: 0,
+			actions: navigation.navigate('loginStack', { userName: user })
+		})
+	);
 }
