@@ -24,20 +24,28 @@ it is also possible to simulate an android device by using the andorid developer
 1. Download the [expo client app](https://expo.io/tools#client) on your device of choice
 2. Download this repo and extract the zip
 3. download and install [node.js](https://nodejs.org/en/blog/release/v10.18.0/) the 10.x.x branch is preferable, although it should still work in the latest ltb
-4. using your terminal of choice, `cd` to the directory of the repo, now assuming you have set the environment settings up correctly just
+4. using your terminal of choice, copy and past
+```
+cd Downlaods\organiseMe-master\organiseMe-master && npm i
+```
+then type `npm start`, this should get the project running
+
+5. once the project has started up, you should see either a popup with a qr code, or the qr code will appear inside the terminal, scan this with your phone and the ap should begin to load
 
 ## andorid simulation
-    to be written as i cannot be bothered as of present 
+
+    to be written as i cannot be bothered as of present
 
 ## extra stuff
+
 ### todo:
 
-- correct naviagte animations
-- add form functionality to the api bit by bit
-- make a full protoytype, login functionailty but no api interaction post login
+-   correct naviagte animations
+-   add form functionality to the api bit by bit
+-   make a full protoytype, login functionailty but no api interaction post login
 
 ### in the future:
 
-- add google, discord and facebook sign/signup 
-- clean up gesture programming
-- add biometrics into app security as a security option
+-   add google, discord and facebook sign/signup
+-   clean up gesture programming
+-   add biometrics into app security as a security option

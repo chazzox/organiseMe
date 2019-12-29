@@ -78,7 +78,7 @@ function setUserAndRedirect(user, navigation, dispatch) {
 	navigation.dispatch(
 		StackActions.reset({
 			index: 0,
-			actions: navigation.navigate('loginStack', { userName: user })
+			actions: [NavigationActions.navigate({ routeName: 'loginStack' })]
 		})
 	);
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import loggerMiddleware from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 
 import currentUser from './components/redux/reducer';
@@ -39,8 +38,8 @@ export default class App extends Component {
 		return (
 			<Provider
 				store={createStore(
-					currentUser,
-					applyMiddleware(thunkMiddleware, loggerMiddleware)
+					combineReducers({ currentUser }),
+					applyMiddleware(thunkMiddleware)
 				)}>
 				<Layout />
 			</Provider>

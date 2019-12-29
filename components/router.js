@@ -29,8 +29,8 @@ export const createRootNavigator = (signedIn = false) => {
 			authStack: {
 				screen: SignedOut,
 				navigationOptions: {
-					gesturesEnabled: false,
-					headerVisible: false
+					// we don't want our header to show on login
+					header: null
 				}
 			}
 		},
