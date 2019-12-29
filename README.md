@@ -32,11 +32,9 @@ it is also possible to simulate an android device by using the andorid developer
 ## extra stuff
 ### todo:
 
--   add prototype view for each form
--   correct naviagte animations
--   check android compatibilty
--   connect login api to app
--   add form functionality to the api bit by bit
+- correct naviagte animations
+- add form functionality to the api bit by bit
+- make a full protoytype, login functionailty but no api interaction post login
 
 ### in the future:
 
