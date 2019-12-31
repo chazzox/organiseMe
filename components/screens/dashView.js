@@ -27,21 +27,12 @@ class DashContainer extends Component {
 class DashView extends Component {
 	constructor(props) {
 		super(props);
-		this.navToForm = this.navToForm.bind(this);
 	}
-
-	navToForm = formName => {
-		this.props.navigation.dispatch(
-			StackActions.reset({
-				index: 0,
-				actions: [NavigationActions.navigate({ routeName: formName })]
-			})
-		);
-	};
 
 	render() {
 		return (
 			<View style={styles.ViewBox}>
+				<Text style={styles.userName}>Hey, Charlie!</Text>
 				<ScrollView style={styles.ScrollView}>
 					<View style={styles.container}>
 						<DashContainer
@@ -54,19 +45,25 @@ class DashView extends Component {
 							title="Don't know what homework you have?"
 							body='Click the link below to view your coming weeks homwork'
 							buttonTitle='homework boi'
-							nav={() => this.navToForm('homeworkMain')}
+							nav={() =>
+								this.props.navigation.navigate('homeworkMain')
+							}
 						/>
 						<DashContainer
 							title='big bruh'
 							body='bruh bruh'
 							buttonTitle='bruh bruh, bruh bruh'
-							nav={() => this.navToForm('homeworkMain')}
+							nav={() =>
+								this.props.navigation.navigate('homeworkMain')
+							}
 						/>
 						<DashContainer
 							title='big bruh'
 							body='bruh bruh'
 							buttonTitle='bruh bruh, bruh bruh'
-							nav={() => this.navToForm('homeworkMain')}
+							nav={() =>
+								this.props.navigation.navigate('homeworkMain')
+							}
 						/>
 					</View>
 				</ScrollView>

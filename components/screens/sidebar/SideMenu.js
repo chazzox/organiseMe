@@ -10,18 +10,8 @@ import styles from './SideMenu.style';
 class SideMenu extends Component {
 	constructor(props) {
 		super(props);
-		this.navToForm = this.navToForm.bind(this);
 	}
 
-	navToForm = formName => {
-		console.log('this ran for some reason');
-		this.props.navigation.dispatch(
-			StackActions.reset({
-				index: 0,
-				actions: [NavigationActions.navigate({ routeName: formName })]
-			})
-		);
-	};
 	render() {
 		return (
 			<View style={{ height: '100%' }}>
@@ -31,7 +21,9 @@ class SideMenu extends Component {
 					<View>
 						<Text
 							style={styles.sectionHeadingStyle}
-							onPress={() => this.navToForm('Main')}>
+							onPress={() =>
+								this.props.navigation.navigate('Main')
+							}>
 							Dashboard
 						</Text>
 					</View>
@@ -39,7 +31,9 @@ class SideMenu extends Component {
 					<View>
 						<Text
 							style={styles.sectionHeadingStyle}
-							onPress={() => this.navToForm('homeworkMain')}>
+							onPress={() =>
+								this.props.navigation.navigate('homeworkMain')
+							}>
 							Homework
 						</Text>
 					</View>
@@ -47,7 +41,9 @@ class SideMenu extends Component {
 					<View>
 						<Text
 							style={styles.sectionHeadingStyle}
-							onPress={() => this.navToForm('examView')}>
+							onPress={() =>
+								this.props.navigation.navigate('examView')
+							}>
 							Exams
 						</Text>
 					</View>
