@@ -4,17 +4,14 @@ import { StackActions, NavigationActions } from 'react-navigation';
 import IP from '../../IP';
 
 /* -----------------    ACTION TYPES    ------------------ */
-
 const SET_CURRENT_USER = 'SET_CURRENT_USER';
 const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 
 /* ------------     ACTION CREATORS      ------------------ */
-
 const setCurrentUser = user => ({ type: SET_CURRENT_USER, user });
 export const removeCurrentUser = () => ({ type: REMOVE_CURRENT_USER });
 
 /* ------------          REDUCER         ------------------ */
-
 export default function reducer(currentUser = {}, action) {
 	switch (action.type) {
 		case SET_CURRENT_USER:
@@ -28,8 +25,7 @@ export default function reducer(currentUser = {}, action) {
 	}
 }
 
-/* ------------       THUNK CREATORS     ------------------ */
-
+/* ------------       API COMMUNICATOR     ----------------- */
 export const login = (credentials, navigation) => dispatch => {
 	{
 		fetch(`${IP}/api/users/login`, {
@@ -44,10 +40,16 @@ export const login = (credentials, navigation) => dispatch => {
 			.then(res => {
 				const result = JSON.parse(res);
 				if (result.success == true) {
-					setUserAndRedirect(result.name, navigation, dispatch);
+					try {
+						setUserAndRedirect(result.name, navigation, dispatch, {
+							name: result.name
+						});
+					} catch (err) {
+						console.log(err);
+					}
 				} else if (result.success == false) {
 					navigation.navigate('Login', {
-						error: 'Login failed.'
+						error: 'SignedOut failed.'
 					});
 				}
 			})
@@ -58,27 +60,52 @@ export const login = (credentials, navigation) => dispatch => {
 };
 
 export const signup = (credentials, navigation) => dispatch => {
-	axios
-		.post(`${IP}/auth/signup`, credentials)
-		.then(res => setUserAndRedirect(res.data, navigation, dispatch))
+	fetch(`${IP}/api/users/register`, {
+		method: 'POST',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(credentials)
+	})
+		.then(response => response.text())
+		.then(res => {
+			const result = JSON.parse(res);
+			if (result.success == true) {
+				setUserAndRedirect(result.name, navigation, dispatch, {
+					name: result.name
+				});
+			} else if (result.success == false) {
+				navigation.navigate('Login', {
+					error: 'Login failed.'
+				});
+			}
+		})
 		.catch(() =>
 			navigation.navigate('SignedOut', { error: 'Signup failed.' })
 		);
 };
 
 export const logout = navigation => dispatch => {
+	console.log('test');
 	dispatch(removeCurrentUser());
-	navigation.navigate('SignedOut', { error: 'Logout successful.' });
+	NavigationActions.navigate('SignedOut', { error: 'Logout successful.' });
 };
 
 /* ------------      HELPER FUNCTIONS     ------------------ */
 
-function setUserAndRedirect(user, navigation, dispatch) {
+function setUserAndRedirect(user, navigation, dispatch, userJSON) {
+	console.log('func was ran');
 	dispatch(setCurrentUser(user));
 	navigation.dispatch(
 		StackActions.reset({
 			index: 0,
-			actions: [NavigationActions.navigate({ routeName: 'loginStack' })]
+			actions: [
+				NavigationActions.navigate(
+					{ routeName: 'loginStack' },
+					userJSON
+				)
+			]
 		})
 	);
 }

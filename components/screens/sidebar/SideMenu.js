@@ -3,14 +3,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StackActions, NavigationActions } from 'react-navigation';
 import { ScrollView, Text, View } from 'react-native';
-
 // style sheet
 import styles from './SideMenu.style';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 class SideMenu extends Component {
 	constructor(props) {
 		super(props);
+		this.navToForm = this.navToForm.bind(this);
 	}
+
+	navToForm = formName => {
+		this.props.navigation.dispatch(
+			StackActions.reset({
+				index: 0,
+				actions: [NavigationActions.navigate({ routeName: formName })]
+			})
+		);
+	};
 
 	render() {
 		return (
@@ -56,7 +66,12 @@ class SideMenu extends Component {
 				</View>
 
 				<View style={styles.footerContainer}>
-					<Text>This is my fixed footer</Text>
+					<TouchableOpacity
+						onPress={() => {
+							this.navToForm('SignedOut');
+						}}>
+						<Text>This is my fixed footer</Text>
+					</TouchableOpacity>
 				</View>
 			</View>
 		);

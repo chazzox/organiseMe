@@ -15,7 +15,7 @@ export default {
 		textAlign: 'center',
 		fontWeight: 'bold',
 		justifyContent: 'center',
-		fontSize: 50
+		fontSize: 40
 	},
 	textInput: {
 		width: 300,

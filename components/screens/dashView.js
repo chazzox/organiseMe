@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button, ScrollView, StyleSheet } from 'react-native';
-import { StackActions, NavigationActions } from 'react-navigation';
-
 // importing style sheet
 import styles from './dashView.style';
 
@@ -27,43 +25,42 @@ class DashContainer extends Component {
 class DashView extends Component {
 	constructor(props) {
 		super(props);
+		this.navigation = this.props.navigation;
+		console.log(this.props.navigation.state.params);
+		this.state = {
+			UserName: this.props.navigation.getParam('name', 'bruh')
+		};
 	}
 
 	render() {
 		return (
 			<View style={styles.ViewBox}>
-				<Text style={styles.userName}>Hey, Charlie!</Text>
+				<Text style={styles.userName}>Hey, {this.state.UserName}!</Text>
 				<ScrollView style={styles.ScrollView}>
 					<View style={styles.container}>
 						<DashContainer
 							title='Add new homework'
 							body='Use this section to add your homework quickly!'
 							buttonTitle='Quick Add'
-							nav={() => this.props.navigation.navigate('addHW')}
+							nav={() => this.navigation.navigate('addHW')}
 						/>
 						<DashContainer
 							title="Don't know what homework you have?"
 							body='Click the link below to view your coming weeks homwork'
 							buttonTitle='homework boi'
-							nav={() =>
-								this.props.navigation.navigate('homeworkMain')
-							}
+							nav={() => this.navigation.navigate('homeworkMain')}
+						/>
+						<DashContainer
+							title='Next piece of homework'
+							body={`Your next peice of homework due is:\nMaths`}
+							buttonTitle='bruh bruh, bruh bruh'
+							nav={() => this.navigation.navigate('homeworkMain')}
 						/>
 						<DashContainer
 							title='big bruh'
 							body='bruh bruh'
 							buttonTitle='bruh bruh, bruh bruh'
-							nav={() =>
-								this.props.navigation.navigate('homeworkMain')
-							}
-						/>
-						<DashContainer
-							title='big bruh'
-							body='bruh bruh'
-							buttonTitle='bruh bruh, bruh bruh'
-							nav={() =>
-								this.props.navigation.navigate('homeworkMain')
-							}
+							nav={() => this.navigation.navigate('homeworkMain')}
 						/>
 					</View>
 				</ScrollView>

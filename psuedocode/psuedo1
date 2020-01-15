@@ -1,0 +1,85 @@
+function login() {
+    INPUT EmailAddress
+    INPUT Password
+    PRESS Login 
+	if (
+		usrnameDB.findone(EmailAddress) and
+		(byCypt(Password) = db.hashPass)
+	) {
+		headers = {
+			email: EmailAddress,
+			password: Password,
+		}
+        responce = fetch(apiURL, headers);
+        if(responce.success=true){
+            NAVIGATE to login screen
+        }
+	}
+}
+
+function displayWeeksHW(userDetailsJSON){
+    headers = {
+			email: userDetailsJSON.user,
+			password: userDetailsJSON.user,
+		}
+    responce = fetch(apiURL, headers);
+    i=0
+    loop (i<responce.hw.size) {
+        i++
+        // render is a function that given params will define a pre-defined obj/view 
+        // in react
+        render({
+            responce.hw[i].name,
+            responce.hw[i].desc,
+            responce.hw[i].due
+        },hwView)
+    }
+}
+
+function changePass() {
+    INPUT oldPAss
+    INPUT newPass1
+    INPUT newPass2
+    if (newPass1=newPass2 
+        and (byCypt(userDetailsJSON.pass) = db.hashPass)
+        and (newPass1.match(passRegex))) {
+        STORE newPass1 with this.user.EmailAddress
+    }
+    else{
+        OUTPUT "Could not complete, check your passwords match, your old
+                your new password matches are complexity  your new password 
+                matches are complexity requirements"
+    }
+}
+
+function newSubject() {
+    INPUT subjectName;
+    INPUT subjectTeacher
+    if((subjectName.length>0 and subjectName.length<10)
+        and subjectTeacher.length>0 and subjectTeacher.length<15){
+            subjectOBJ={
+                name:subjectName,
+                teacher:subjectTeacher
+            }
+            STORE subjectOBJ in this.user.subjects
+        }
+    else{
+        OUTPUT "Your inputs failed our validation, please try again."
+    }
+    
+}
+
+function newHomework(param) {
+    INPUT subjectName;
+    INPUT subjectTeacher
+    INPUT subjectTeacher
+    INPUT subjectTeacher
+    if((subjectName.length>0 and subjectName.length<10)
+        and subjectTeacher.length>0 and subjectTeacher.length<15){
+            subjectOBJ={
+                name:subjectName,
+                teacher:subjectTeacher
+            }
+            STORE subjectOBJ in this.user.subjects
+        }
+}

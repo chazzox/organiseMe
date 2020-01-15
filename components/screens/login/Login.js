@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux';
 
 import { login } from '../../redux/reducer';
-import styles from './login.style';
+import styles from './globalAuth.style';
 
 class UserInput extends Component {
 	render() {
@@ -95,4 +95,5 @@ class Login extends Component {
 const mapDispatchToProps = dispatch => ({
 	login: (credentials, navigation) => dispatch(login(credentials, navigation))
 });
+
 export default connect(null, mapDispatchToProps)(Login);

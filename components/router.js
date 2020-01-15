@@ -34,7 +34,6 @@ class Headers extends Component {
 }
 
 export const createRootNavigator = signedIn => {
-	signedIn = true;
 	return createStackNavigator(
 		{
 			loginStack: {
@@ -43,13 +42,13 @@ export const createRootNavigator = signedIn => {
 					gesturesEnabled: false
 				}
 			},
-			authStack: {
-				screen: SignedOut
+			SignedOut: {
+				screen: authStack
 			}
 		},
 		{
 			headerMode: 'none',
-			initialRouteName: signedIn ? 'loginStack' : 'authStack'
+			initialRouteName: signedIn ? 'loginStack' : 'SignedOut'
 		}
 	);
 };
@@ -62,14 +61,8 @@ const SignedInDrawer = createDrawerNavigator(
 					Main: {
 						screen: DashView,
 						navigationOptions: {
-							tabBarLabel: 'Main',
-							tabBarIcon: ({ tintColor }) => (
-								<FontAwesome
-									name='home'
-									size={30}
-									color={tintColor}
-								/>
-							)
+							title: 'Dashboard',
+							
 						}
 					},
 					addHW: {
@@ -94,7 +87,7 @@ const SignedInDrawer = createDrawerNavigator(
 					},
 					homeworkMain: {
 						screen: homeworkMain,
-						
+
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Upcoming Homework...',
@@ -187,14 +180,12 @@ const SignedInDrawer = createDrawerNavigator(
 	}
 );
 
-const SignedOut = createStackNavigator(
+const authStack = createStackNavigator(
 	{
 		welcome: {
 			screen: welcome,
-			navigationOptions({ navigation }) {
-				return {
-					headerLeft: null
-				};
+			navigationOptions: {
+				headerLeft: null,
 			}
 		},
 		Login: {
