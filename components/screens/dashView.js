@@ -35,8 +35,8 @@ class DashView extends Component {
 	render() {
 		return (
 			<View style={styles.ViewBox}>
-				<Text style={styles.userName}>Hey, {this.state.UserName}!</Text>
 				<ScrollView style={styles.ScrollView}>
+				<Text style={styles.userName}>Hey, {this.state.UserName}!</Text>
 					<View style={styles.container}>
 						<DashContainer
 							title='Add new homework'
@@ -53,7 +53,7 @@ class DashView extends Component {
 						<DashContainer
 							title='Next piece of homework'
 							body={`Your next peice of homework due is:\nMaths`}
-							buttonTitle='bruh bruh, bruh bruh'
+							buttonTitle='click here for more a full page of info'
 							nav={() => this.navigation.navigate('homeworkMain')}
 						/>
 						<DashContainer
