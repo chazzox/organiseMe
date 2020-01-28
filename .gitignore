@@ -1,5 +1,5 @@
 # node un-needed
-node_modules/**/*
+node_modules*
 package-lock*
 npm-debug.*
 *.jks

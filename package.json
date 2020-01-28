@@ -1,8 +1,8 @@
 {
 	"main": "node_modules/expo/AppEntry.js",
 	"scripts": {
-		"start": "concurrently \"cd auth_api && npx nodemon\" \"npm run expo-app\"",
-		"expo-app": "expo start ",
+		"start": "expo start",
+		"expo-app": "expo start",
 		"eject": "expo eject"
 	},
 	"dependencies": {

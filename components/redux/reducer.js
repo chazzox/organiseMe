@@ -48,12 +48,14 @@ export const login = (credentials, navigation) => dispatch => {
 						console.log(err);
 					}
 				} else if (result.success == false) {
+					console.log('login function: user login unsuccessful');
 					navigation.navigate('Login', {
 						error: 'SignedOut failed.'
 					});
 				}
 			})
 			.catch(err => {
+				console.log('login function: user login unsuccessful');
 				navigation.navigate('Login', { error: 'Login failed.' });
 			});
 	}
@@ -87,7 +89,6 @@ export const signup = (credentials, navigation) => dispatch => {
 };
 
 export const logout = navigation => dispatch => {
-	console.log('test');
 	dispatch(removeCurrentUser());
 	NavigationActions.navigate('SignedOut', { error: 'Logout successful.' });
 };
@@ -95,7 +96,6 @@ export const logout = navigation => dispatch => {
 /* ------------      HELPER FUNCTIONS     ------------------ */
 
 function setUserAndRedirect(user, navigation, dispatch, userJSON) {
-	console.log('func was ran');
 	dispatch(setCurrentUser(user));
 	navigation.dispatch(
 		StackActions.reset({

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, Button, ScrollView, StyleSheet } from 'react-native';
+import { users } from './user';
 // importing style sheet
 import styles from './dashView.style';
 
@@ -25,18 +26,29 @@ class DashContainer extends Component {
 class DashView extends Component {
 	constructor(props) {
 		super(props);
+		this.findNew = this.findNew.bind(this);
 		this.navigation = this.props.navigation;
-		console.log(this.props.navigation.state.params);
 		this.state = {
-			UserName: this.props.navigation.getParam('name', 'bruh')
+			UserName: users.name,
+			nextHW: this.findNew(users.homework),
+			nextExam: this.findNew(users.exams)
 		};
 	}
-
+	findNew(obj) {
+		console.log(obj);
+		const lol = {
+			name: 'bruh',
+			id: 2
+		};
+		return lol;
+	}
 	render() {
 		return (
 			<View style={styles.ViewBox}>
-				<Text style={styles.userName}>Hey, {this.state.UserName}!</Text>
 				<ScrollView style={styles.ScrollView}>
+					<Text style={styles.userName}>
+						Hey, {this.state.UserName}!
+					</Text>
 					<View style={styles.container}>
 						<DashContainer
 							title='Add new homework'
@@ -52,15 +64,30 @@ class DashView extends Component {
 						/>
 						<DashContainer
 							title='Next piece of homework'
-							body={`Your next peice of homework due is:\nMaths`}
-							buttonTitle='bruh bruh, bruh bruh'
-							nav={() => this.navigation.navigate('homeworkMain')}
+							body={`Your next peice of homework due is: ${this.state.nextHW.name}`}
+							buttonTitle='click here to see info'
+							nav={() =>
+								this.navigation.navigate('', {
+									hw: this.state.nextHW.id
+								})
+							}
+						/>
+						<DashContainer
+							title='Next Exam'
+							body={`Your next peice of homework due is: ${this.state.nextExam.name}`}
+							buttonTitle='click here to see info'
+							nav={() =>
+								this.navigation.navigate('', {
+									hw: this.state.nextExam.id
+								})
+							}
 						/>
 						<DashContainer
 							title='big bruh'
 							body='bruh bruh'
 							buttonTitle='bruh bruh, bruh bruh'
-							nav={() => this.navigation.navigate('homeworkMain')}
+							nav={() => this.navigation.navigate('')}
+							style={{}}
 						/>
 					</View>
 				</ScrollView>
@@ -68,4 +95,9 @@ class DashView extends Component {
 		);
 	}
 }
-export default connect(null, null)(DashView);
+
+const mapDispatchToProps = dispatch => ({
+	login: (credentials, navigation) => dispatch(login(credentials, navigation))
+});
+
+export default connect(mapDispatchToProps, null)(DashView);

@@ -68,18 +68,23 @@ class SideMenu extends Component {
 				<View style={styles.footerContainer}>
 					<TouchableOpacity
 						onPress={() => {
+							this.props.navigation.navigate('homeworkMain');
+						}}>
+						<Text>Account Settings</Text>
+					</TouchableOpacity>
+				</View>
+
+				<View style={styles.footerContainer}>
+					<TouchableOpacity
+						onPress={() => {
 							this.navToForm('SignedOut');
 						}}>
-						<Text>This is my fixed footer</Text>
+						<Text>Sign out of organiseMe</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
 		);
 	}
 }
-
-SideMenu.propTypes = {
-	navigation: PropTypes.object
-};
 
 export default connect(null, null)(SideMenu);
