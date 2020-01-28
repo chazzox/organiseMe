@@ -9,9 +9,11 @@ import {
 	View
 } from 'react-native';
 import { connect } from 'react-redux';
+import {withNavigation} from 'react-navigation'
 
 import { login } from '../../redux/reducer';
 import styles from './globalAuth.style';
+import IP from '../../../IP'
 
 class UserInput extends Component {
 	render() {
@@ -27,7 +29,6 @@ class UserInput extends Component {
 		);
 	}
 }
-
 class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -40,6 +41,18 @@ class Login extends Component {
 		this.handleChangePassword = this.handleChangePassword.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
+
+	getName(token){
+		fetch(`${IP}/api/users/login`, {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(credentials)
+		});
+	}
+
 
 	handleChangeEmail(value) {
 		this.setState({ email: value });
@@ -96,4 +109,4 @@ const mapDispatchToProps = dispatch => ({
 	login: (credentials, navigation) => dispatch(login(credentials, navigation))
 });
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(withNavigation(Login));

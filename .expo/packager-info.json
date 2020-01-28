@@ -1,9 +1,1 @@
-{
-  "expoServerNgrokUrl": "https://5y-asi.chazzox.organiseme.exp.direct",
-  "packagerNgrokUrl": "https://packager.5y-asi.chazzox.organiseme.exp.direct",
-  "ngrokPid": 1480,
-  "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 5932
-}
+{}

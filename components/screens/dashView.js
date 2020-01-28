@@ -46,9 +46,7 @@ class DashView extends Component {
 		return (
 			<View style={styles.ViewBox}>
 				<ScrollView style={styles.ScrollView}>
-					<Text style={styles.userName}>
-						Hey, {this.state.UserName}!
-					</Text>
+				<Text style={styles.userName}>Hey, {this.state.UserName}!</Text>
 					<View style={styles.container}>
 						<DashContainer
 							title='Add new homework'

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { StackActions, NavigationActions } from 'react-navigation';
 
 import IP from '../../IP';
