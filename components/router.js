@@ -11,11 +11,11 @@ import Signup from "./screens/login/Signup";
 import welcome from "./screens/login/welcome";
 
 // logged in screens
-import DashView from "./screens/dashView";
+import DashView from "./screens/dashMain";
 import SideMenu from "./screens/sidebar/SideMenu";
 import homeworkMain from "./screens/homework/homework";
 import addHW from "./screens/homework/addHW";
-import examView from "./screens/exams/examView";
+import examMain from "./screens/exams/examMain";
 import examAdd from "./screens/exams/examAdd";
 import settings from "./screens/accSettings/settingsView";
 class Headers extends Component {
@@ -64,6 +64,7 @@ const SignedInDrawer = createDrawerNavigator(
               title: "Dashboard"
             }
           },
+
           addHW: {
             screen: addHW,
             navigationOptions({ navigation }) {
@@ -103,8 +104,8 @@ const SignedInDrawer = createDrawerNavigator(
             }
           },
 
-          examView: {
-            screen: examView,
+          examMain: {
+            screen: examMain,
             navigationOptions({ navigation }) {
               return {
                 title: "Your Exams for this Week",
@@ -139,6 +140,7 @@ const SignedInDrawer = createDrawerNavigator(
               };
             }
           },
+
           settings: {
             screen: settings,
             navigationOptions({ navigation }) {

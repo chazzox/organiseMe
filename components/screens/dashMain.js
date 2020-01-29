@@ -41,14 +41,11 @@ class DashView extends Component {
     let indexStore = 0;
     let comparitor = userJSON[0].due;
     for (let i = 1; i < userJSON.length; i++) {
-      if (comparitor > userJSON[i].due){
-        console.log(userJSON[i].due);
-        console.log(`${comparitor} < ${userJSON[i].due} = ${comparitor < userJSON[i].due}`);
+      if (comparitor > userJSON[i].due) {
         comparitor = userJSON[i].due;
         indexStore = i;
       }
     }
-    console.log(userJSON[indexStore].name);
     return userJSON[indexStore];
   }
 
@@ -61,8 +58,14 @@ class DashView extends Component {
             <DashContainer
               title="Add new homework"
               body="Use this section to add your homework quickly!"
-              buttonTitle="Quick Add"
+              buttonTitle="Add Homework"
               nav={() => this.navigation.navigate("addHW")}
+            />
+            <DashContainer
+              title="Add new Exam"
+              body="Use this section to add your exams quickly!"
+              buttonTitle="Add new Exam"
+              nav={() => this.navigation.navigate("examAdd")}
             />
             <DashContainer
               title="Next piece of homework"
@@ -75,12 +78,6 @@ class DashView extends Component {
               }
             />
             <DashContainer
-              title="Don't know what homework you have?"
-              body="Click the link below to view your coming weeks homwork"
-              buttonTitle="homework boi"
-              nav={() => this.navigation.navigate("homeworkMain")}
-            />
-            <DashContainer
               title="Next Exam"
               body={`Your next peice of homework due is: ${this.state.nextExam.name}`}
               buttonTitle="click here to see info"
@@ -90,13 +87,20 @@ class DashView extends Component {
                 })
               }
             />
-            <DashContainer
-              title="big bruh"
-              body="bruh bruh"
-              buttonTitle="bruh bruh, bruh bruh"
-              nav={() => this.navigation.navigate("")}
-              style={{}}
-            />
+            <View style={{ ...styles.dashCont, ...{ marginBottom: 45 } }}>
+              <Text style={styles.title}>
+                Can't find what you're looking for?
+              </Text>
+              <Text
+                style={{
+                  ...styles.body,
+                  ...{ marginBottom: 5, marginTop: 5 }
+                }}
+              >
+                Click the icon dashboard icon in the top left to explore more
+                options
+              </Text>
+            </View>
           </View>
         </ScrollView>
       </View>

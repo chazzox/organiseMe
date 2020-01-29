@@ -90,7 +90,7 @@ const screen = () => (
 	</View>
 );
 
-export default class homeworkMain extends React.Component {
+export default class examMain extends React.Component {
 	render() {
 		return (
 			<TabName

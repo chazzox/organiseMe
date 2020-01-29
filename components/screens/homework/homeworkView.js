@@ -7,7 +7,7 @@ export default class HomeworkView extends Component{
     }
     render(){
         return(
-            <View><Text>test</Text></View>
+            <View><Text>Test</Text></View>
         )
     }
 }
