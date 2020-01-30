@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 8952,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "packagerPid": 3924,
+  "expoServerNgrokUrl": "https://5y-asi.chazzox.organiseme.exp.direct",
+  "packagerNgrokUrl": "https://packager.5y-asi.chazzox.organiseme.exp.direct",
+  "ngrokPid": 10096
 }
