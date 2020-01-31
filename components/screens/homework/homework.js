@@ -11,94 +11,85 @@ class HWobj extends Component {
 		super(props);
 	}
 	render() {
-		let dueText;
+		let dueText, body, name, due;
 		// conditional rendering statement
-		if (this.props.dateDue) {
+		if (this.props.homework) {
 			dueText = this.props.dateDue;
 		}
-		if (this.props) {
-			blockTextBody = 'No homework for this day';
+		if (this.props.homework) {
+			name = this.props.homework.name;
+			body = this.props.homework.description;
+			due = `${new Date(this.props.homework.due).getDate()}/${new Date(
+				this.props.homework.due,
+			).getMonth()}/${new Date(this.props.homework.due).getFullYear()}`;
+			dueText = 'Due:  ';
 		}
 		return (
 			<View style={styles.block}>
-				<Text style={styles.blockTextMain}>{this.props.main}</Text>
+				<Text style={styles.blockTextMain}>{name}</Text>
 				<Text style={styles.blockTextBody}>
-					{this.props.body}
+					{body}
 					<Text
 						style={{
 							color: 'white',
 							fontWeight: 'bold',
-							marginTop: 7
-						}}>
+							marginTop: 7,
+						}}
+					>
+						{'\n'}
 						{dueText}
-						<Text style={{ color: '#007Aff' }}>{this.props.date}</Text>
+						<Text style={{ color: '#007Aff' }}>{due}</Text>
 					</Text>
 				</Text>
 			</View>
 		);
 	}
 }
-class Dayobj extends Component {
+
+function createSchedule() {
+	let newDay;
+	let today = new Date();
+	let homeworkArr = [[], [], [], [], []];
+	let homeworkArrIndex = 0;
+	for (var i = 0; i < 7; i++) {
+		newDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + i);
+		if (newDay.getDay() != 0 && newDay.getDay() != 6) {
+			for (let hwIterator = 0; hwIterator < users.homework.length; hwIterator++) {
+				if (newDay.getTime() == users.homework[hwIterator].due) {
+					homeworkArr[homeworkArrIndex].push(users.homework[hwIterator]);
+				}
+			}
+			homeworkArrIndex++;
+		}
+	}
+	return homeworkArr;
+}
+
+class DayView extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			//state is by default an object
+			homeworkArray: createSchedule()[this.props.day],
+		};
+	}
+	renderTableData() {
+		return this.state.homeworkArray.map((homework, index) => {
+			return <HWobj key={index} homework={homework} />;
+		});
 	}
 	render() {
 		return (
 			<View style={styles.screen}>
-				<ScrollView>{...this.props}</ScrollView>
+				<ScrollView>{this.renderTableData()}</ScrollView>
 			</View>
 		);
 	}
 }
 
 export default class homeworkMain extends Component {
-	constructor() {
-		this.createSchedule = this.createSchedule.bind(this);
-		this.RenderSchedule = this.RenderSchedule.bind(this);
-	}
-	createSchedule() {
-		let homeworkArr = [[], [], [], [], [], []];
-		for (let hwIterator = 0; hwIterator < users.homework.length; hwIterator++) {
-			if (
-				new Date(
-					new Date().getFullYear(),
-					new Date().getMonth(),
-					new Date().getDate() + 7
-				).getTime() > users.homework[hwIterator].due &&
-				new Date(
-					new Date().getFullYear(),
-					new Date().getMonth(),
-					new Date().getDate()
-				).getTime() <= users.homework[hwIterator].due
-			) {
-				honestlyIHaveNoIdea = Math.floor(
-					new Date(
-						new Date().getFullYear(),
-						new Date().getMonth(),
-						new Date().getDate() + 7
-					).getTime() -
-						new Date(users.homework[hwIterator].due - 1).getTime() / 86400000
-				);
-				console.log(honestlyIHaveNoIdea);
-				homeworkArr[honestlyIHaveNoIdea].push(users.homework[hwIterator]);
-			}
-			homeworkArr[new Date(users.homework[hwIterator].due - 1).getDay()].sort(function(a, b) {
-				return a.subjectId - b.subjectId;
-			});
-		}
-
-		return homeworkArr;
-	}
-	RenderSchedule() {
-		weeksHomework = this.createSchedule();
-		let dayRender = [];
-		for (var i = 0; i < weeksHomework.length; i++) {
-			ppppppp;
-		}
-		return [{}, {}, {}, {}, {}];
-	}
-	componentDidMount() {
-		screenArr = RenderSchedule();
+	constructor(props) {
+		super(props);
 	}
 
 	render() {
@@ -106,11 +97,11 @@ export default class homeworkMain extends Component {
 			<TabName
 				style={{ height: 90 }}
 				screenBoi={SceneMap({
-					Monday: screenArr[0],
-					Tuesday: screenArr[1],
-					Wednesday: screenArr[2],
-					Thursday: screenArr[3],
-					Friday: screenArr[5]
+					Monday: () => <DayView day={0} />,
+					Tuesday: () => <DayView day={1} />,
+					Wednesday: () => <DayView day={2} />,
+					Thursday: () => <DayView day={3} />,
+					Friday: () => <DayView day={4} />,
 				})}
 			/>
 		);

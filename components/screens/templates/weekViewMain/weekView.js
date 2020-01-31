@@ -19,11 +19,10 @@ function TabLabel({ navigationState, position, index, children }) {
 		// returns a vlue of apaicty based on the current view vs the
 		return Animated.interpolate(position, {
 			inputRange,
-			outputRange: inputRange.map((i) => (i === index ? 1 : 0.4))
 		});
 	}, []);
 
-	return <Animated.Text style={[ styles.label, { opacity } ]}>{children}</Animated.Text>;
+	return <Animated.Text style={[styles.label, { opacity }]}>{children}</Animated.Text>;
 }
 
 function TabBar({ navigationState, layout, position }) {
@@ -31,7 +30,7 @@ function TabBar({ navigationState, layout, position }) {
 		const inputRange = navigationState.routes.map((_, i) => i);
 		return Animated.interpolate(position, {
 			inputRange,
-			outputRange: inputRange.map((i) => -layout.width / 1.5 * i)
+			outputRange: inputRange.map(i => (-layout.width / 1.5) * i)
 		});
 	}, []);
 
@@ -40,8 +39,8 @@ function TabBar({ navigationState, layout, position }) {
 			style={[
 				styles.tabbar,
 				{
-					width: layout.width / 1.5 * navigationState.routes.length,
-					transform: [ { translateX } ]
+					width: (layout.width / 1.5) * navigationState.routes.length,
+					transform: [{ translateX }]
 				}
 			]}
 		>
@@ -57,19 +56,21 @@ function TabBar({ navigationState, layout, position }) {
 export default class TabName extends React.Component {
 	state = {
 		index: 0,
-		routes: defaultRoute.slice(new Date().getDay() - 1).concat(defaultRoute.slice(0, new Date().getDay() - 1))
+		routes: defaultRoute
+			.slice(new Date().getDay() - 1)
+			.concat(defaultRoute.slice(0, new Date().getDay() - 1))
 	};
 
 	render() {
 		return (
 			<TabView
 				navigationState={this.state}
-				renderTabBar={(props) => <TabBar {...props} />}
-				renderScene= {this.props.screenBoi}
-				onIndexChange={(index) => this.setState({ index })}
+				renderTabBar={props => <TabBar {...props} />}
+				renderScene={this.props.screenBoi}
+				onIndexChange={index => this.setState({ index })}
 				initialLayout={{ width: Dimensions.get('window').width }}
 				style={styles.container}
 			/>
-		)
+		);
 	}
 }
