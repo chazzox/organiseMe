@@ -5,12 +5,13 @@ import { TabView } from 'react-native-tab-view';
 import styles from './weekView.style';
 
 const defaultRoute = [
-	{ key: 'Monday' },
-	{ key: 'Tuesday' },
-	{ key: 'Wednesday' },
-	{ key: 'Thursday' },
-	{ key: 'Friday' }
+	{ key: 'currentDay' },
+	{ key: 'nextDay' },
+	{ key: 'nextDay2' },
+	{ key: 'nextDay3' },
+	{ key: 'nextDay4' }
 ];
+const dayNameArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
 function TabLabel({ navigationState, position, index, children }) {
 	// function to creater opacity of text for next day view
@@ -19,6 +20,7 @@ function TabLabel({ navigationState, position, index, children }) {
 		// returns a vlue of apaicty based on the current view vs the
 		return Animated.interpolate(position, {
 			inputRange,
+			outputRange: inputRange.map(i => (i === index ? 1 : 0.4))
 		});
 	}, []);
 
@@ -46,7 +48,11 @@ function TabBar({ navigationState, layout, position }) {
 		>
 			{navigationState.routes.map((route, i) => (
 				<TabLabel navigationState={navigationState} position={position} index={i} key={i}>
-					{route.key}
+					{
+						dayNameArray
+							.slice(new Date().getDay() - 1)
+							.concat(dayNameArray.slice(0, new Date().getDay() - 1))[i]
+					}
 				</TabLabel>
 			))}
 		</Animated.View>
@@ -57,8 +63,6 @@ export default class TabName extends React.Component {
 	state = {
 		index: 0,
 		routes: defaultRoute
-			.slice(new Date().getDay() - 1)
-			.concat(defaultRoute.slice(0, new Date().getDay() - 1))
 	};
 
 	render() {

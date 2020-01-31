@@ -97,11 +97,11 @@ export default class homeworkMain extends Component {
 			<TabName
 				style={{ height: 90 }}
 				screenBoi={SceneMap({
-					Monday: () => <DayView day={0} />,
-					Tuesday: () => <DayView day={1} />,
-					Wednesday: () => <DayView day={2} />,
-					Thursday: () => <DayView day={3} />,
-					Friday: () => <DayView day={4} />,
+					currentDay: () => <DayView day={0} />,
+					nextDay: () => <DayView day={1} />,
+					nextDay2: () => <DayView day={2} />,
+					nextDay3: () => <DayView day={3} />,
+					nextDay4: () => <DayView day={4} />,
 				})}
 			/>
 		);
