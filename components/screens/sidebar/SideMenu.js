@@ -49,7 +49,7 @@ class SideMenu extends Component {
 		  <View>
 			<Text
 			  style={styles.sectionHeadingStyle}
-			  onPress={() => this.props.navigation.navigate("examView")}
+			  onPress={() => this.props.navigation.navigate("examMain")}
 			>
 			  Exams
 			</Text>
