@@ -6,9 +6,7 @@ class welcome extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text style={[styles.titleText, { marginTop: 40 }]}>
-					Welcome
-				</Text>
+				<Text style={[styles.titleText, { marginTop: 40 }]}>Welcome</Text>
 				<TouchableOpacity
 					onPress={() => {
 						this.props.navigation.navigate('Login');

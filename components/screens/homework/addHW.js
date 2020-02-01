@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import styles from './add.style';
 import { ScrollView } from 'react-native-gesture-handler';
 
-import {UserInput} from '../templates/generalImport'
+import { UserInput } from '../templates/generalImport';
 
 class PickerExample extends Component {
 	state = { user: '' };

@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../../redux/reducer';
-import {
-	Text,
-	TextInput,
-	KeyboardAvoidingView,
-	ScrollView,
-	Button,
-	View
-} from 'react-native';
+import { Text, TextInput, KeyboardAvoidingView, ScrollView, Button, View } from 'react-native';
 import styles from './globalAuth.style';
 
 class UserInput extends Component {
@@ -91,8 +84,7 @@ class Signup extends Component {
 				name: '',
 				password: '',
 				password2: '',
-				error:
-					'Email and password cannot be empty.  Passwords must also match.'
+				error: 'Email and password cannot be empty.  Passwords must also match.'
 			});
 		}
 	}
@@ -104,30 +96,22 @@ class Signup extends Component {
 					<UserInput
 						title='Enter name'
 						value={this.state.name}
-						changeHandleFunction={name =>
-							this.handleChangeName(name)
-						}
+						changeHandleFunction={name => this.handleChangeName(name)}
 					/>
 					<UserInput
 						title='Enter email'
 						value={this.state.email}
-						changeHandleFunction={email =>
-							this.handleChangeEmail(email)
-						}
+						changeHandleFunction={email => this.handleChangeEmail(email)}
 					/>
 					<UserInput
 						title='Enter a Password'
 						value={this.state.password1}
-						changeHandleFunction={password1 =>
-							this.handleChangePassword1(password1)
-						}
+						changeHandleFunction={password1 => this.handleChangePassword1(password1)}
 					/>
 					<UserInput
 						title='Confirm Password'
 						value={this.state.password2}
-						changeHandleFunction={password2 =>
-							this.handleChangePassword2(password2)
-						}
+						changeHandleFunction={password2 => this.handleChangePassword2(password2)}
 					/>
 					<Text style={styles.error}>{this.state.error}</Text>
 					<Button
@@ -142,8 +126,7 @@ class Signup extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-	signup: (credentials, navigation) =>
-		dispatch(signup(credentials, navigation))
+	signup: (credentials, navigation) => dispatch(signup(credentials, navigation))
 });
 
 export default connect(null, mapDispatchToProps)(Signup);

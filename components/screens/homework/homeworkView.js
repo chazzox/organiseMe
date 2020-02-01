@@ -1,13 +1,15 @@
-import React,{ Component } from "react";
-import {Text,View} from 'react-native'
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 
-export default class HomeworkView extends Component{
-    constructor(props){
-        super(props)
-    }
-    render(){
-        return(
-            <View><Text>Test</Text></View>
-        )
-    }
+export default class HomeworkView extends Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			<View>
+				<Text>Test</Text>
+			</View>
+		);
+	}
 }

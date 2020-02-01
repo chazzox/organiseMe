@@ -9,13 +9,13 @@ import {
 	View
 } from 'react-native';
 import { connect } from 'react-redux';
-import {withNavigation} from 'react-navigation'
+import { withNavigation } from 'react-navigation';
 
 import { login } from '../../redux/reducer';
 import styles from './globalAuth.style';
-import IP from '../../../IP'
+import IP from '../../../IP';
 
-import {UserInput} from '../templates/generalImport'
+import { UserInput } from '../templates/generalImport';
 
 class Login extends Component {
 	constructor(props) {
@@ -30,7 +30,7 @@ class Login extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	getName(token){
+	getName(token) {
 		fetch(`${IP}/api/users/login`, {
 			method: 'POST',
 			headers: {
@@ -40,7 +40,6 @@ class Login extends Component {
 			body: JSON.stringify(credentials)
 		});
 	}
-
 
 	handleChangeEmail(value) {
 		this.setState({ email: value });
@@ -78,15 +77,9 @@ class Login extends Component {
 						secureTextEntry={true}
 						placeholder='PASSWORD'
 						value={this.state.password}
-						onChangeText={password =>
-							this.handleChangePassword(password)
-						}
+						onChangeText={password => this.handleChangePassword(password)}
 					/>
-					<Button
-						buttonStyle={styles.button}
-						title='Login'
-						onPress={this.handleSubmit}
-					/>
+					<Button buttonStyle={styles.button} title='Login' onPress={this.handleSubmit} />
 				</ScrollView>
 			</View>
 		);

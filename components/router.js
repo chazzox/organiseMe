@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FontAwesome } from 'react-native-vector-icons';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { Dimensions, StatusBar, View, TouchableOpacity } from 'react-native';

@@ -7,6 +7,6 @@ export default class homeworkMain extends Component {
 	}
 
 	render() {
-		return <TabName style={{ height: 90 }} mode="hw" />;
+		return <TabName style={{ height: 90 }} mode='hw' />;
 	}
 }

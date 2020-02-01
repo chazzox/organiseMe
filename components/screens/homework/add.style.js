@@ -23,7 +23,7 @@ export default {
 		alignSelf: 'center',
 		borderRadius: 25,
 		padding: 10,
-		color:'white'
+		color: 'white'
 	},
 	text: {
 		fontSize: 30,

@@ -44,8 +44,7 @@ function TabBar({ navigationState, layout, position }) {
 					width: (layout.width / 1.5) * navigationState.routes.length,
 					transform: [{ translateX }]
 				}
-			]}
-		>
+			]}>
 			{navigationState.routes.map((route, i) => (
 				<TabLabel navigationState={navigationState} position={position} index={i} key={i}>
 					{
@@ -109,8 +108,7 @@ class HWobj extends Component {
 							color: 'white',
 							fontWeight: 'bold',
 							marginTop: 7
-						}}
-					>
+						}}>
 						{'\n'}
 						{dueText}
 						<Text style={{ color: '#007Aff' }}>{due}</Text>
