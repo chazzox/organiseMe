@@ -15,20 +15,8 @@ import { login } from '../../redux/reducer';
 import styles from './globalAuth.style';
 import IP from '../../../IP'
 
-class UserInput extends Component {
-	render() {
-		return (
-			<TextInput
-				style={styles.textInput}
-				autoCapitalize='none'
-				autoCorrect={false}
-				maxLength={15}
-				placeholderTextColor='white'
-				{...this.props}
-			/>
-		);
-	}
-}
+import {UserInput} from '../templates/generalImport'
+
 class Login extends Component {
 	constructor(props) {
 		super(props);

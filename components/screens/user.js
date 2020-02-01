@@ -48,5 +48,22 @@ export const users = {
 	timetable: {
 		blockPerDay: 2
 	},
-	subjects: {}
+	subjects: {
+		1231: {
+			name: 'maths',
+			teacher: 'mr pls can you do you'
+		},
+		1234: {
+			name: 'comp-sci',
+			teacher: 'mr walton'
+		},
+		4356: {
+			name: 'electronics',
+			teacher: 'mr thingy'
+		},
+		8794: {
+			name: 'futher maths',
+			teacher: 'mr bruh'
+		}
+	}
 };

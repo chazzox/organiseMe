@@ -17,18 +17,6 @@ export default {
 		justifyContent: 'center',
 		fontSize: 40
 	},
-	textInput: {
-		width: 300,
-		margin: 10,
-		color: 'black',
-		fontSize: 15,
-		borderWidth: 2,
-		borderRadius: 20,
-		paddingLeft: 15,
-		backgroundColor: '#ffffff',
-		borderWidth:0,
-		padding:10
-	},
 	button: {
 		backgroundColor: 'gray',
 		width: 150,

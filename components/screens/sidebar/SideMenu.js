@@ -31,8 +31,7 @@ class SideMenu extends Component {
 					<View>
 						<Text
 							style={styles.sectionHeadingStyle}
-							onPress={() => this.props.navigation.navigate('Main')}
-						>
+							onPress={() => this.props.navigation.navigate('Main')}>
 							Dashboard
 						</Text>
 					</View>
@@ -40,8 +39,7 @@ class SideMenu extends Component {
 					<View>
 						<Text
 							style={styles.sectionHeadingStyle}
-							onPress={() => this.props.navigation.navigate('homeworkMain')}
-						>
+							onPress={() => this.props.navigation.navigate('homeworkMain')}>
 							Homework
 						</Text>
 					</View>
@@ -49,14 +47,9 @@ class SideMenu extends Component {
 					<View>
 						<Text
 							style={styles.sectionHeadingStyle}
-							onPress={() => this.props.navigation.navigate('examMain')}
-						>
+							onPress={() => this.props.navigation.navigate('examMain')}>
 							Exams
 						</Text>
-					</View>
-
-					<View>
-						<Text style={styles.sectionHeadingStyle}>Section 3</Text>
 					</View>
 				</View>
 
@@ -64,8 +57,7 @@ class SideMenu extends Component {
 					<TouchableOpacity
 						onPress={() => {
 							this.props.navigation.navigate('settings');
-						}}
-					>
+						}}>
 						<Text>Account Settings</Text>
 					</TouchableOpacity>
 				</View>
@@ -74,8 +66,7 @@ class SideMenu extends Component {
 					<TouchableOpacity
 						onPress={() => {
 							this.navToForm('SignedOut');
-						}}
-					>
+						}}>
 						<Text>Sign out of organiseMe</Text>
 					</TouchableOpacity>
 				</View>

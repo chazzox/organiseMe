@@ -25,7 +25,7 @@ class Headers extends Component {
 				<IOSIcon
 					name={this.props.name}
 					style={{ paddingRight: 15 }}
-					color="white"
+					color='white'
 					size={30}
 				/>
 			</TouchableOpacity>
@@ -79,7 +79,7 @@ const SignedInDrawer = createDrawerNavigator(
 												alert('reeeeeeeeeeee');
 											}
 										}}
-										name="ios-arrow-back"
+										name='ios-arrow-back'
 									/>
 								)
 							};
@@ -97,7 +97,7 @@ const SignedInDrawer = createDrawerNavigator(
 										nav={() => {
 											navigation.navigate('addHW');
 										}}
-										name="ios-add"
+										name='ios-add'
 									/>
 								)
 							};
@@ -114,7 +114,7 @@ const SignedInDrawer = createDrawerNavigator(
 										nav={() => {
 											navigation.navigate('examAdd');
 										}}
-										name="ios-add"
+										name='ios-add'
 									/>
 								)
 							};
@@ -134,7 +134,7 @@ const SignedInDrawer = createDrawerNavigator(
 												alert('reeeeeeeeeeee');
 											}
 										}}
-										name="ios-arrow-back"
+										name='ios-arrow-back'
 									/>
 								)
 							};
@@ -155,7 +155,7 @@ const SignedInDrawer = createDrawerNavigator(
 												alert('reeeeeeeeeeee');
 											}
 										}}
-										name="ios-arrow-back"
+										name='ios-arrow-back'
 									/>
 								)
 							};
@@ -163,7 +163,7 @@ const SignedInDrawer = createDrawerNavigator(
 					}
 				},
 				{
-					initialRouteName: 'Main',
+					initialRouteName: 'addHW',
 					defaultNavigationOptions({ navigation }) {
 						return {
 							headerStyle: {
@@ -176,9 +176,9 @@ const SignedInDrawer = createDrawerNavigator(
 							},
 							headerLeft: (
 								<TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-									<StatusBar barStyle="light-content" />
+									<StatusBar barStyle='light-content' />
 									<View style={{ paddingLeft: 15 }}>
-										<IOSIcon name="ios-menu" size={30} color="white" />
+										<IOSIcon name='ios-menu' size={30} color='white' />
 									</View>
 								</TouchableOpacity>
 							)
