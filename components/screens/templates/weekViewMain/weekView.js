@@ -80,6 +80,7 @@ export function createSchedule(mode) {
 	}
 	return homeworkArr;
 }
+
 class HWobj extends Component {
 	constructor(props) {
 		super(props);

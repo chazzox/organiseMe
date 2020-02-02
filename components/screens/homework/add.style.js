@@ -7,7 +7,7 @@ export default {
 		alignSelf: 'center',
 		margin: 25
 	},
-	title: { color: 'white', fontSize: 30, alignSelf: 'center' },
+	title: { color: 'white', fontSize: 30, alignSelf: 'center', fontWeight: 'bold' },
 	formContainer: {
 		backgroundColor: '#2F3439',
 		padding: 25,
@@ -23,11 +23,13 @@ export default {
 		alignSelf: 'center',
 		borderRadius: 25,
 		padding: 10,
-		color: 'white'
+		color: 'white',
+		marginTop: 15,
+		textAlign: 'center'
 	},
 	text: {
 		fontSize: 30,
 		alignSelf: 'center',
-		color: 'red'
+		color: 'white'
 	}
 };

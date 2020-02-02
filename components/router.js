@@ -17,6 +17,7 @@ import addHW from './screens/homework/addHW';
 import examMain from './screens/exams/examMain';
 import examAdd from './screens/exams/examAdd';
 import settings from './screens/accSettings/settingsView';
+
 class Headers extends Component {
 	render() {
 		return (
@@ -162,7 +163,7 @@ const SignedInDrawer = createDrawerNavigator(
 					}
 				},
 				{
-					initialRouteName: 'addHW',
+					initialRouteName: 'Main',
 					defaultNavigationOptions({ navigation }) {
 						return {
 							headerStyle: {
