@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import { TextInput, StyleSheet, View, Picker, Text } from 'react-native';
 
 export class UserInput extends Component {
 	constructor(props) {
@@ -21,6 +21,44 @@ export class UserInput extends Component {
 				placeholderTextColor='white'
 				{...this.props}
 			/>
+		);
+	}
+}
+
+export class PickerExample extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			subjectPreview: this.props.sub
+		};
+	}
+	renderItems() {
+		return this.props.pickerOptions.map((subjectOBJ, index) => {
+			return (
+				<Picker.Item
+					color='white'
+					key={'index'}
+					label={subjectOBJ.name}
+					value={subjectOBJ.name}
+				/>
+			);
+		});
+	}
+	render() {
+		return (
+			<View>
+				<Text style={styles.text}>{this.state.subjectPreview}</Text>
+				<Picker
+					selectedValue={this.props.sub}
+					onValueChange={itemValue => {
+						this.setState({
+							subjectPreview: itemValue
+						});
+						this.props.updateState(itemValue);
+					}}>
+					{this.renderItems()}
+				</Picker>
+			</View>
 		);
 	}
 }
