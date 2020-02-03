@@ -35,9 +35,9 @@ export class AddTemplate extends Component {
 
 	handleAdd() {
 		try {
-			this.props.navigation.goBack();
+			this.props.nav.goBack();
 		} catch (err) {
-			alert('reeeeeeeeeeee');
+			alert(err)
 		}
 	}
 	render() {
@@ -84,7 +84,7 @@ export class AddTemplate extends Component {
 					<View style={styles.formContainer}>
 						<Text
 							onPress={() => this.handleAdd()}
-							style={[styles.title, { color: 'black' }]}>
+							style={[styles.title, { color: '#007AFF' }]}>
 							Add {this.props.formType}
 						</Text>
 					</View>
