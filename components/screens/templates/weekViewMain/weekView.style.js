@@ -8,7 +8,6 @@ export default {
 		height: '100%'
 	},
 	block: {
-		width: 120,
 		margin: 8,
 		backgroundColor: '#2F3439',
 		padding: 15,
@@ -17,7 +16,7 @@ export default {
 		shadowColor: '#000',
 		shadowOffset: {
 			width: 0,
-			height: 6
+			height: 1
 		},
 		shadowOpacity: 0.39,
 		shadowRadius: 8.3,

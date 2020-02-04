@@ -4,6 +4,7 @@ import Animated from 'react-native-reanimated';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import styles from './weekView.style';
 import { users } from '../../user';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 const defaultRoute = [
 	{ key: 'currentDay' },
 	{ key: 'nextDay' },
@@ -103,7 +104,7 @@ class HWobj extends Component {
 			body = 'keep scrolling fool, there is no sustenance for you here';
 		}
 		return (
-			<View style={styles.block}>
+			<TouchableOpacity disabled={this.props.homework ? false : true} style={styles.block}>
 				<Text style={styles.blockTextMain}>{name}</Text>
 				<Text style={styles.blockTextBody}>
 					{body}
@@ -118,7 +119,7 @@ class HWobj extends Component {
 						<Text style={{ color: '#007Aff' }}>{due}</Text>
 					</Text>
 				</Text>
-			</View>
+			</TouchableOpacity>
 		);
 	}
 }
@@ -140,7 +141,7 @@ class DayView extends Component {
 			return <HWobj key={index} homework={homework} />;
 		});
 		if (dayARR.length == 0) {
-			return <HWobj mode={this.props.mode}/>;
+			return <HWobj mode={this.props.mode} />;
 		}
 		return dayARR;
 	}
