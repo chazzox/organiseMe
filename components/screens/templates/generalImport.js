@@ -74,5 +74,10 @@ const styles = StyleSheet.create({
 		paddingLeft: 15,
 		borderWidth: 0,
 		padding: 10
+	},
+	text: {
+		fontSize: 30,
+		alignSelf: 'center',
+		color: 'white'
 	}
 });

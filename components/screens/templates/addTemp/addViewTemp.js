@@ -1,7 +1,7 @@
 // imbuilt node imports
 import { ScrollView } from 'react-native-gesture-handler';
 import React, { Component } from 'react';
-import { View, Text, Picker, Button } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 //our custom written imports
 import { UserInput, PickerExample } from '../generalImport';
@@ -37,7 +37,7 @@ export class AddTemplate extends Component {
 		try {
 			this.props.nav.goBack();
 		} catch (err) {
-			alert(err)
+			alert(err);
 		}
 	}
 	render() {
@@ -81,13 +81,13 @@ export class AddTemplate extends Component {
 							}}
 						/>
 					</View>
-					<View style={styles.formContainer}>
-						<Text
-							onPress={() => this.handleAdd()}
-							style={[styles.title, { color: '#007AFF' }]}>
-							Add {this.props.formType}
-						</Text>
-					</View>
+					<TouchableOpacity onPress={() => this.handleAdd()}>
+						<View style={styles.formContainer}>
+							<Text style={[styles.title, { color: '#007AFF' }]}>
+								Add {this.props.formType}
+							</Text>
+						</View>
+					</TouchableOpacity>
 				</ScrollView>
 			</View>
 		);

@@ -141,6 +141,7 @@ class DayView extends Component {
 		);
 	}
 }
+
 export default class TabName extends React.Component {
 	state = {
 		index: 0,
