@@ -10,7 +10,7 @@ class Preview extends Component {
 	render() {
 		return (
 			<ScrollView style={styles.viewContainer}>
-				<View style={style.homeworkContainer}>
+				<View style={styles.homeworkContainer}>
 					<Text>Name: {this.props.name}</Text>
 					<Text>Description: {this.props.desc}</Text>
 					<Text>Due: {this.props.due}</Text>
@@ -26,32 +26,33 @@ class EditPreview extends Component {
 		super(props);
 	}
 	render() {
-		return <Text>bruh</Text>;
+		return (
+			<View>
+				<Text>bruh</Text>
+			</View>
+		);
 	}
 }
 
-export default class PreviewMain extends Component {
+export class PreviewMain extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			editMode: false
-		};
 	}
 	renderView() {
-		if (this.state.editMode == false) {
-			return <Preview />;
+		if (this.props.editMode == false) {
+			return <Preview name='lol' desc='lmao' due='test' />;
 		} else {
 			return <EditPreview />;
 		}
 	}
 	render() {
-		return <View>{this.renderView()};</View>;
+		return <View>{this.renderView()}</View>;
 	}
 }
 
 const styles = {
-	viewContainer: { blackgroundColor: 'black' },
+	viewContainer: { backgroundColor: 'black',height:'100%' },
 	homeworkContainer: {
-		bacgroundColor: 'white'
+		backgroundColor: 'white'
 	}
 };

@@ -71,7 +71,7 @@ class DashView extends Component {
 							body={`Your next peice of homework due is: ${this.state.nextHW.name}`}
 							buttonTitle='click here to see info'
 							nav={() =>
-								this.navigation.navigate('', {
+								this.navigation.navigate('homeworkView', {
 									hw: this.state.nextHW.id
 								})
 							}
@@ -81,7 +81,7 @@ class DashView extends Component {
 							body={`Your next peice of homework due is: ${this.state.nextExam.name}`}
 							buttonTitle='click here to see info'
 							nav={() =>
-								this.navigation.navigate('', {
+								this.navigation.navigate('homeworkView', {
 									hw: this.state.nextExam.id
 								})
 							}
@@ -97,8 +97,7 @@ class DashView extends Component {
 									...styles.body,
 									...{ marginBottom: 5, marginTop: 5 }
 								}}>
-								Click the icon dashboard icon in the top left to explore more
-								options
+								Click the icon dashboard icon in the top left to explore more options
 							</Text>
 						</View>
 					</View>

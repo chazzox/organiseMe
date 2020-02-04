@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { Dimensions, StatusBar, View, TouchableOpacity } from 'react-native';
+import { Dimensions, StatusBar, View, TouchableOpacity, Text } from 'react-native';
 import IOSIcon from 'react-native-vector-icons/Ionicons';
 
 // auth screens
@@ -17,7 +17,7 @@ import addHW from './screens/homework/addHW';
 import examMain from './screens/exams/examMain';
 import examAdd from './screens/exams/examAdd';
 import settings from './screens/accSettings/settingsView';
-
+import homeworkView from './screens/homework/homeworkView';
 class Headers extends Component {
 	render() {
 		return (
@@ -65,6 +65,24 @@ const SignedInDrawer = createDrawerNavigator(
 						}
 					},
 
+					homeworkMain: {
+						screen: homeworkMain,
+
+						navigationOptions({ navigation }) {
+							return {
+								title: 'Upcoming Homework...',
+								gesturesEnabled: false,
+								headerRight: (
+									<Headers
+										nav={() => {
+											navigation.navigate('addHW');
+										}}
+										name='ios-add'
+									/>
+								)
+							};
+						}
+					},
 					addHW: {
 						screen: addHW,
 						navigationOptions({ navigation }) {
@@ -85,19 +103,21 @@ const SignedInDrawer = createDrawerNavigator(
 							};
 						}
 					},
-					homeworkMain: {
-						screen: homeworkMain,
-
+					homeworkView: {
+						screen: homeworkView,
 						navigationOptions({ navigation }) {
 							return {
-								title: 'Upcoming Homework...',
-								gesturesEnabled: false,
-								headerRight: (
+								title: 'Add your homework',
+								headerLeft: (
 									<Headers
 										nav={() => {
-											navigation.navigate('addHW');
+											try {
+												navigation.goBack();
+											} catch (err) {
+												alert('reeeeeeeeeeee');
+											}
 										}}
-										name='ios-add'
+										name='ios-arrow-back'
 									/>
 								)
 							};
@@ -163,7 +183,7 @@ const SignedInDrawer = createDrawerNavigator(
 					}
 				},
 				{
-					initialRouteName: 'Main',
+					initialRouteName: 'homeworkView',
 					defaultNavigationOptions({ navigation }) {
 						return {
 							headerStyle: {
