@@ -3,16 +3,47 @@ import { Text, View, TouchableOpacity } from 'react-native';
 
 import { PreviewMain } from '../templates/preview/previewType';
 import { users } from '../user';
-
+class RightHeader extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			mode: ['edit this homework', 'save changes'],
+			modeBool: false
+		};
+	}
+	render() {
+		return (
+			<TouchableOpacity
+				onPress={() => {
+					this.setState(prevState => ({
+						modeBool: !prevState.modeBool
+					}));
+					this.props.nav.state.params.toggleViewMode();
+				}}
+				style={{ paddingRight: 5 }}>
+				<Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold' }}>
+					{this.state.mode[this.state.modeBool === true ? 1 : 0]}
+				</Text>
+			</TouchableOpacity>
+		);
+	}
+}
 export default class HomeworkView extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			homeworkIndex: this.getHomework(this.props.id),
+			homeworkIndex: '4',
 			editMode: false
 		};
 	}
-
+	static navigationOptions = ({ navigation }) => {
+		const { params = {} } = navigation.state;
+		mode = ['edit', 'save'];
+		modeBool = true;
+		return {
+			headerRight: <RightHeader nav={navigation} />
+		};
+	};
 	componentDidMount() {
 		this.props.navigation.setParams({
 			editMode: this.state.editMode,
@@ -22,35 +53,6 @@ export default class HomeworkView extends Component {
 				}));
 			}
 		});
-	}
-
-	static navigationOptions = ({ navigation }) => {
-		const { params = {} } = navigation.state;
-		mode = ['edit', 'save'];
-		modeBool = true
-		return {
-			headerRight: (
-				<TouchableOpacity
-					onPress={() => {
-						modeBool = !modeBool;
-						console.log(modeBool)
-						params.toggleViewMode();
-					}}
-					style={{ paddingRight: 5 }}>
-					<Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold' }}>
-						{mode[modeBool === true ? 1 : 0]}
-					</Text>
-				</TouchableOpacity>
-			)
-		};
-	};
-
-	getHomework(id) {
-		for (let hwIndex = 0; hwIndex < users.homework.length; hwIndex++) {
-			if (users.homework[hwIndex].id == id) {
-				return hwIndex;
-			}
-		}
 	}
 	render() {
 		return <PreviewMain editMode={this.state.editMode} homework={this.state.homeworkIndex} />;
