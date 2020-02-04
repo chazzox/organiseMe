@@ -98,6 +98,9 @@ class HWobj extends Component {
 				this.props.homework.due
 			).getMonth()}/${new Date(this.props.homework.due).getFullYear()}`;
 			dueText = 'Due:  ';
+		} else {
+			name = 'no ' + (this.props.mode == 'hw' ? 'homework' : 'exams') + ' today';
+			body = 'keep scrolling fool, there is no sustenance for you here';
 		}
 		return (
 			<View style={styles.block}>
@@ -125,18 +128,26 @@ class DayView extends Component {
 		super(props);
 		this.state = {
 			//state is by default an object
-			homeworkArray: createSchedule(this.props.mode)[this.props.day]
+			homeworkArray: createSchedule(this.props.mode)[this.props.day],
+			dayView: null
 		};
 	}
+	componentDidMount() {
+		this.setState({ dayView: this.renderTableData() });
+	}
 	renderTableData() {
-		return this.state.homeworkArray.map((homework, index) => {
+		let dayARR = this.state.homeworkArray.map((homework, index) => {
 			return <HWobj key={index} homework={homework} />;
 		});
+		if (dayARR.length == 0) {
+			return <HWobj mode={this.props.mode}/>;
+		}
+		return dayARR;
 	}
 	render() {
 		return (
 			<View style={styles.screen}>
-				<ScrollView>{this.renderTableData()}</ScrollView>
+				<ScrollView>{this.state.dayView}</ScrollView>
 			</View>
 		);
 	}

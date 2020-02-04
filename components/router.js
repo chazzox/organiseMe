@@ -183,7 +183,7 @@ const SignedInDrawer = createDrawerNavigator(
 					}
 				},
 				{
-					initialRouteName: 'homeworkView',
+					initialRouteName: 'Main',
 					defaultNavigationOptions({ navigation }) {
 						return {
 							headerStyle: {
