@@ -15,7 +15,7 @@ class DashContainer extends Component {
 			<View style={styles.dashCont}>
 				<Text style={styles.title}>{this.props.title}</Text>
 				<Text style={styles.body}>{this.props.body}</Text>
-				{this.props.bruh}
+				{this.props.optionalComponents}
 				<View style={styles.but}>
 					<Button
 						title={this.props.buttonTitle}
@@ -74,7 +74,7 @@ class DashView extends Component {
 							title='Next piece of homework'
 							body={`Your next peice of homework due is: `}
 							buttonTitle='click here to see info'
-							bruh={
+							optionalComponents={
 								<Text style={styles.eventShowcase}>{this.state.nextHW.name}</Text>
 							}
 							nav={() =>
@@ -88,8 +88,11 @@ class DashView extends Component {
 							title='Next Exam'
 							body={`Your next peice of homework due is: ${this.state.nextExam.name}`}
 							buttonTitle='click here to see info'
+							optionalComponents={
+								<Text style={styles.eventShowcase}>{this.state.nextHW.name}</Text>
+							}
 							nav={() =>
-								this.navigation.navigate('homeworkView', {
+								this.navigation.navigate('examView', {
 									hw: this.state.nextExam.id
 								})
 							}
