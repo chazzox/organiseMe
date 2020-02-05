@@ -60,6 +60,8 @@ export class AddTemplate extends Component {
 							style={styles.inputStyle}
 							value={this.state.description}
 							onChangeText={description => this.handleChangeDesc(description)}
+							multiline
+							numberOfLines={10}
 						/>
 					</View>
 					<View style={styles.formContainer}>

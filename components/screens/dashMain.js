@@ -7,11 +7,15 @@ import styles from './dashView.style';
 import { users } from './user';
 
 class DashContainer extends Component {
+	constructor(props) {
+		super(props);
+	}
 	render() {
 		return (
 			<View style={styles.dashCont}>
 				<Text style={styles.title}>{this.props.title}</Text>
 				<Text style={styles.body}>{this.props.body}</Text>
+				{this.props.bruh}
 				<View style={styles.but}>
 					<Button
 						title={this.props.buttonTitle}
@@ -38,9 +42,9 @@ class DashView extends Component {
 
 	findNew(userJSON) {
 		let indexStore = 0;
-		let comparitor = userJSON[0].due;
+		let comparitor = new Date().getTime();
 		for (let i = 1; i < userJSON.length; i++) {
-			if (comparitor > userJSON[i].due) {
+			if (comparitor >= userJSON[i].due && new Date().getTime() >= userJSON[i].due) {
 				comparitor = userJSON[i].due;
 				indexStore = i;
 			}
@@ -68,14 +72,18 @@ class DashView extends Component {
 						/>
 						<DashContainer
 							title='Next piece of homework'
-							body={`Your next peice of homework due is: ${this.state.nextHW.name}`}
+							body={`Your next peice of homework due is: `}
 							buttonTitle='click here to see info'
+							bruh={
+								<Text style={styles.eventShowcase}>{this.state.nextHW.name}</Text>
+							}
 							nav={() =>
 								this.navigation.navigate('homeworkView', {
 									hw: this.state.nextHW.id
 								})
 							}
 						/>
+
 						<DashContainer
 							title='Next Exam'
 							body={`Your next peice of homework due is: ${this.state.nextExam.name}`}
@@ -86,18 +94,11 @@ class DashView extends Component {
 								})
 							}
 						/>
-						<View
-							style={{
-								...styles.dashCont,
-								...{ marginBottom: 45 }
-							}}>
+						<View style={[styles.dashCont, { marginBottom: 45 }]}>
 							<Text style={styles.title}>Can't find what you're looking for?</Text>
-							<Text
-								style={{
-									...styles.body,
-									...{ marginBottom: 5, marginTop: 5 }
-								}}>
-								Click the icon dashboard icon in the top left to explore more options
+							<Text style={[styles.body, { marginBottom: 5, marginTop: 5 }]}>
+								Click the icon dashboard icon in the top left to explore more
+								options
 							</Text>
 						</View>
 					</View>

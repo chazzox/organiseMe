@@ -12,8 +12,8 @@ export default class addHW extends Component {
 		return (
 			<AddTemplate
 				placholder1='Enter homework name here'
-				placholder2='lmao2'
-				placholder3='lmao3'
+				placholder2='Enter the description here'
+				placholder3='what is the due date?'
 				nav={this.props.navigation}
 				formType='Homework'
 			/>

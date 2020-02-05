@@ -3,11 +3,12 @@ import { Text, View, TouchableOpacity } from 'react-native';
 
 import { PreviewMain } from '../templates/preview/previewType';
 import { users } from '../user';
+
 class RightHeader extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			mode: ['edit this homework', 'save changes'],
+			mode: ['edit homework', 'save changes'],
 			modeBool: false
 		};
 	}
@@ -32,7 +33,7 @@ export default class HomeworkView extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			homeworkIndex: '4',
+			homeworkIndex: 4,
 			editMode: false
 		};
 	}
@@ -41,12 +42,14 @@ export default class HomeworkView extends Component {
 		mode = ['edit', 'save'];
 		modeBool = true;
 		return {
+			title: params.homeworkTitle,
 			headerRight: <RightHeader nav={navigation} />
 		};
 	};
 	componentDidMount() {
 		this.props.navigation.setParams({
 			editMode: this.state.editMode,
+			homeworkTitle: users.homework[this.state.homeworkIndex].name,
 			toggleViewMode: () => {
 				this.setState(prevState => ({
 					editMode: !this.state.editMode
@@ -55,6 +58,6 @@ export default class HomeworkView extends Component {
 		});
 	}
 	render() {
-		return <PreviewMain editMode={this.state.editMode} homework={this.state.homeworkIndex} />;
+		return <PreviewMain editMode={this.state.editMode} homework={users.homework[this.state.homeworkIndex]} />;
 	}
 }

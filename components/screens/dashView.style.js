@@ -52,5 +52,6 @@ export default {
 	},
 	but: {
 		flexDirection: 'row'
-	}
+	},
+	eventShowcase: { marginLeft: 10, color: 'white', fontSize: 20, fontWeight: 'bold' }
 };

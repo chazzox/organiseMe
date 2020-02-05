@@ -18,7 +18,7 @@ import examMain from './screens/exams/examMain';
 import examAdd from './screens/exams/examAdd';
 import settings from './screens/accSettings/settingsView';
 import homeworkView from './screens/homework/homeworkView';
-class Headers extends Component {
+export class Headers extends Component {
 	render() {
 		return (
 			<TouchableOpacity onPress={this.props.nav}>
@@ -107,7 +107,6 @@ const SignedInDrawer = createDrawerNavigator(
 						screen: homeworkView,
 						navigationOptions({ navigation }) {
 							return {
-								title: 'Add your homework',
 								headerLeft: (
 									<Headers
 										nav={() => {
