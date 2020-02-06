@@ -43,13 +43,15 @@ export const login = (credentials, navigation) => dispatch => {
 						console.log(err);
 					}
 				} else if (result.success == false) {
-					console.log('login function: user login unsuccessful');
+					console.log('login function: user login unsuccessful ');
 					navigation.navigate('Login', {
 						error: 'SignedOut failed.'
 					});
 				}
 			})
 			.catch(err => {
+				console.log(err)
+				console.log(`${IP}/api/users/login`)
 				console.log('login function: user login unsuccessful');
 				navigation.navigate('Login', { error: 'Login failed.' });
 			});

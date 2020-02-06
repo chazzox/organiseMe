@@ -40,15 +40,21 @@ class SideMenu extends Component {
 						<Text
 							style={styles.sectionHeadingStyle}
 							onPress={() => this.props.navigation.navigate('homeworkMain')}>
-							Homework
+							Your Homework
 						</Text>
 					</View>
-
 					<View>
 						<Text
 							style={styles.sectionHeadingStyle}
 							onPress={() => this.props.navigation.navigate('examMain')}>
-							Exams
+							Your Exams
+						</Text>
+					</View>
+					<View>
+						<Text
+							style={styles.sectionHeadingStyle}
+							onPress={() => this.props.navigation.navigate('subjectMain')}>
+							Your subjects
 						</Text>
 					</View>
 				</View>

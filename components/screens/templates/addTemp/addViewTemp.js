@@ -71,6 +71,7 @@ export class AddTemplate extends Component {
 							style={styles.inputStyle}
 							value={this.state.due}
 							onChangeText={due => this.handleChangeDue(due)}
+							keyboardType='numbers-and-punctuation'
 						/>
 					</View>
 					<View style={styles.formContainer}>

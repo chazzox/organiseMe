@@ -42,18 +42,22 @@ class DashView extends Component {
 
 	findNew(userJSON) {
 		let indexStore;
+		let foundFirst = false
 		let comparitor = new Date().getTime();
 		for (let i = 1; i < userJSON.length; i++) {
-			if (comparitor <= userJSON[i].due && new Date().getTime() >= userJSON[i].due) {
+			if (comparitor <= userJSON[i].due && foundFirst == false) {
+				foundFirst=true
+				comparitor = userJSON[i].due;
+				indexStore = i;
+			}
+			else if(comparitor >= userJSON[i].due){
 				comparitor = userJSON[i].due;
 				indexStore = i;
 			}
 		}
-		if(indexStore==undefined){
-
-			return{name:'no new'}
-		}
-		else{
+		if (indexStore == undefined) {
+			return { name: 'no new' };
+		} else {
 			return userJSON[indexStore];
 		}
 	}
@@ -106,7 +110,8 @@ class DashView extends Component {
 						<View style={[styles.dashCont, { marginBottom: 45 }]}>
 							<Text style={styles.title}>Can't find what you're looking for?</Text>
 							<Text style={[styles.body, { marginBottom: 5, marginTop: 5 }]}>
-								Click the icon dashboard icon in the top left to explore more options
+								Click the icon dashboard icon in the top left to explore more
+								options
 							</Text>
 						</View>
 					</View>

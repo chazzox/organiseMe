@@ -12,12 +12,20 @@ import welcome from './screens/login/welcome';
 // logged in screens
 import DashView from './screens/dashMain';
 import SideMenu from './screens/sidebar/SideMenu';
+
 import homeworkMain from './screens/homework/homework';
 import addHW from './screens/homework/addHW';
+import homeworkView from './screens/homework/homeworkView';
+
 import examMain from './screens/exams/examMain';
 import examAdd from './screens/exams/examAdd';
+import examView from './screens/exams/examView';
+
+import subjectView from './screens/subjects/subjectView';
+import subjectAdd from './screens/subjects/subjectAdd';
+import subjectEdit from './screens/subjects/subjectEdit';
+
 import settings from './screens/accSettings/settingsView';
-import homeworkView from './screens/homework/homeworkView';
 export class Headers extends Component {
 	render() {
 		return (
@@ -67,7 +75,6 @@ const SignedInDrawer = createDrawerNavigator(
 
 					homeworkMain: {
 						screen: homeworkMain,
-
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Upcoming Homework...',
@@ -128,6 +135,7 @@ const SignedInDrawer = createDrawerNavigator(
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Your Exams for this Week',
+								gesturesEnabled: false,
 								headerRight: (
 									<Headers
 										nav={() => {
@@ -144,6 +152,84 @@ const SignedInDrawer = createDrawerNavigator(
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Add New Exams',
+								headerLeft: (
+									<Headers
+										nav={() => {
+											try {
+												navigation.goBack();
+											} catch (err) {
+												alert('reeeeeeeeeeee');
+											}
+										}}
+										name='ios-arrow-back'
+									/>
+								)
+							};
+						}
+					},
+					examView: {
+						screen: examView,
+						navigationOptions({ navigation }) {
+							return {
+								title: 'Add New Exams',
+								headerLeft: (
+									<Headers
+										nav={() => {
+											try {
+												navigation.goBack();
+											} catch (err) {
+												alert('reeeeeeeeeeee');
+											}
+										}}
+										name='ios-arrow-back'
+									/>
+								)
+							};
+						}
+					},
+
+					subjectMain: {
+						screen: subjectView,
+						navigationOptions({ navigation }) {
+							return {
+								title: 'Your Subjects',
+								gesturesEnabled: false,
+								headerRight: (
+									<Headers
+										nav={() => {
+											navigation.navigate('subjectAdd');
+										}}
+										name='ios-add'
+									/>
+								)
+							};
+						}
+					},
+					subjectAdd: {
+						screen: subjectAdd,
+						navigationOptions({ navigation }) {
+							return {
+								title: 'Add a new Subject',
+								headerLeft: (
+									<Headers
+										nav={() => {
+											try {
+												navigation.goBack();
+											} catch (err) {
+												alert('reeeeeeeeeeee');
+											}
+										}}
+										name='ios-arrow-back'
+									/>
+								)
+							};
+						}
+					},
+					subjectEdit: {
+						screen: subjectEdit,
+						navigationOptions({ navigation }) {
+							return {
+								title: 'Edit Subject',
 								headerLeft: (
 									<Headers
 										nav={() => {
@@ -181,6 +267,7 @@ const SignedInDrawer = createDrawerNavigator(
 						}
 					}
 				},
+
 				{
 					initialRouteName: 'Main',
 					defaultNavigationOptions({ navigation }) {
