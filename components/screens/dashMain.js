@@ -41,15 +41,21 @@ class DashView extends Component {
 	}
 
 	findNew(userJSON) {
-		let indexStore = 0;
+		let indexStore;
 		let comparitor = new Date().getTime();
 		for (let i = 1; i < userJSON.length; i++) {
-			if (comparitor >= userJSON[i].due && new Date().getTime() >= userJSON[i].due) {
+			if (comparitor <= userJSON[i].due && new Date().getTime() >= userJSON[i].due) {
 				comparitor = userJSON[i].due;
 				indexStore = i;
 			}
 		}
-		return userJSON[indexStore];
+		if(indexStore==undefined){
+
+			return{name:'no new'}
+		}
+		else{
+			return userJSON[indexStore];
+		}
 	}
 
 	render() {
@@ -89,7 +95,7 @@ class DashView extends Component {
 							body={`Your next peice of homework due is: ${this.state.nextExam.name}`}
 							buttonTitle='click here to see info'
 							optionalComponents={
-								<Text style={styles.eventShowcase}>{this.state.nextHW.name}</Text>
+								<Text style={styles.eventShowcase}>{this.state.nextExam.name}</Text>
 							}
 							nav={() =>
 								this.navigation.navigate('examView', {
@@ -100,8 +106,7 @@ class DashView extends Component {
 						<View style={[styles.dashCont, { marginBottom: 45 }]}>
 							<Text style={styles.title}>Can't find what you're looking for?</Text>
 							<Text style={[styles.body, { marginBottom: 5, marginTop: 5 }]}>
-								Click the icon dashboard icon in the top left to explore more
-								options
+								Click the icon dashboard icon in the top left to explore more options
 							</Text>
 						</View>
 					</View>
