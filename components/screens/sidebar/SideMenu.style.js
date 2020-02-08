@@ -20,10 +20,15 @@ export default {
 	},
 	sectionHeadingStyle: {
 		paddingVertical: 10,
+		width: '100%',
 		paddingHorizontal: 5,
 		color: 'white'
 	},
 	footerContainer: {
+		padding: 20,
+		backgroundColor: 'lightgrey'
+	},
+	linkContainer: {
 		padding: 20,
 		backgroundColor: 'lightgrey'
 	}

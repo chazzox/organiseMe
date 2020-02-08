@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StackActions, NavigationActions } from 'react-navigation';
-import { ScrollView, Text, View } from 'react-native';
+import { TouchableHighlight, Text, View } from 'react-native';
 // style sheet
 import styles from './SideMenu.style';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -28,13 +28,12 @@ class SideMenu extends Component {
 				{/*the spacer allows the navbar and top of sidebar to align*/}
 				<View style={styles.spacer}></View>
 				<View style={styles.container}>
-					<View>
-						<Text
-							style={styles.sectionHeadingStyle}
-							onPress={() => this.props.navigation.navigate('Main')}>
-							Dashboard
-						</Text>
-					</View>
+					<TouchableHighlight
+					underlayColor='white'
+						onPress={() => this.props.navigation.navigate('Main')}
+						style={styles.linkContainer}>
+						<Text style={styles.sectionHeadingStyle}>Dashboard</Text>
+					</TouchableHighlight>
 
 					<View>
 						<Text
