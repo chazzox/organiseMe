@@ -41,17 +41,17 @@ export default {
 		fontWeight: 'bold',
 		color: 'white',
 		fontSize: 25,
-		marginLeft: 8
+		marginLeft: 10
 	},
 	body: {
 		color: 'white',
-		marginLeft: 8
+		marginLeft: 10
 	},
 	bodyBottom: {
 		marginBottom: 40
 	},
 	but: {
-		flexDirection: 'row'
+		alignItems:'left'
 	},
 	eventShowcase: { marginLeft: 10, color: 'white', fontSize: 20, fontWeight: 'bold' }
 };

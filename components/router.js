@@ -171,7 +171,6 @@ const SignedInDrawer = createDrawerNavigator(
 						screen: examView,
 						navigationOptions({ navigation }) {
 							return {
-								title: 'Add New Exams',
 								headerLeft: (
 									<Headers
 										nav={() => {

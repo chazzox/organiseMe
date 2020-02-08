@@ -23,20 +23,22 @@ export const users = {
 			],
 			exams: [
 				{
-					name: 'this is a test',
-					due: 1580688000000,
-					description:
-						'this is a long winded description about soething fairly boring that no one really cares about'
+					name: 'this is be frid',
+					due: 1581033600000,
+					description: 'this is an earlier piece of homework',
+					subjectId: 65465412
 				},
 				{
-					name: 'this is midway',
-					due: 1580428800000,
-					description: 'this is an earlier piece of homework'
+					name: 'a bruh day of bruh',
+					due: 1581465600000,
+					description: 'this is an earlier piece of homework',
+					subjectId: 123234
 				},
 				{
-					name: 'this is the earlierst, exam edition',
-					due: 1580342400000,
-					description: 'this is an earlier piece of homework'
+					name: 'a day',
+					due: 1581468600000,
+					description: 'this is an earlier piece of homework',
+					subjectId: 123234
 				}
 			],
 			timetable: {

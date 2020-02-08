@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 
 import { PickerExample } from '../generalImport';
 import { users } from '../../user';
@@ -10,23 +10,23 @@ class Preview extends Component {
 	}
 	render() {
 		return (
-			<ScrollView style={styles.viewContainer}>
-					<View style={styles.homeworkContainer}>
-						<Text style={styles.Text}>Name</Text>
-						<Text style={styles.Text}>{this.props.name}</Text>
-					</View>
-					<View style={styles.homeworkContainer}>
-						<Text style={styles.Text}>Description</Text>
-						<Text style={styles.Text}>{this.props.desc}</Text>
-					</View>
-					<View style={styles.homeworkContainer}>
-						<Text style={styles.Text}>Due</Text>
-						<Text style={styles.Text}>{this.props.due}</Text>
-					</View>
-					<View style={styles.homeworkContainer}>
-						<Text style={styles.Text}>Subject</Text>
-						<Text style={styles.Text}>{this.props.sub.name}</Text>
-					</View>
+			<ScrollView
+				contentContainerStyle={{ alignItems: 'center' }}
+				style={styles.viewContainer}>
+				<View style={[styles.homeworkContainer, { marginTop: 25 }]}>
+					<Text style={styles.containerTitle}>Name</Text>
+					<Text style={[styles.Text, { marginBottom: 0}]}>{this.props.name}</Text>
+				</View>
+				<View style={styles.homeworkContainer}>
+					<Text style={styles.containerTitle}>Description</Text>
+					<Text style={styles.Text}>{this.props.desc}</Text>
+
+					<Text style={styles.containerTitle}>Due</Text>
+					<Text style={styles.Text}>{this.props.due}</Text>
+
+					<Text style={styles.containerTitle}>Subject</Text>
+					<Text style={styles.Text}>{this.props.sub.name}</Text>
+				</View>
 			</ScrollView>
 		);
 	}
@@ -60,7 +60,6 @@ export class PreviewMain extends Component {
 
 	renderView() {
 		if (this.props.editMode == false) {
-			console.log(this.state.sub);
 			return (
 				<Preview
 					name={this.props.homework.name}
@@ -78,13 +77,43 @@ export class PreviewMain extends Component {
 	}
 }
 
+export class RightHeader extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			mode: ['Edit', 'Save'],
+			modeBool: false
+		};
+	}
+	render() {
+		return (
+			<TouchableOpacity
+				onPress={() => {
+					this.setState(prevState => ({
+						modeBool: !prevState.modeBool
+					}));
+					this.props.nav.state.params.toggleViewMode();
+				}}
+				style={{ paddingRight: 5 }}>
+				<Text style={{ fontSize: 17, color: 'white', fontWeight: 'bold' }}>
+					{this.state.mode[this.state.modeBool === true ? 1 : 0]}
+				</Text>
+			</TouchableOpacity>
+		);
+	}
+}
+
 const styles = {
 	viewContainer: { backgroundColor: '#292C30', height: '100%' },
 	homeworkContainer: {
 		backgroundColor: '#2F3439',
+		padding: 15,
 		margin: 10,
+		marginBottom: 15,
+		marginBottom: 25,
 		alignContent: 'center',
 		borderColor: 'rgba(255, 255, 255, 0.03)',
+		borderRadius: 15,
 		shadowColor: '#000',
 		shadowOffset: {
 			width: 0,
@@ -92,7 +121,14 @@ const styles = {
 		},
 		shadowOpacity: 0.39,
 		shadowRadius: 8.3,
-		elevation: 13
+		elevation: 13,
+		width: '80%'
 	},
-	Text: { color: 'white' }
+	containerTitle: {
+		color: 'white',
+		fontSize: 25,
+		fontWeight: 'bold',
+		marginTop:5
+	},
+	Text: { color: 'white', fontSize: 20,marginBottom:20 }
 };
