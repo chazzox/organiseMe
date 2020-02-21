@@ -1,13 +1,10 @@
 // this is the css file of the sideBar file
-import Constants from 'expo-constants';
-
 export default {
 	spacer: {
 		height: 65,
 		backgroundColor: 'black'
 	},
 	container: {
-		paddingTop: 20,
 		height: '100%',
 		backgroundColor: '#292C30',
 		flex: 1
@@ -30,6 +27,6 @@ export default {
 	},
 	linkContainer: {
 		padding: 20,
-		backgroundColor: 'lightgrey'
+		backgroundColor: '#292C30'
 	}
 };

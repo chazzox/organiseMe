@@ -29,33 +29,29 @@ class SideMenu extends Component {
 				<View style={styles.spacer}></View>
 				<View style={styles.container}>
 					<TouchableHighlight
-					underlayColor='white'
+						underlayColor='black'
 						onPress={() => this.props.navigation.navigate('Main')}
 						style={styles.linkContainer}>
 						<Text style={styles.sectionHeadingStyle}>Dashboard</Text>
 					</TouchableHighlight>
-
-					<View>
-						<Text
-							style={styles.sectionHeadingStyle}
-							onPress={() => this.props.navigation.navigate('homeworkMain')}>
-							Your Homework
-						</Text>
-					</View>
-					<View>
-						<Text
-							style={styles.sectionHeadingStyle}
-							onPress={() => this.props.navigation.navigate('examMain')}>
-							Your Exams
-						</Text>
-					</View>
-					<View>
-						<Text
-							style={styles.sectionHeadingStyle}
-							onPress={() => this.props.navigation.navigate('subjectMain')}>
-							Your subjects
-						</Text>
-					</View>
+					<TouchableHighlight
+						underlayColor='black'
+						onPress={() => this.props.navigation.navigate('homeworkMain')}
+						style={styles.linkContainer}>
+						<Text style={styles.sectionHeadingStyle}>Your Homework</Text>
+					</TouchableHighlight>
+					<TouchableHighlight
+						underlayColor='black'
+						onPress={() => this.props.navigation.navigate('examMain')}
+						style={styles.linkContainer}>
+						<Text style={styles.sectionHeadingStyle}>Your Exams</Text>
+					</TouchableHighlight>
+					<TouchableHighlight
+						underlayColor='black'
+						onPress={() => this.props.navigation.navigate('subjectMain')}
+						style={styles.linkContainer}>
+						<Text style={styles.sectionHeadingStyle}>Your subjects</Text>
+					</TouchableHighlight>
 				</View>
 
 				<View style={styles.footerContainer}>
