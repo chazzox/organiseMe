@@ -30,5 +30,13 @@ export default {
 		marginVertical: 0,
 		paddingLeft: 10,
 		fontWeight: 'bold'
+	},
+	textInput: {
+		width: 300,
+		margin: 10,
+		color: 'white',
+		fontSize: 25,
+		borderWidth: 0,
+		fontWeight:'bold'
 	}
 };

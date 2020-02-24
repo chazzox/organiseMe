@@ -23,6 +23,7 @@ export default function reducer(currentUser = {}, action) {
 /*		This is our login in function		*/
 export const login = (credentials, navigation) => dispatch => {
 	{
+		console.log(`attempting login`)
 		fetch(`${IP}/api/users/login`, {
 			method: 'POST',
 			headers: {
@@ -48,10 +49,13 @@ export const login = (credentials, navigation) => dispatch => {
 						error: 'SignedOut failed.'
 					});
 				}
+				else{
+					console.log(result)
+				}
 			})
 			.catch(err => {
-				console.log(err)
-				console.log(`${IP}/api/users/login`)
+				console.log(err);
+				console.log(`${IP}/api/users/login`);
 				console.log('login function: user login unsuccessful');
 				navigation.navigate('Login', { error: 'Login failed.' });
 			});

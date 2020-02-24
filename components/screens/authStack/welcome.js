@@ -15,7 +15,7 @@ class welcome extends Component {
 				</TouchableOpacity>
 				<TouchableOpacity
 					onPress={() => {
-						this.props.navigation.navigate('Signup');
+						this.props.navigation.navigate('Register');
 					}}>
 					<Text style={styles.titleText}>Register</Text>
 				</TouchableOpacity>

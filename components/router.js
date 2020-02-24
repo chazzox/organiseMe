@@ -5,9 +5,9 @@ import { Dimensions, StatusBar, View, TouchableOpacity, Text } from 'react-nativ
 import IOSIcon from 'react-native-vector-icons/Ionicons';
 
 // auth screens
-import Login from './screens/login/Login';
-import Signup from './screens/login/Signup';
-import welcome from './screens/login/welcome';
+import Login from './screens/authStack/Login';
+import Register from './screens/authStack/Register';
+import welcome from './screens/authStack/welcome';
 
 // logged in screens
 import DashView from './screens/dashMain';
@@ -315,8 +315,8 @@ const authStack = createStackNavigator(
 				title: 'Login'
 			}
 		},
-		Signup: {
-			screen: Signup,
+		Register: {
+			screen: Register,
 			navigationOptions: {
 				title: 'Sign Up'
 			}

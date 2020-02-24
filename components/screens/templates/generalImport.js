@@ -17,8 +17,9 @@ export class UserInput extends Component {
 				style={this.state.style}
 				autoCapitalize='none'
 				autoCorrect={false}
-				maxLength={15}
+				maxLength={this.props.length == '' ? 15 : this.props.length}
 				placeholderTextColor='white'
+				keyboardAppearance='dark'
 				{...this.props}
 			/>
 		);

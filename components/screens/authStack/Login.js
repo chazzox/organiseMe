@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import {
-	StyleSheet,
 	Text,
-	TextInput,
-	KeyboardAvoidingView,
 	ScrollView,
 	Button,
 	View
@@ -30,17 +27,6 @@ class Login extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	getName(token) {
-		fetch(`${IP}/api/users/login`, {
-			method: 'POST',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(credentials)
-		});
-	}
-
 	handleChangeEmail(value) {
 		this.setState({ email: value });
 	}
@@ -52,6 +38,7 @@ class Login extends Component {
 	handleSubmit() {
 		const email = this.state.email;
 		const password = this.state.password;
+		console.log(`attempting login ${email}, ${password}`);
 		this.props.login({ email, password }, this.props.navigation);
 		// clear the state after login for security
 		this.setState({
@@ -79,7 +66,11 @@ class Login extends Component {
 						value={this.state.password}
 						onChangeText={password => this.handleChangePassword(password)}
 					/>
-					<Button buttonStyle={styles.button} title='Login' onPress={this.handleSubmit} />
+					<Button
+						buttonStyle={styles.button}
+						title='Login'
+						onPress={() => this.handleSubmit()}
+					/>
 				</ScrollView>
 			</View>
 		);
