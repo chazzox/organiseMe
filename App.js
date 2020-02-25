@@ -21,7 +21,7 @@ export default class App extends Component {
 		isSignedIn()
 			.then(res =>
 				this.setState({
-					signedIn: false,
+					signedIn: true,
 					checkedSignIn: true
 				})
 			)

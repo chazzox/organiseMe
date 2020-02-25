@@ -1,5 +1,5 @@
 export const users = {
-			name: 'Charlie',
+			name: 'John',
 			homework: [
 				{
 					name: 'this is a homework on a wednesday',
