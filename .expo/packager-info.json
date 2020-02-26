@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 9840,
-  "expoServerNgrokUrl": "https://vp-pm5.chazzox.organiseme.exp.direct",
-  "packagerNgrokUrl": "https://packager.rh-9rq.chazzox.organiseme.exp.direct",
-  "ngrokPid": 9904
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": "https://dv-724.chazzox.organiseme.exp.direct",
+  "packagerNgrokUrl": "https://packager.dv-724.chazzox.organiseme.exp.direct",
+  "ngrokPid": 9180
 }

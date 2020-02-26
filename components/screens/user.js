@@ -1,25 +1,25 @@
 export const users = {
 			name: 'John',
 			homework: [
-				{
-					name: 'this is a homework on a wednesday',
-					due: 1580860800000,
-					description:
-						'this is a long winded description about soething fairly boring that no one really cares about',
-					subjectId: 65465412
-				},
-				{
-					name: 'this is be frid',
-					due: 1581033600000,
-					description: 'this is an earlier piece of homework',
-					subjectId: 65465412
-				},
-				{
-					name: 'this be w wednes',
-					due: 1581465600000,
-					description: 'this is an earlier piece of homework',
-					subjectId: 123234
-				}
+				// {
+				// 	name: 'this is a homework on a wednesday',
+				// 	due: 1580860800000,
+				// 	description:
+				// 		'this is a long winded description about soething fairly boring that no one really cares about',
+				// 	subjectId: 65465412
+				// },
+				// {
+				// 	name: 'this is be frid',
+				// 	due: 1581033600000,
+				// 	description: 'this is an earlier piece of homework',
+				// 	subjectId: 65465412
+				// },
+				// {
+				// 	name: 'this be w wednes',
+				// 	due: 1581465600000,
+				// 	description: 'this is an earlier piece of homework',
+				// 	subjectId: 123234
+				// }
 			],
 			exams: [
 				{

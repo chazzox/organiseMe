@@ -8,10 +8,17 @@ import { signup } from '../../redux/reducer';
 import styles from './globalAuth.style';
 import { UserInput } from '../templates/generalImport';
 
+// the main class used to render the register form
 class Register extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { name: '', email: '', password: '', password2: '', error: '' };
+		this.state = {
+			name: 'john',
+			email: 'email@example.com',
+			password: 'Compl$xPwsd1254',
+			password2: 'notTheSame',
+			error: ''
+		};
 		this.handleChangeEmail = this.handleChangeEmail.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -35,37 +42,54 @@ class Register extends Component {
 
 	handleSubmit() {
 		// Validation for forms
-		if (
-			this.state.email &&
-			this.state.password &&
-			this.state.password === this.state.password2
-		) {
-			signup(
+		Alert.alert(
+			'Invalid Register Inputs',
+			'passwords do no match, please try again',
+			[
 				{
-					name: this.state.name,
-					email: this.state.email,
-					password: this.state.password,
-					password2: this.state.password2
-				},
-				this.props.navigation
-			);
-			// clear the state after signup for security
-			this.setState({
-				email: '',
-				name: '',
-				password: '',
-				password2: '',
-				error: ''
-			});
-		} else {
-			this.setState({
-				email: '',
-				name: '',
-				password: '',
-				password2: '',
-				error: 'Email and password cannot be empty.  Passwords must also match.'
-			});
-		}
+					text: 'OK',
+					onPress: () =>
+						this.setState({
+							email: '',
+							password: '',
+							error: ''
+						})
+				}
+			],
+			{ cancelable: false }
+		);
+
+		// if (
+		// 	this.state.email &&
+		// 	this.state.password &&
+		// 	this.state.password === this.state.password2
+		// ) {
+		// 	signup(
+		// 		{
+		// 			name: this.state.name,
+		// 			email: this.state.email,
+		// 			password: this.state.password,
+		// 			password2: this.state.password2
+		// 		},
+		// 		this.props.navigation
+		// 	);
+		// 	// clear the state after signup for security
+		// 	this.setState({
+		// 		email: '',
+		// 		name: '',
+		// 		password: '',
+		// 		password2: '',
+		// 		error: ''
+		// 	});
+		// } else {
+		// 	this.setState({
+		// 		email: '',
+		// 		name: '',
+		// 		password: '',
+		// 		password2: '',
+		// 		error: 'Email and password cannot be empty.  Passwords must also match.'
+		// 	});
+		// }
 	}
 
 	render() {
@@ -95,6 +119,7 @@ class Register extends Component {
 						extraStyle={styles.textInput}
 						value={this.state.name}
 						placeholder='Name'
+						length={15}
 						onChangeText={name => this.handleChangeEmail(0, name)}
 					/>
 					<UserInput
@@ -108,8 +133,8 @@ class Register extends Component {
 						secureTextEntry={true}
 						extraStyle={styles.textInput}
 						placeholder='Enter a Password'
-						value={this.state.password1}
-						onChangeText={password1 => this.handleChangeEmail(2, password1)}
+						value={this.state.password}
+						onChangeText={password => this.handleChangeEmail(2, password)}
 					/>
 					<UserInput
 						secureTextEntry={true}
