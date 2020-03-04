@@ -64,7 +64,9 @@ export class PreviewMain extends Component {
 				<Preview
 					name={this.props.homework.name}
 					desc={this.props.homework.description}
-					due={new Date().toString().slice(-new Date().toString().length, 10)}
+					due={new Date(this.props.homework.due)
+						.toString()
+						.slice(-new Date().toString().length, 10)}
 					sub={this.state.sub}
 				/>
 			);

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
-
-import { PreviewMain,RightHeader } from '../templates/preview/previewType';
+import { PreviewMain, RightHeader } from '../templates/preview/previewType';
 import { users } from '../user';
 
 export default class HomeworkView extends Component {
 	constructor(props) {
 		super(props);
+		console.log();
 		this.state = {
-			homeworkIndex: 2,
+			homeworkIndex: getIndex(this.props.navigation.getParam('hw', '01')),
 			editMode: false
 		};
 		this.props.navigation.setParams({
@@ -21,6 +20,9 @@ export default class HomeworkView extends Component {
 			}
 		});
 	}
+	getIndex(id){
+
+	}
 	static navigationOptions = ({ navigation }) => {
 		const { params = {} } = navigation.state;
 		mode = ['edit', 'save'];
@@ -31,6 +33,11 @@ export default class HomeworkView extends Component {
 		};
 	};
 	render() {
-		return <PreviewMain editMode={this.state.editMode} homework={users.homework[this.state.homeworkIndex]} />;
+		return (
+			<PreviewMain
+				editMode={this.state.editMode}
+				homework={users.homework[this.state.homeworkIndex]}
+			/>
+		);
 	}
 }

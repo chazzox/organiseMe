@@ -42,54 +42,37 @@ class Register extends Component {
 
 	handleSubmit() {
 		// Validation for forms
-		Alert.alert(
-			'Invalid Register Inputs',
-			'passwords do no match, please try again',
-			[
+		if (
+			this.state.email &&
+			this.state.password &&
+			this.state.password === this.state.password2
+		) {
+			signup(
 				{
-					text: 'OK',
-					onPress: () =>
-						this.setState({
-							email: '',
-							password: '',
-							error: ''
-						})
-				}
-			],
-			{ cancelable: false }
-		);
-
-		// if (
-		// 	this.state.email &&
-		// 	this.state.password &&
-		// 	this.state.password === this.state.password2
-		// ) {
-		// 	signup(
-		// 		{
-		// 			name: this.state.name,
-		// 			email: this.state.email,
-		// 			password: this.state.password,
-		// 			password2: this.state.password2
-		// 		},
-		// 		this.props.navigation
-		// 	);
-		// 	// clear the state after signup for security
-		// 	this.setState({
-		// 		email: '',
-		// 		name: '',
-		// 		password: '',
-		// 		password2: '',
-		// 		error: ''
-		// 	});
-		// } else {
-		// 	this.setState({
-		// 		email: '',
-		// 		name: '',
-		// 		password: '',
-		// 		password2: '',
-		// 		error: 'Email and password cannot be empty.  Passwords must also match.'
-		// 	});
-		// }
+					name: this.state.name,
+					email: this.state.email,
+					password: this.state.password,
+					password2: this.state.password2
+				},
+				this.props.navigation
+			);
+			// clear the state after signup for security
+			this.setState({
+				email: '',
+				name: '',
+				password: '',
+				password2: '',
+				error: ''
+			});
+		} else {
+			this.setState({
+				email: '',
+				name: '',
+				password: '',
+				password2: '',
+				error: 'Email and password cannot be empty.  Passwords must also match.'
+			});
+		}
 	}
 
 	render() {

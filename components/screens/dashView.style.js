@@ -51,7 +51,7 @@ export default {
 		marginBottom: 40
 	},
 	but: {
-		alignItems:'left'
+		alignItems: 'left'
 	},
 	eventShowcase: { marginLeft: 10, color: 'white', fontSize: 20, fontWeight: 'bold' }
 };

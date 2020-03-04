@@ -1,7 +1,7 @@
 // imbuilt node imports
 import { ScrollView } from 'react-native-gesture-handler';
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 
 //our custom written imports
 import { UserInput, PickerExample } from '../generalImport';
@@ -12,9 +12,10 @@ export class AddTemplate extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: '',
-			description: '',
-			due: '',
+			name: 'maths task 1',
+			description:
+				"the homework is about lots of things that i can't currently mention but in due time i shall, this is a description about for an invalid example of homework, this description is far too long ",
+			due: '23/04/20',
 			subject: users.subjects[0].name
 		};
 		this.handleChangeName = this.handleChangeName.bind(this);
@@ -35,7 +36,22 @@ export class AddTemplate extends Component {
 
 	handleAdd() {
 		try {
-			this.props.nav.goBack();
+			Alert.alert(
+				'Invalid Homework Inputs',
+				'Description is over the maximum length, please shorten',
+				[
+					{
+						text: 'OK',
+						onPress: () =>
+							this.setState({
+								email: '',
+								password: '',
+								error: ''
+							})
+					}
+				],
+				{ cancelable: false }
+			);
 		} catch (err) {
 			alert(err);
 		}

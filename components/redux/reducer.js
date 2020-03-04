@@ -95,6 +95,7 @@ export const logout = navigation => dispatch => {
 
 /* 		function for saving user		*/
 function setUserAndRedirect(user, navigation, dispatch, userJSON) {
+	console.log(user)
 	dispatch(setCurrentUser(user));
 	navigation.dispatch(
 		StackActions.reset({

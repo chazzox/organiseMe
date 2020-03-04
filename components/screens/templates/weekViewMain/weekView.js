@@ -72,7 +72,10 @@ export function createSchedule(mode) {
 		newDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + i);
 		if (newDay.getDay() != 0 && newDay.getDay() != 6) {
 			for (let hwIterator = 0; hwIterator < tasks.length; hwIterator++) {
-				if (newDay.getTime() == tasks[hwIterator].due) {
+				if (
+					newDay.getTime() <= tasks[hwIterator].due &&
+					newDay.getTime() + 86400000 >= tasks[hwIterator].due
+				) {
 					homeworkArr[homeworkArrIndex].push(tasks[hwIterator]);
 				}
 			}
@@ -104,7 +107,14 @@ class HWobj extends Component {
 			body = 'keep scrolling fool, there is no sustenance for you here';
 		}
 		return (
-			<TouchableOpacity disabled={this.props.homework ? false : true} style={styles.block}>
+			<TouchableOpacity
+				disabled={this.props.homework ? false : true}
+				onPress={() => {
+					this.props.nav.navigate('homeworkView', {
+						hw: this.props.homework.id
+					});
+				}}
+				style={styles.block}>
 				<Text style={styles.blockTextMain}>{name}</Text>
 				<Text style={styles.blockTextBody}>
 					{body}
@@ -138,7 +148,7 @@ class DayView extends Component {
 	}
 	renderTableData() {
 		let dayARR = this.state.homeworkArray.map((homework, index) => {
-			return <HWobj key={index} homework={homework} />;
+			return <HWobj key={index} nav={this.props.nav} homework={homework} />;
 		});
 		if (dayARR.length == 0) {
 			return <HWobj mode={this.props.mode} />;
@@ -166,11 +176,13 @@ export default class TabName extends React.Component {
 				navigationState={this.state}
 				renderTabBar={props => <TabBar {...props} />}
 				renderScene={SceneMap({
-					currentDay: () => <DayView mode={this.props.mode} day={0} />,
-					nextDay: () => <DayView mode={this.props.mode} day={1} />,
-					nextDay2: () => <DayView mode={this.props.mode} day={2} />,
-					nextDay3: () => <DayView mode={this.props.mode} day={3} />,
-					nextDay4: () => <DayView mode={this.props.mode} day={4} />
+					currentDay: () => (
+						<DayView mode={this.props.mode} nav={this.props.nav} day={0} />
+					),
+					nextDay: () => <DayView mode={this.props.mode} nav={this.props.nav} day={1} />,
+					nextDay2: () => <DayView mode={this.props.mode} nav={this.props.nav} day={2} />,
+					nextDay3: () => <DayView mode={this.props.mode} nav={this.props.nav} day={3} />,
+					nextDay4: () => <DayView mode={this.props.mode} nav={this.props.nav} day={4} />
 				})}
 				onIndexChange={index => this.setState({ index })}
 				initialLayout={{ width: Dimensions.get('window').width }}

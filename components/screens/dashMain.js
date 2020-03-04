@@ -45,17 +45,17 @@ class DashView extends Component {
 		let foundFirst = false;
 		let comparitor = new Date().getTime();
 		for (let i = 1; i < userJSON.length; i++) {
-			if (comparitor <= userJSON[i].due && foundFirst == false) {
+			if (comparitor = userJSON[i].due && foundFirst == false) {
 				foundFirst = true;
 				comparitor = userJSON[i].due;
 				indexStore = i;
-			} else if (comparitor >= userJSON[i].due) {
+			} else if (comparitor >= userJSON[i].due){
 				comparitor = userJSON[i].due;
 				indexStore = i;
 			}
 		}
 		if (indexStore == undefined) {
-			return { name: 'no new' };
+			return { name: 'Up to date!' };
 		} else {
 			return userJSON[indexStore];
 		}
@@ -95,7 +95,7 @@ class DashView extends Component {
 
 						<DashContainer
 							title='Next Exam'
-							body={`Your next peice of homework due is: ${this.state.nextExam.name}`}
+							body={`Your next peice of homework due is:`}
 							buttonTitle='click here to see info'
 							optionalComponents={
 								<Text style={styles.eventShowcase}>{this.state.nextExam.name}</Text>
