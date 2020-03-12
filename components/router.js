@@ -21,9 +21,9 @@ import examMain from './screens/exams/examMain';
 import examAdd from './screens/exams/examAdd';
 import examView from './screens/exams/examView';
 
+import subjectMain from './screens/subjects/subjectMain';
 import subjectView from './screens/subjects/subjectView';
 import subjectAdd from './screens/subjects/subjectAdd';
-import subjectEdit from './screens/subjects/subjectEdit';
 
 import settings from './screens/accSettings/settingsView';
 export class Headers extends Component {
@@ -188,7 +188,7 @@ const SignedInDrawer = createDrawerNavigator(
 					},
 
 					subjectMain: {
-						screen: subjectView,
+						screen: subjectMain,
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Your Subjects',
@@ -204,8 +204,8 @@ const SignedInDrawer = createDrawerNavigator(
 							};
 						}
 					},
-					subjectAdd: {
-						screen: subjectAdd,
+					subjectView: {
+						screen: subjectView,
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Add a new Subject',
@@ -224,8 +224,8 @@ const SignedInDrawer = createDrawerNavigator(
 							};
 						}
 					},
-					subjectEdit: {
-						screen: subjectEdit,
+					subjectAdd: {
+						screen: subjectAdd,
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Edit Subject',
@@ -268,7 +268,7 @@ const SignedInDrawer = createDrawerNavigator(
 				},
 
 				{
-					initialRouteName: 'Main',
+					initialRouteName: 'subjectMain',
 					defaultNavigationOptions({ navigation }) {
 						return {
 							headerStyle: {

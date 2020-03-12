@@ -7,7 +7,6 @@ export default {
 		marginLeft: '10%',
 		paddingTop: 15
 	},
-
 	ViewBox: {
 		height: '100%',
 		backgroundColor: '#292C30',

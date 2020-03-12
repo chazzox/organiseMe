@@ -52,12 +52,6 @@ class SideMenu extends Component {
 						style={styles.linkContainer}>
 						<Text style={styles.sectionHeadingStyle}>Your subjects</Text>
 					</TouchableHighlight>
-					<TouchableHighlight
-						underlayColor='black'
-						onPress={() => this.props.navigation.navigate('yyy')}
-						style={styles.linkContainer}>
-						<Text style={styles.sectionHeadingStyle}>Full calender</Text>
-					</TouchableHighlight>
 				</View>
 
 				<View style={styles.footerContainer}>

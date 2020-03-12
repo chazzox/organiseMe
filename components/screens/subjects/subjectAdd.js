@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
+import styles from './sujectStyle.style';
 export default class subjectAdd extends Component {
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		return (
-			<View>
-				<Text></Text>
+			<View style={subjectStyle.main}>
+				<Text>yers</Text>
 			</View>
 		);
 	}

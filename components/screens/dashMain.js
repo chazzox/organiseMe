@@ -45,11 +45,11 @@ class DashView extends Component {
 		let foundFirst = false;
 		let comparitor = new Date().getTime();
 		for (let i = 1; i < userJSON.length; i++) {
-			if (comparitor = userJSON[i].due && foundFirst == false) {
+			if ((comparitor = userJSON[i].due && foundFirst == false)) {
 				foundFirst = true;
 				comparitor = userJSON[i].due;
 				indexStore = i;
-			} else if (comparitor >= userJSON[i].due){
+			} else if (comparitor >= userJSON[i].due) {
 				comparitor = userJSON[i].due;
 				indexStore = i;
 			}
