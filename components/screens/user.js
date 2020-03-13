@@ -55,21 +55,21 @@ export const users = {
 	],
 	exams: [
 		{
-			name: 'this is be frid',
-			due: 1581033600000,
-			description: 'this is an earlier piece of homework',
+			name: 'test on section 1',
+			due: new Date().getTime() + 86400000 * 3,
+			description: 'revise chapters 1-8 and 11',
 			subjectId: 65465412
 		},
 		{
-			name: 'a bruh day of bruh',
-			due: 1581465600000,
-			description: 'this is an earlier piece of homework',
+			name: 'paper 1, component 2 and 4',
+			due: new Date().getTime() + 86400000 * 4,
+			description: 'make sure you revise the fde cycle as well as signitures',
 			subjectId: 123234
 		},
 		{
-			name: 'a day',
-			due: 1581468600000,
-			description: 'this is an earlier piece of homework',
+			name: 'maths paper 1',
+			due: new Date().getTime() + 86400000,
+			description: 'go over trig, logs and intergration',
 			subjectId: 123234
 		}
 	],

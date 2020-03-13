@@ -13,10 +13,10 @@ class Register extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: 'john',
+			name: 'john_smith',
 			email: 'email@example.com',
 			password: 'Compl$xPwsd1254',
-			password2: 'notTheSame',
+			password2: 'Compl$xPwsd1254',
 			error: ''
 		};
 		this.handleChangeState = this.handleChangeState.bind(this);
@@ -42,20 +42,32 @@ class Register extends Component {
 
 	handleSubmit() {
 		// Validation for forms
-		if (
-			this.state.email &&
-			this.state.password &&
-			this.state.password === this.state.password2
-		) {
-			signup(
-				{
-					name: this.state.name,
-					email: this.state.email,
-					password: this.state.password,
-					password2: this.state.password2
-				},
-				this.props.navigation
+		if (this.state.email && this.state.password && this.state.password === this.state.password2) {
+			Alert.alert(
+				'Invalid Register Inputs',
+				'Name contains Invalid symbols, please try again',
+				[
+					{
+						text: 'OK',
+						onPress: () =>
+							this.setState({	
+								email: '',
+								password: '',
+								error: ''
+							})
+					}
+				],
+				{ cancelable: false }
 			);
+			// signup(
+			// 	{
+			// 		name: this.state.name,
+			// 		email: this.state.email,
+			// 		password: this.state.password,
+			// 		password2: this.state.password2
+			// 	},
+			// 	this.props.navigation
+			// );
 			// clear the state after signup for security
 			this.setState({
 				email: '',
