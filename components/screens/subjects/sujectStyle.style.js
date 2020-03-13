@@ -28,5 +28,43 @@ export default {
 	SubjectTeacher: {
 		color: '#fff',
 		fontSize: 15
+	},
+	buttonContainer: {
+		flexDirection: 'row',
+		alignItems: 'center'
+	},
+	editContainer: {
+		marginTop: 30,
+		backgroundColor: '#2F3439',
+		padding: 15,
+		width: '80%',
+		borderRadius: 15,
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 0,
+			height: 6
+		},
+		shadowOpacity: 0.39,
+		shadowRadius: 8.3,
+		elevation: 13
+	},
+	buttonText: {
+		fontWeight: 'bold',
+		fontSize: 20,
+		color: '#fff'
+	},
+	saveButton: {
+		padding: 15,
+		margin: 5,
+		borderRadius: 15,
+		marginTop: 25,
+		backgroundColor: '#77dd77'
+	},
+	deleteButton: {
+		padding: 15,
+		margin: 5,
+		marginTop: 25,
+		borderRadius: 15,
+		backgroundColor: '#d84a4a'
 	}
 };

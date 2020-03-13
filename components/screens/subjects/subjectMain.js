@@ -10,7 +10,12 @@ class SubjectPreview extends Component {
 	}
 	render() {
 		return (
-			<TouchableOpacity style={styles.subjectContainer} key={this.props.index}>
+			<TouchableOpacity
+				onPress={() => {
+					this.props.navProps.navigate('subjectEdit', this.props.subjectJSON);
+				}}
+				style={styles.subjectContainer}
+				key={this.props.index}>
 				<Text style={styles.SubjectTitle}>{this.props.subjectJSON.name}</Text>
 				<Text style={styles.SubjectTeacher}>{this.props.subjectJSON.teacher}</Text>
 			</TouchableOpacity>
@@ -26,8 +31,13 @@ export default class subjectMain extends Component {
 	}
 	renderSubList() {
 		return users.subjects.map((subject, index) => {
-			console.log(subject);
-			return <SubjectPreview key={index} subjectJSON={subject} />;
+			return (
+				<SubjectPreview
+					navProps={this.props.navigation}
+					key={index}
+					subjectJSON={subject}
+				/>
+			);
 		});
 	}
 	render() {

@@ -5,7 +5,7 @@ import styles from './sujectStyle.style';
 export default class subjectAdd extends Component {
 	render() {
 		return (
-			<View style={subjectStyle.main}>
+			<View style={styles.main}>
 				<Text>yers</Text>
 			</View>
 		);

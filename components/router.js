@@ -22,7 +22,7 @@ import examAdd from './screens/exams/examAdd';
 import examView from './screens/exams/examView';
 
 import subjectMain from './screens/subjects/subjectMain';
-import subjectView from './screens/subjects/subjectView';
+import subjectEdit from './screens/subjects/subjectEdit';
 import subjectAdd from './screens/subjects/subjectAdd';
 
 import settings from './screens/accSettings/settingsView';
@@ -204,11 +204,11 @@ const SignedInDrawer = createDrawerNavigator(
 							};
 						}
 					},
-					subjectView: {
-						screen: subjectView,
+					subjectEdit: {
+						screen: subjectEdit,
 						navigationOptions({ navigation }) {
 							return {
-								title: 'Add a new Subject',
+								title: 'Edit Subject',
 								headerLeft: (
 									<Headers
 										nav={() => {
