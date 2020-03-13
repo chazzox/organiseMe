@@ -114,6 +114,7 @@ const SignedInDrawer = createDrawerNavigator(
 						screen: homeworkView,
 						navigationOptions({ navigation }) {
 							return {
+								title: navigation.state.params.event.name,
 								headerLeft: (
 									<Headers
 										nav={() => {
@@ -170,7 +171,9 @@ const SignedInDrawer = createDrawerNavigator(
 					examView: {
 						screen: examView,
 						navigationOptions({ navigation }) {
+							console.log(navigation);
 							return {
+								title: navigation.state.params.event.name,
 								headerLeft: (
 									<Headers
 										nav={() => {

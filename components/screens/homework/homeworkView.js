@@ -9,7 +9,6 @@ export default class HomeworkView extends Component {
 			event: this.props.navigation.state.params.event
 		};
 		this.props.navigation.setParams({
-			editMode: this.state.editMode,
 			homeworkTitle: this.state.event.name,
 			toggleViewMode: () => {
 				this.setState(prevState => ({
@@ -19,11 +18,9 @@ export default class HomeworkView extends Component {
 		});
 	}
 	static navigationOptions = ({ navigation }) => {
-		const { params = {} } = navigation.state;
 		mode = ['edit', 'save'];
 		modeBool = true;
 		return {
-			title: params.homeworkTitle,
 			headerRight: <RightHeader nav={navigation} />
 		};
 	};

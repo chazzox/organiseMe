@@ -111,7 +111,7 @@ class HWobj extends Component {
 				disabled={this.props.homework ? false : true}
 				onPress={() => {
 					this.props.nav.navigate('homeworkView', {
-						hw: this.props.homework
+						event: this.props.homework
 					});
 				}}
 				style={styles.block}>
