@@ -27,7 +27,7 @@ export default {
 	},
 	SubjectTeacher: {
 		color: '#fff',
-		fontSize: 15
+		fontSize: 20
 	},
 	buttonContainer: {
 		flexDirection: 'row',
@@ -58,7 +58,7 @@ export default {
 		margin: 5,
 		borderRadius: 15,
 		marginTop: 25,
-		backgroundColor: '#77dd77'
+		backgroundColor: '#49c449'
 	},
 	deleteButton: {
 		padding: 15,

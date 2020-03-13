@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 
-import { PickerExample } from '../generalImport';
 import { users } from '../../user';
 
 class Preview extends Component {
@@ -15,7 +14,7 @@ class Preview extends Component {
 				style={styles.viewContainer}>
 				<View style={[styles.homeworkContainer, { marginTop: 25 }]}>
 					<Text style={styles.containerTitle}>Name</Text>
-					<Text style={[styles.Text, { marginBottom: 0}]}>{this.props.name}</Text>
+					<Text style={[styles.Text, { marginBottom: 0 }]}>{this.props.name}</Text>
 				</View>
 				<View style={styles.homeworkContainer}>
 					<Text style={styles.containerTitle}>Description</Text>
@@ -25,7 +24,7 @@ class Preview extends Component {
 					<Text style={styles.Text}>{this.props.due}</Text>
 
 					<Text style={styles.containerTitle}>Subject</Text>
-					<Text style={styles.Text}>{this.props.sub.name}</Text>
+					<Text style={styles.Text}>{this.props.sub}</Text>
 				</View>
 			</ScrollView>
 		);
@@ -48,12 +47,18 @@ class EditPreview extends Component {
 export class PreviewMain extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { sub: this.findSubject(this.props.homework.subjectId) };
+		this.state = {
+			eventName: this.props.event.name,
+			eventDue: this.props.event.due,
+			eventDesc: this.props.event.description,
+			eventSubject: this.getSub(this.props.event.subjectId)
+		};
 	}
-	findSubject(id) {
+
+	getSub(id) {
 		for (let subIndex = 0; subIndex < users.subjects.length; subIndex++) {
 			if (users.subjects[subIndex].subjectId == id) {
-				return users.subjects[subIndex];
+				return users.subjects[subIndex].name;
 			}
 		}
 	}
@@ -62,12 +67,12 @@ export class PreviewMain extends Component {
 		if (this.props.editMode == false) {
 			return (
 				<Preview
-					name={this.props.homework.name}
-					desc={this.props.homework.description}
-					due={new Date(this.props.homework.due)
+					name={this.state.eventName}
+					desc={this.state.eventDesc}
+					due={new Date(this.state.eventDue)
 						.toString()
 						.slice(-new Date().toString().length, 10)}
-					sub={this.state.sub}
+					sub={this.state.eventSubject}
 				/>
 			);
 		} else {
@@ -130,7 +135,7 @@ const styles = {
 		color: 'white',
 		fontSize: 25,
 		fontWeight: 'bold',
-		marginTop:5
+		marginTop: 5
 	},
-	Text: { color: 'white', fontSize: 20,marginBottom:20 }
+	Text: { color: 'white', fontSize: 20, marginBottom: 20 }
 };

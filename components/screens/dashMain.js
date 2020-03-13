@@ -88,7 +88,7 @@ class DashView extends Component {
 							}
 							nav={() =>
 								this.navigation.navigate('homeworkView', {
-									hw: this.state.nextHW.id
+									event: this.state.nextHW
 								})
 							}
 						/>
@@ -102,7 +102,7 @@ class DashView extends Component {
 							}
 							nav={() =>
 								this.navigation.navigate('examView', {
-									hw: this.state.nextExam.id
+									event: this.state.nextExam
 								})
 							}
 						/>

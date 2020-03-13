@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { PreviewMain, RightHeader } from '../templates/preview/previewType';
-import { users } from '../user';
 
 export default class HomeworkView extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			homeworkIndex: this.getIndex(this.props.navigation.getParam('hw', '01')),
-			editMode: false
+			editMode: false,
+			event: this.props.navigation.state.params.event
 		};
 		this.props.navigation.setParams({
 			editMode: this.state.editMode,
-			homeworkTitle: users.homework[this.state.homeworkIndex].name,
+			homeworkTitle: this.state.event.name,
 			toggleViewMode: () => {
 				this.setState(prevState => ({
 					editMode: !this.state.editMode
@@ -19,7 +18,6 @@ export default class HomeworkView extends Component {
 			}
 		});
 	}
-	getIndex(id) {}
 	static navigationOptions = ({ navigation }) => {
 		const { params = {} } = navigation.state;
 		mode = ['edit', 'save'];
@@ -30,11 +28,6 @@ export default class HomeworkView extends Component {
 		};
 	};
 	render() {
-		return (
-			<PreviewMain
-				editMode={this.state.editMode}
-				homework={users.homework[this.state.homeworkIndex]}
-			/>
-		);
+		return <PreviewMain editMode={this.state.editMode} event={this.state.event} />;
 	}
 }

@@ -19,11 +19,11 @@ class Register extends Component {
 			password2: 'notTheSame',
 			error: ''
 		};
-		this.handleChangeEmail = this.handleChangeEmail.bind(this);
+		this.handleChangeState = this.handleChangeState.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleChangeEmail(indexvalue, value) {
+	handleChangeState(indexvalue, value) {
 		switch (indexvalue) {
 			case 0:
 				this.setState({ name: value });
@@ -103,28 +103,28 @@ class Register extends Component {
 						value={this.state.name}
 						placeholder='Name'
 						length={15}
-						onChangeText={name => this.handleChangeEmail(0, name)}
+						onChangeText={name => this.handleChangeState(0, name)}
 					/>
 					<UserInput
 						extraStyle={styles.textInput}
 						value={this.state.email}
 						placeholder='Enter email'
 						length={50}
-						onChangeText={email => this.handleChangeEmail(1, email)}
+						onChangeText={email => this.handleChangeState(1, email)}
 					/>
 					<UserInput
 						secureTextEntry={true}
 						extraStyle={styles.textInput}
 						placeholder='Enter a Password'
 						value={this.state.password}
-						onChangeText={password => this.handleChangeEmail(2, password)}
+						onChangeText={password => this.handleChangeState(2, password)}
 					/>
 					<UserInput
 						secureTextEntry={true}
 						extraStyle={styles.textInput}
 						placeholder='Confirm Password'
 						value={this.state.password2}
-						onChangeText={password2 => this.handleChangeEmail(3, password2)}
+						onChangeText={password2 => this.handleChangeState(3, password2)}
 					/>
 					<Button
 						secureTextEntry={true}

@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-	Text,
-	ScrollView,
-	Button,
-	View
-} from 'react-native';
+import { Text, ScrollView, Button, View } from 'react-native';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
 
@@ -38,7 +33,6 @@ class Login extends Component {
 	handleSubmit() {
 		const email = this.state.email;
 		const password = this.state.password;
-		console.log(`attempting login ${email}, ${password}`);
 		this.props.login({ email, password }, this.props.navigation);
 		// clear the state after login for security
 		this.setState({

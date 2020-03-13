@@ -268,7 +268,7 @@ const SignedInDrawer = createDrawerNavigator(
 				},
 
 				{
-					initialRouteName: 'subjectMain',
+					initialRouteName: 'Main',
 					defaultNavigationOptions({ navigation }) {
 						return {
 							headerStyle: {

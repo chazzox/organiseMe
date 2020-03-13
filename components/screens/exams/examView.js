@@ -8,12 +8,12 @@ export default class examView extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			examIndex: 1,
-			editMode: false
+			editMode: false,
+			event: this.props.navigation.state.params.event
 		};
 		this.props.navigation.setParams({
 			editMode: this.state.editMode,
-			examTitle: users.exams[this.state.examIndex].name,
+			examTitle: this.state.event.name,
 			toggleViewMode: () => {
 				this.setState(prevState => ({
 					editMode: !this.state.editMode
@@ -32,10 +32,7 @@ export default class examView extends Component {
 	};
 	render() {
 		return (
-			<PreviewMain
-				editMode={this.state.editMode}
-				homework={users.exams[this.state.examIndex]}
-			/>
+			<PreviewMain editMode={this.state.editMode} event={this.state.event} />
 		);
 	}
 }
