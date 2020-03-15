@@ -9,7 +9,7 @@ class welcome extends Component {
 				<Text style={[styles.titleText, { marginTop: 40 }]}>Welcome</Text>
 				<TouchableOpacity
 					onPress={() => {
-						this.props.navigation.navigate('Login');
+						this.props.navigation.navigate('Login', { error: '' });
 					}}>
 					<Text style={styles.titleText}>Sign In</Text>
 				</TouchableOpacity>

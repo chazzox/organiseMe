@@ -8,8 +8,8 @@ export default {
 		flex: 1,
 		backgroundColor: '#292C30'
 	},
-	textLabel: {
-		marginTop: 10,
+	formTitle: {
+		marginTop: 20,
 		padding: 10,
 		color: 'white',
 		textAlign: 'center',
@@ -33,10 +33,10 @@ export default {
 	},
 	textInput: {
 		width: 300,
-		margin: 10,
+		margin: 20,
 		color: 'white',
 		fontSize: 25,
 		borderWidth: 0,
-		fontWeight:'bold'
+		fontWeight: 'bold'
 	}
 };

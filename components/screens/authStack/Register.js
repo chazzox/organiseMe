@@ -5,10 +5,9 @@ import { withNavigation } from 'react-navigation';
 
 // our modules
 import { signup } from '../../redux/reducer';
-import styles from './globalAuth.style';
 import { UserInput } from '../templates/generalImport';
+import styles from './globalAuth.style';
 
-// the main class used to render the register form
 class Register extends Component {
 	constructor(props) {
 		super(props);
@@ -83,7 +82,7 @@ class Register extends Component {
 		return (
 			<View style={styles.container}>
 				<ScrollView style={{ marginTop: 25 }}>
-					<Text style={styles.textLabel}>Register</Text>
+					<Text style={styles.formTitle}>Register</Text>
 					<UserInput
 						extraStyle={styles.textInput}
 						value={this.state.name}

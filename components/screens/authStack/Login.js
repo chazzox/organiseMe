@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Text, ScrollView, Button, View } from 'react-native';
+import { Text, ScrollView, Button, View, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
 
+// our modules
 import { login } from '../../redux/reducer';
-import styles from './globalAuth.style';
-import IP from '../../../IP';
-
 import { UserInput } from '../templates/generalImport';
+import styles from './globalAuth.style';
 
 class Login extends Component {
 	constructor(props) {
@@ -15,21 +14,22 @@ class Login extends Component {
 		this.state = {
 			email: '',
 			password: '',
-			error: JSON.stringify(this.props.navigation.getParam('error'))
+			error: this.props.navigation.state.params.error
 		};
-		this.handleChangeEmail = this.handleChangeEmail.bind(this);
-		this.handleChangePassword = this.handleChangePassword.bind(this);
+		this.handleChangeInput = this.handleChangeInput.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleChangeEmail(value) {
-		this.setState({ email: value });
+	handleChangeInput(stateID, value) {
+		switch (stateID) {
+			case 0:
+				this.setState({ email: value });
+				break;
+			case 1:
+				this.setState({ password: value });
+				break;
+		}
 	}
-
-	handleChangePassword(value) {
-		this.setState({ password: value });
-	}
-
 	handleSubmit() {
 		const email = this.state.email;
 		const password = this.state.password;
@@ -43,22 +43,40 @@ class Login extends Component {
 	}
 
 	render() {
+		if (this.state.error != '') {
+			Alert.alert(
+				'Invalid Register Inputs',
+				this.state.error,
+				[
+					{
+						text: 'OK',
+						onPress: () =>
+							this.setState({
+								email: '',
+								password: '',
+								error: ''
+							})
+					}
+				],
+				{ cancelable: false }
+			);
+		}
 		return (
 			<View style={styles.container}>
 				<ScrollView>
-					<Text style={styles.error}>{this.state.error}</Text>
-					<Text style={styles.textLabel}>Email</Text>
+					<Text style={styles.formTitle}>LOGIN</Text>
 					<UserInput
 						placeholder='EMAIL'
 						value={this.state.email}
-						onChangeText={email => this.handleChangeEmail(email)}
+						extraStyle={styles.textInput}
+						onChangeText={email => this.handleChangeInput(0, email)}
 					/>
-					<Text style={styles.textLabel}>Password</Text>
 					<UserInput
 						secureTextEntry={true}
 						placeholder='PASSWORD'
 						value={this.state.password}
-						onChangeText={password => this.handleChangePassword(password)}
+						extraStyle={styles.textInput}
+						onChangeText={password => this.handleChangeInput(1, password)}
 					/>
 					<Button
 						buttonStyle={styles.button}

@@ -24,7 +24,7 @@ export default function reducer(currentUser = {}, action) {
 export const login = (credentials, navigation) => dispatch => {
 	{
 		console.log(`attempting login`);
-		fetch(`${IP}/api/users/login`, {
+		fetch(`${IP}/api/login`, {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -33,8 +33,9 @@ export const login = (credentials, navigation) => dispatch => {
 			body: JSON.stringify(credentials)
 		})
 			.then(response => response.text())
-			.then(res => {
-				const result = JSON.parse(res);
+			.then(res => JSON.parse(res))
+			.then(result => {
+				console.log(result);
 				if (result.success == true) {
 					try {
 						setUserAndRedirect(result.name, navigation, dispatch, {
@@ -44,9 +45,8 @@ export const login = (credentials, navigation) => dispatch => {
 						console.log(err);
 					}
 				} else if (result.success == false) {
-					console.log('login function: user login unsuccessful ');
-					navigation.navigate('Login', {
-						error: 'SignedOut failed.'
+					navigation.replace('Login', {
+						error: result.error
 					});
 				} else {
 					console.log(result);
@@ -56,7 +56,7 @@ export const login = (credentials, navigation) => dispatch => {
 				console.log(err);
 				console.log(`${IP}/api/users/login`);
 				console.log('login function: user login unsuccessful');
-				navigation.navigate('Login', { error: 'Login failed.' });
+				navigation.replace('Login', { error: 'signIn faled' });
 			});
 	}
 };
