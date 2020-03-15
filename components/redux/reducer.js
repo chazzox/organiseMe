@@ -23,7 +23,7 @@ export default function reducer(currentUser = {}, action) {
 /*		This is our login in function		*/
 export const login = (credentials, navigation) => dispatch => {
 	{
-		console.log(`attempting login`)
+		console.log(`attempting login`);
 		fetch(`${IP}/api/users/login`, {
 			method: 'POST',
 			headers: {
@@ -48,9 +48,8 @@ export const login = (credentials, navigation) => dispatch => {
 					navigation.navigate('Login', {
 						error: 'SignedOut failed.'
 					});
-				}
-				else{
-					console.log(result)
+				} else {
+					console.log(result);
 				}
 			})
 			.catch(err => {
@@ -63,7 +62,7 @@ export const login = (credentials, navigation) => dispatch => {
 };
 /*		this is our register function		*/
 export const signup = (credentials, navigation) => dispatch => {
-	fetch(`${IP}/api/users/register`, {
+	fetch(`${IP}/api/register`, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
@@ -72,19 +71,19 @@ export const signup = (credentials, navigation) => dispatch => {
 		body: JSON.stringify(credentials)
 	})
 		.then(response => response.text())
-		.then(res => {
-			const result = JSON.parse(res);
+		.then(res => JSON.parse(res))
+		.then(result => {
 			if (result.success == true) {
 				setUserAndRedirect(result.name, navigation, dispatch, {
 					name: result.name
 				});
 			} else if (result.success == false) {
-				navigation.navigate('Login', {
-					error: 'Login failed.'
-				});
+				navigation.replace('Register', { error: result.error });
 			}
 		})
-		.catch(() => navigation.navigate('SignedOut', { error: 'Signup failed.' }));
+		.catch(err => {
+			console.log(err);
+		});
 };
 
 /* 		function for removing user		*/
@@ -95,7 +94,7 @@ export const logout = navigation => dispatch => {
 
 /* 		function for saving user		*/
 function setUserAndRedirect(user, navigation, dispatch, userJSON) {
-	console.log(user)
+	console.log(user);
 	dispatch(setCurrentUser(user));
 	navigation.dispatch(
 		StackActions.reset({

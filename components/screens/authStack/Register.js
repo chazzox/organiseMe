@@ -13,11 +13,11 @@ class Register extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: 'john_smith',
-			email: 'email@example.com',
-			password: 'Compl$xPwsd1254',
-			password2: 'Compl$xPwsd1254',
-			error: ''
+			name: '',
+			email: '',
+			password: '',
+			password2: '',
+			error: this.props.navigation.state.params.error
 		};
 		this.handleChangeState = this.handleChangeState.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,50 +41,24 @@ class Register extends Component {
 	}
 
 	handleSubmit() {
-		// Validation for forms
-		if (this.state.email && this.state.password && this.state.password === this.state.password2) {
-			Alert.alert(
-				'Invalid Register Inputs',
-				'Name contains Invalid symbols, please try again',
-				[
-					{
-						text: 'OK',
-						onPress: () =>
-							this.setState({	
-								email: '',
-								password: '',
-								error: ''
-							})
-					}
-				],
-				{ cancelable: false }
-			);
-			// signup(
-			// 	{
-			// 		name: this.state.name,
-			// 		email: this.state.email,
-			// 		password: this.state.password,
-			// 		password2: this.state.password2
-			// 	},
-			// 	this.props.navigation
-			// );
-			// clear the state after signup for security
-			this.setState({
-				email: '',
-				name: '',
-				password: '',
-				password2: '',
-				error: ''
-			});
-		} else {
-			this.setState({
-				email: '',
-				name: '',
-				password: '',
-				password2: '',
-				error: 'Email and password cannot be empty.  Passwords must also match.'
-			});
-		}
+		// validation is handled on the api side of things so we dont need to worry
+		this.props.signup(
+			{
+				name: this.state.name,
+				email: this.state.email,
+				password: this.state.password,
+				password2: this.state.password2
+			},
+			this.props.navigation
+		);
+		// clear the state after signup for security
+		this.setState({
+			email: '',
+			name: '',
+			password: '',
+			password2: '',
+			error: ''
+		});
 	}
 
 	render() {
@@ -151,7 +125,7 @@ class Register extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-	login: (credentials, navigation) => dispatch(login(credentials, navigation))
+	signup: (credentials, navigation) => dispatch(signup(credentials, navigation))
 });
 
 export default connect(null, mapDispatchToProps)(withNavigation(Register));
