@@ -11,7 +11,7 @@ export default class HomeworkView extends Component {
 		this.props.navigation.setParams({
 			homeworkTitle: this.state.event.name,
 			toggleViewMode: () => {
-				this.setState(prevState => ({
+				this.setState(() => ({
 					editMode: !this.state.editMode
 				}));
 			}
@@ -25,6 +25,16 @@ export default class HomeworkView extends Component {
 		};
 	};
 	render() {
-		return <PreviewMain editMode={this.state.editMode} event={this.state.event} />;
+		return (
+			<PreviewMain
+				editMode={this.state.editMode}
+				togFunc={() => {
+					this.setState(() => ({
+						editMode: !this.state.editMode
+					}));
+				}}
+				event={this.state.event}
+			/>
+		);
 	}
 }

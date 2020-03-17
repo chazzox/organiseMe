@@ -192,10 +192,10 @@ const SignedInDrawer = createDrawerNavigator(
 
 					subjectMain: {
 						screen: subjectMain,
-						gesturesEnabled: false,
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Your Subjects',
+								gesturesEnabled: false,
 								headerRight: (
 									<Headers
 										nav={() => {

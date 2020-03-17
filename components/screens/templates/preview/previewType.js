@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, TextInput } from 'react-native';
 
 import { users } from '../../user';
+import styles from './preview.style';
 
 class Preview extends Component {
 	constructor(props) {
@@ -9,9 +10,7 @@ class Preview extends Component {
 	}
 	render() {
 		return (
-			<ScrollView
-				contentContainerStyle={{ alignItems: 'center' }}
-				style={styles.viewContainer}>
+			<ScrollView contentContainerStyle={{ alignItems: 'center' }} style={styles.viewContainer}>
 				<View style={[styles.homeworkContainer, { marginTop: 25 }]}>
 					<Text style={styles.containerTitle}>Name</Text>
 					<Text style={[styles.Text, { marginBottom: 0 }]}>{this.props.name}</Text>
@@ -34,12 +33,74 @@ class Preview extends Component {
 class EditPreview extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			name: this.props.name,
+			desc: this.props.desc,
+			due: this.props.due,
+			sub: this.props.sub
+		};
+	}
+	handleChangeState(indexvalue, value) {
+		switch (indexvalue) {
+			case 0:
+				this.setState({ name: value });
+				break;
+			case 1:
+				this.setState({ desc: value });
+				break;
+			case 2:
+				this.setState({ due: value });
+				break;
+			case 3:
+				this.setState({ sub: value });
+				break;
+		}
 	}
 	render() {
 		return (
-			<View>
-				<Text>bruh</Text>
-			</View>
+			<ScrollView contentContainerStyle={{ alignItems: 'center' }} style={styles.viewContainer}>
+				<Text style={{ color: 'white', fontWeight: 'bold', marginTop: 25, fontSize: 25 }}>
+					Press on the things you would like to change
+				</Text>
+				<View style={[styles.homeworkContainer, { marginTop: 25 }]}>
+					<Text style={styles.containerTitle}>Name</Text>
+					<TextInput
+						style={[styles.Text, { marginBottom: 0 }]}
+						placeholder={this.state.name}
+						value={this.state.name}
+						placeholderTextColor='#fff'
+						onChangeText={name => this.handleChangeState(0, name)}
+					/>
+				</View>
+				<View style={styles.homeworkContainer}>
+					<Text style={styles.containerTitle}>Description</Text>
+					<TextInput
+						style={styles.Text}
+						placeholder={this.state.desc}
+						value={this.state.desc}
+						placeholderTextColor='#fff'
+						onChangeText={desc => this.handleChangeState(1, desc)}
+						multiline={true}
+					/>
+					<Text style={styles.containerTitle}>Due</Text>
+					<TextInput
+						style={styles.Text}
+						placeholder={this.state.due}
+						value={this.state.due}
+						placeholderTextColor='#fff'
+						onChangeText={due => this.handleChangeState(2, due)}
+					/>
+
+					<Text style={styles.containerTitle}>Subject</Text>
+					<TextInput
+						style={styles.Text}
+						placeholder={this.state.sub}
+						value={this.state.sub}
+						placeholderTextColor='#fff'
+						onChangeText={sub => this.handleChangeState(3, sub)}
+					/>
+				</View>
+			</ScrollView>
 		);
 	}
 }
@@ -76,7 +137,17 @@ export class PreviewMain extends Component {
 				/>
 			);
 		} else {
-			return <EditPreview />;
+			return (
+				<EditPreview
+					name={this.state.eventName}
+					desc={this.state.eventDesc}
+					due={new Date(this.state.eventDue)
+						.toString()
+						.slice(-new Date().toString().length, 10)}
+					sub={this.state.eventSubject}
+					toggle={this.props.togFunc}
+				/>
+			);
 		}
 	}
 	render() {
@@ -109,33 +180,3 @@ export class RightHeader extends Component {
 		);
 	}
 }
-
-const styles = {
-	viewContainer: { backgroundColor: '#292C30', height: '100%' },
-	homeworkContainer: {
-		backgroundColor: '#2F3439',
-		padding: 15,
-		margin: 10,
-		marginBottom: 15,
-		marginBottom: 25,
-		alignContent: 'center',
-		borderColor: 'rgba(255, 255, 255, 0.03)',
-		borderRadius: 15,
-		shadowColor: '#000',
-		shadowOffset: {
-			width: 0,
-			height: 6
-		},
-		shadowOpacity: 0.39,
-		shadowRadius: 8.3,
-		elevation: 13,
-		width: '80%'
-	},
-	containerTitle: {
-		color: 'white',
-		fontSize: 25,
-		fontWeight: 'bold',
-		marginTop: 5
-	},
-	Text: { color: 'white', fontSize: 20, marginBottom: 20 }
-};

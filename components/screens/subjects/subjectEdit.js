@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, TextInput, ScrollView } from 'react-native';
 
 import styles from './sujectStyle.style';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import ButtonSaveCancel from '../templates/saveCancelButton';
 export default class subjectEdit extends Component {
 	constructor(props) {
 		super(props);
@@ -46,19 +45,12 @@ export default class subjectEdit extends Component {
 								onChangeText={teacher => this.handleChangeState(1, teacher)}
 							/>
 						</View>
-						<View style={styles.buttonContainer}>
-							<TouchableOpacity>
-								<View style={styles.deleteButton}>
-									<Text style={styles.buttonText}>Delete Subject</Text>
-								</View>
-							</TouchableOpacity>
-
-							<TouchableOpacity>
-								<View style={styles.saveButton}>
-									<Text style={styles.buttonText}>Save Changes</Text>
-								</View>
-							</TouchableOpacity>
-						</View>
+						<ButtonSaveCancel
+							cancel='yeah'
+							confirm='maybe probably'
+							confirmFunc={() => console.log('ree')}
+							cancelFunc={() => console.log('reeeeee')}
+						/>
 					</View>
 				</ScrollView>
 			</View>

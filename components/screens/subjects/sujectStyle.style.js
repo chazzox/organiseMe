@@ -29,10 +29,6 @@ export default {
 		color: '#fff',
 		fontSize: 20
 	},
-	buttonContainer: {
-		flexDirection: 'row',
-		alignItems: 'center'
-	},
 	editContainer: {
 		marginTop: 30,
 		backgroundColor: '#2F3439',
@@ -47,24 +43,5 @@ export default {
 		shadowOpacity: 0.39,
 		shadowRadius: 8.3,
 		elevation: 13
-	},
-	buttonText: {
-		fontWeight: 'bold',
-		fontSize: 20,
-		color: '#fff'
-	},
-	saveButton: {
-		padding: 15,
-		margin: 5,
-		borderRadius: 15,
-		marginTop: 25,
-		backgroundColor: '#49c449'
-	},
-	deleteButton: {
-		padding: 15,
-		margin: 5,
-		marginTop: 25,
-		borderRadius: 15,
-		backgroundColor: '#d84a4a'
 	}
 };
