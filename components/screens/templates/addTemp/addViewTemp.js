@@ -5,47 +5,50 @@ import { View, Text, TouchableOpacity, Alert } from 'react-native';
 
 //our custom written imports
 import { UserInput, PickerExample } from '../generalImport';
-import styles from './add.style';
 import { users } from '../../user';
+import styles from './add.style';
 
+// functions from reducer
+
+// the module itselft
 export class AddTemplate extends Component {
 	constructor(props) {
 		super(props);
+		// states used for the text input
 		this.state = {
-			name: '50% of mixed exercise 3 on integral',
+			name: 'Task 8 - chapter 5',
 			description:
 				'Do in within the online portal, only have to do the first 8 questions. Although need to get all 8 fully correct',
-			due: '23/04/20',
+			due: '31/02/20',
 			subject: users.subjects[0].name
 		};
-		this.handleChangeName = this.handleChangeName.bind(this);
-		this.handleChangeDesc = this.handleChangeDesc.bind(this);
 		this.handleAdd = this.handleAdd.bind(this);
 	}
-	handleChangeName(value) {
-		this.setState({ name: value });
-	}
-
-	handleChangeDesc(value) {
-		this.setState({ description: value });
-	}
-
-	handleChangeDue(value) {
-		this.setState({ due: value });
+	handleChangeState(index, value) {
+		switch (index) {
+			case 0:
+				this.setState({ name: value });
+				break;
+			case 1:
+				this.setState({ description: value });
+				break;
+			case 2:
+				this.setState({ due: value });
+				break;
+		}
 	}
 
 	handleAdd() {
 		try {
 			Alert.alert(
 				'Invalid Homework Inputs',
-				'Name contains symbols please edit and try again',
+				'Date due does not match regex, please try again',
 				[
 					{
 						text: 'OK',
 						onPress: () =>
 							this.setState({
-								email: '',
-								password: '',
+								error: '',
 								error: ''
 							})
 					}
@@ -66,7 +69,7 @@ export class AddTemplate extends Component {
 							placeholder={this.props.placholder1}
 							style={styles.inputStyle}
 							value={this.state.name}
-							onChangeText={name => this.handleChangeName(name)}
+							onChangeText={name => this.handleChangState(0, name)}
 						/>
 					</View>
 					<View style={styles.formContainer}>
@@ -75,7 +78,7 @@ export class AddTemplate extends Component {
 							placeholder={this.props.placholder2}
 							style={styles.inputStyle}
 							value={this.state.description}
-							onChangeText={description => this.handleChangeDesc(description)}
+							onChangeText={description => this.handleChangeState(1, description)}
 							multiline
 							numberOfLines={10}
 						/>
@@ -86,7 +89,7 @@ export class AddTemplate extends Component {
 							placeholder={this.props.placholder3}
 							style={styles.inputStyle}
 							value={this.state.due}
-							onChangeText={due => this.handleChangeDue(due)}
+							onChangeText={due => this.handleChangeState(2, due)}
 							keyboardType='numbers-and-punctuation'
 						/>
 					</View>

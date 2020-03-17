@@ -11,9 +11,9 @@ export const users = {
 			id: '062'
 		},
 		{
-			name: 'Maths homework - Task D10',
-			description: 'Do questions 1-10 and then two random assorments of hard questions',
-			due: new Date().getTime(),
+			name: 'maths task 1',
+			description: 'Do in online portal',
+			due: new Date().getTime() + 86400000 * 3,
 			subjectId: 1232342,
 			id: '05'
 		},
