@@ -12,9 +12,9 @@ export class AddTemplate extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: 'maths task 1',
+			name: '50% of mixed exercise 3 on integral',
 			description:
-				"the homework is about lots of things that i can't currently mention but in due time i shall, this is a description about for an invalid example of homework, this description is far too long ",
+				'Do in within the online portal, only have to do the first 8 questions. Although need to get all 8 fully correct',
 			due: '23/04/20',
 			subject: users.subjects[0].name
 		};
@@ -38,7 +38,7 @@ export class AddTemplate extends Component {
 		try {
 			Alert.alert(
 				'Invalid Homework Inputs',
-				'Description is over the maximum length, please shorten',
+				'Name contains symbols please edit and try again',
 				[
 					{
 						text: 'OK',

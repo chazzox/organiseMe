@@ -7,6 +7,6 @@ export default class examMain extends Component {
 	}
 
 	render() {
-		return <TabName style={{ height: 90 }} mode="ex" />;
+		return <TabName style={{ height: 90 }} mode='ex' nav={this.props.navigation} />;
 	}
 }

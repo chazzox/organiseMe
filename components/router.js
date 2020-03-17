@@ -26,6 +26,7 @@ import subjectEdit from './screens/subjects/subjectEdit';
 import subjectAdd from './screens/subjects/subjectAdd';
 
 import settings from './screens/accSettings/settingsView';
+
 export class Headers extends Component {
 	render() {
 		return (
@@ -133,10 +134,10 @@ const SignedInDrawer = createDrawerNavigator(
 
 					examMain: {
 						screen: examMain,
+						gesturesEnabled: false,
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Your Exams for this Week',
-								gesturesEnabled: false,
 								headerRight: (
 									<Headers
 										nav={() => {
@@ -191,10 +192,10 @@ const SignedInDrawer = createDrawerNavigator(
 
 					subjectMain: {
 						screen: subjectMain,
+						gesturesEnabled: false,
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Your Subjects',
-								gesturesEnabled: false,
 								headerRight: (
 									<Headers
 										nav={() => {
@@ -230,7 +231,7 @@ const SignedInDrawer = createDrawerNavigator(
 						screen: subjectAdd,
 						navigationOptions({ navigation }) {
 							return {
-								title: 'Edit Subject',
+								title: 'Add Subject',
 								headerLeft: (
 									<Headers
 										nav={() => {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, View, Button, ScrollView, StyleSheet } from 'react-native';
+import { Text, View, Button, ScrollView } from 'react-native';
+import { StackActions, NavigationActions } from 'react-navigation';
 // importing style sheet
 import styles from './dashView.style';
 

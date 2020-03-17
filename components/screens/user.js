@@ -1,11 +1,12 @@
 export const users = {
 	name: 'John',
+	email: 'caylott@outlook.com',
 	homework: [
 		{
-			name: 'Maths homework - Task PE2',
+			name: 'Do maths task 1',
 			due: new Date().getTime(),
 			description:
-				'this is a long winded description about soething fairly boring that no one really cares about',
+				'Do in within the online portal, only have to do the first 8 questions. Although need to get all 8 fully correct',
 			subjectId: 1232342,
 			id: '062'
 		},
@@ -18,7 +19,7 @@ export const users = {
 		},
 		{
 			name: 'Computer science Coursework',
-			due: new Date().getTime() + 86400000 * 6,
+			due: new Date().getTime() + 86400000,
 			description: 'May god save our souls',
 			subjectId: 458412,
 			id: '04'
@@ -38,17 +39,17 @@ export const users = {
 			id: '01'
 		},
 		{
-			name: 'Computer science research tas 20',
-			due: new Date().getTime() + 86400000 * 3,
-			description: 'The last chapter of section 9 - brief notes',
+			name: 'maths task 1',
+			due: new Date().getTime() + 86400000 * 6,
+			description: 'Do in within the online portal',
 			subjectId: 65465412,
 			id: '02'
 		},
 		{
-			name: 'Flash 18m2 chip',
-			due: new Date().getTime() + 172800000,
+			name: 'task 2',
+			due: new Date().getTime() + 86400000 * 2,
 			description:
-				'remeber to use the wjec compiler, otherwise inbuilt functions may through some errors',
+				'Do in within the online portal, only have to do the first 8 questions. Although need to get all 8 fully correct',
 			subjectId: 65465412,
 			id: '0'
 		}
@@ -62,7 +63,7 @@ export const users = {
 		},
 		{
 			name: 'paper 1, component 2 and 4',
-			due: new Date().getTime() + 86400000 * 4,
+			due: new Date().getTime() + 86400000 * 6,
 			description: 'make sure you revise the fde cycle as well as signitures',
 			subjectId: 123234
 		},
