@@ -46,8 +46,8 @@ export default class subjectEdit extends Component {
 							/>
 						</View>
 						<ButtonSaveCancel
-							cancel='yeah'
-							confirm='maybe probably'
+							cancel='Delete'
+							confirm='Confirm Changes'
 							confirmFunc={() => console.log('ree')}
 							cancelFunc={() => console.log('reeeeee')}
 						/>

@@ -10,16 +10,15 @@ import styles from './add.style';
 
 // functions from reducer
 
-// the module itselft
+// the module itself
 export class AddTemplate extends Component {
 	constructor(props) {
 		super(props);
 		// states used for the text input
 		this.state = {
-			name: 'Task 8 - chapter 5',
-			description:
-				'Do in within the online portal, only have to do the first 8 questions. Although need to get all 8 fully correct',
-			due: '31/02/20',
+			name: '',
+			description: '',
+			due: '',
 			subject: users.subjects[0].name
 		};
 		this.handleAdd = this.handleAdd.bind(this);
