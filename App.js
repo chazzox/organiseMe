@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 
 import currentUser from './components/redux/reducer';
-import { isSignedIn } from './components/auth/memory';
+import { isSignedIn, getAll } from './components/auth/memory';
 import { createRootNavigator } from './components/router';
 import { createAppContainer } from 'react-navigation';
 
@@ -26,6 +26,7 @@ export default class App extends Component {
 				})
 			)
 			.catch(error => console.error(error));
+		console.log(getAll());
 	}
 
 	render() {

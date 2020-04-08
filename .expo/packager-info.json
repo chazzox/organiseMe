@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 9100,
-  "expoServerNgrokUrl": "https://qa-b5e.chazzox.organiseme.exp.direct",
-  "packagerNgrokUrl": "https://packager.qa-b5e.chazzox.organiseme.exp.direct",
-  "ngrokPid": 8504
+  "packagerPid": 6664,
+  "expoServerNgrokUrl": "https://uh-muw.chazzox.organiseme.exp.direct",
+  "packagerNgrokUrl": "https://packager.uh-muw.chazzox.organiseme.exp.direct",
+  "ngrokPid": 5676
 }

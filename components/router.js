@@ -212,6 +212,7 @@ const SignedInDrawer = createDrawerNavigator(
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Edit Subject',
+								gesturesEnabled: true,
 								headerLeft: (
 									<Headers
 										nav={() => {
@@ -232,6 +233,7 @@ const SignedInDrawer = createDrawerNavigator(
 						navigationOptions({ navigation }) {
 							return {
 								title: 'Add Subject',
+								gesturesEnabled: true,
 								headerLeft: (
 									<Headers
 										nav={() => {

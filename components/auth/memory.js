@@ -1,22 +1,17 @@
 // React-Native's version of local storage
 import { AsyncStorage } from 'react-native';
+export const LOGINKEY = 'create-react-native-app-redux-auth-demo-key';
 
-export const KEY = 'create-react-native-app-redux-auth-demo-key';
-
-// As we have no signed in, we need to sey
-export const onSignIn = () => {
-	AsyncStorage.setItem(KEY, 'true');
+/*			Memory Management Functions			*/
+export const onSignIn = (LOGINKEY, TOKEN) => {
+	AsyncStorage.setItem(LOGINKEY, TOKEN);
 };
-
-// Set storage to hold user data
-export const setStorage = data => AsyncStorage.setItem('data', JSON.stringify(data));
-
+export const setStorage = (key, data) => AsyncStorage.setItem(key, JSON.stringify(data));
 // If user signs out, remove TRUE key
-export const onSignOut = () => AsyncStorage.removeItem(KEY);
-
+export const onSignOut = () => AsyncStorage.removeItem(LOGINKEY);
 export const isSignedIn = () => {
-	return new Promise((resolve, reject) => {
-		AsyncStorage.getItem(KEY)
+	prom = new Promise((resolve, reject) => {
+		AsyncStorage.getItem(LOGINKEY)
 			.then(res => {
 				if (res !== null) {
 					resolve(true);
@@ -26,17 +21,18 @@ export const isSignedIn = () => {
 			})
 			.catch(err => reject(err));
 	});
+
+	return prom;
 };
+/*				get all keys stored in storage				*/
 export const getAll = () => {
-	return new Promise((resolve, reject) => {
-		AsyncStorage.getAllKeys()
-			.then(res => {
-				if (res !== null) {
-					resolve(true);
-				} else {
-					resolve(false);
-				}
-			})
-			.catch(err => reject(err));
-	});
+	AsyncStorage.getAllKeys()
+		.then(res => {
+			return res;
+		})
+		.catch(err => reject(err));
+};
+/*				get user json in storage upon login event				*/
+export const getJSON = () => {
+	console.log('yeah');
 };
