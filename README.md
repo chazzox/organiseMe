@@ -1,5 +1,5 @@
 # organiseMe
-
+# IT IS LIKELY THIS IS GOING TO BE REWRITTEN IN SWIFT AND RUBY ON RAILS
 ## index
 
 -   [Description](#wtf-is-this)
