@@ -1,7 +1,7 @@
 # UNFINISHED A LEVEL COURSEWORK
 
-
 # organiseMe
+
 ## index
 
 -   [Description](#wtf-is-this)
@@ -27,9 +27,11 @@ it is also possible to simulate an android device by using the andorid developer
 2. Download this repo and extract the zip
 3. download and install [node.js](https://nodejs.org/en/blog/release/v10.18.0/) the 10.x.x branch is preferable, although it should still work in the latest ltb
 4. using your terminal of choice, copy and past
+
 ```
 cd Downlaods\organiseMe-master\organiseMe-master && npm i
 ```
+
 then type `npm start`, this should get the project running
 
 5. once the project has started up, you should see either a popup with a qr code, or the qr code will appear inside the terminal, scan this with your phone and the ap should begin to load
