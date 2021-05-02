@@ -1,5 +1,7 @@
+# UNFINISHED A LEVEL COURSEWORK
+
+
 # organiseMe
-# IT IS LIKELY THIS IS GOING TO BE REWRITTEN IN SWIFT AND RUBY ON RAILS
 ## index
 
 -   [Description](#wtf-is-this)
@@ -8,7 +10,7 @@
 
 ### wtf is this?
 
-this really do be my coursework. more coming soon
+this really do be my coursework.
 written in react-native by me. coming soon to the nearest shady app manager near u
 
 # running
